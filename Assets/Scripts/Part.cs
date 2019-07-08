@@ -7,6 +7,7 @@ using Vectrosity;
 public class Part : MonoBehaviour
 {
     public GameObject Bar;
+    public ParticleSystem healParticle;
     public Text textProjectile;
     private float barFilledWidth;
     private float barFilledHeight;
@@ -30,6 +31,7 @@ public class Part : MonoBehaviour
         textProjectile = Bar.transform.GetChild(1).GetComponent<Text>();
         StartCoroutine(GetDamageOverTimeCoroutine());
         pv = maxPv;
+        healParticle.Pause();
     }
 
     void Update()
@@ -41,11 +43,13 @@ public class Part : MonoBehaviour
 
         if (heal)
         {
-            GetComponent<Renderer>().material = healMaterial;
+            healParticle.gameObject.SetActive(true);
+            healParticle.Play();
         }
         else
         {
-            GetComponent<Renderer>().material = basicMaterial;
+            healParticle.Pause();
+            healParticle.gameObject.SetActive(false);
         }
     }
 

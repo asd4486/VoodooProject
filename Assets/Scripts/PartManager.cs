@@ -86,62 +86,64 @@ public class PartManager : MonoBehaviour
     void Update()
     {
         //tete gauche
-        if (Input.GetKey(KeyCode.G))
+        if (Input.GetKey(KeyCode.G) || Input.GetKey(KeyCode.Keypad9))
         {
             timerPart0 += Time.deltaTime;
             if (timerPart0 > GameManager.Instance.healAfterDelay)
                 part0.GetComponent<Part>().HealFirst();
         }
-        else if (Input.GetKeyUp(KeyCode.G))
+        else if (Input.GetKeyUp(KeyCode.G) || Input.GetKeyUp(KeyCode.Keypad9))
         {
-            Debug.Log("BONJOUR");
             timerPart0 = 0f;
             part0.GetComponent<Part>().UnshowLines();
             part0.GetComponent<Part>().damagePerSecond = 0;
             part0.GetComponent<Part>().projectileCount = 0;
             part0.GetComponent<Part>().ExpulseProjectiles();
+            GameObject.FindGameObjectWithTag("Monster").GetComponent<Animator>().SetTrigger("FlexTeteGauche");
         }
 
         //tete droite
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.Keypad7))
         {
             timerPart1 += Time.deltaTime;
             if (timerPart1 > GameManager.Instance.healAfterDelay)
                 part1.GetComponent<Part>().HealFirst();
         }
-        else if(Input.GetKeyUp(KeyCode.Q))
+        else if(Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.Keypad7))
         {
             timerPart1 = 0f;
             part1.GetComponent<Part>().UnshowLines();
             part1.GetComponent<Part>().damagePerSecond = 0;
             part1.GetComponent<Part>().projectileCount = 0;
-            part1.GetComponent<Part>().ExpulseProjectiles();           
+            part1.GetComponent<Part>().ExpulseProjectiles();
+            GameObject.FindGameObjectWithTag("Monster").GetComponent<Animator>().SetTrigger("FlexTeteDroite");
         }
 
         //tronc
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.Keypad5))
         {
             timerPart2 += Time.deltaTime;
             if (timerPart2 > GameManager.Instance.healAfterDelay)
                 part2.GetComponent<Part>().HealFirst();
         }
-        else if (Input.GetKeyUp(KeyCode.S))
+        else if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.Keypad5))
         {
             timerPart2 = 0f;
             part2.GetComponent<Part>().UnshowLines();
             part2.GetComponent<Part>().damagePerSecond = 0;
             part2.GetComponent<Part>().projectileCount = 0;
             part2.GetComponent<Part>().ExpulseProjectiles();
+            GameObject.FindGameObjectWithTag("Monster").GetComponent<Animator>().SetTrigger("FlexBuste");
         }
 
         //bras droit
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.Keypad4))
         {
             timerPart3 += Time.deltaTime;
             if (timerPart3 > GameManager.Instance.healAfterDelay)
                 part3.GetComponent<Part>().HealFirst();
         }
-        else if (Input.GetKeyUp(KeyCode.Z))
+        else if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.Keypad4))
         {
             timerPart3 = 0f;
             part3.GetComponent<Part>().UnshowLines();
@@ -152,13 +154,13 @@ public class PartManager : MonoBehaviour
         }
 
         //bras gauche
-        if (Input.GetKey(KeyCode.Mouse1))
+        if (Input.GetKey(KeyCode.Mouse1) || Input.GetKey(KeyCode.Keypad6))
         {
             timerPart4 += Time.deltaTime;
             if (timerPart4 > GameManager.Instance.healAfterDelay)
                 part4.GetComponent<Part>().HealFirst();
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse1))
+        else if (Input.GetKeyUp(KeyCode.Mouse1) || Input.GetKeyUp(KeyCode.Keypad6))
         {
             timerPart4 = 0f;
             part4.GetComponent<Part>().UnshowLines();
@@ -169,36 +171,37 @@ public class PartManager : MonoBehaviour
         }
 
         //jambe droite
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Keypad1))
         {
             timerPart5 += Time.deltaTime;
             if (timerPart5 > GameManager.Instance.healAfterDelay)
                 part5.GetComponent<Part>().HealFirst();
         }
-        else if (Input.GetKeyUp(KeyCode.D))
+        else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.Keypad1))
         {
             timerPart5 = 0f;
             part5.GetComponent<Part>().UnshowLines();
             part5.GetComponent<Part>().damagePerSecond = 0;
             part5.GetComponent<Part>().projectileCount = 0;
             part5.GetComponent<Part>().ExpulseProjectiles();
+            GameObject.FindGameObjectWithTag("Monster").GetComponent<Animator>().SetTrigger("FlexJambeDroite");
         }
 
         //jambe gauche
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKey(KeyCode.F) || Input.GetKey(KeyCode.Keypad3))
         {
             timerPart6 += Time.deltaTime;
             if (timerPart6 > GameManager.Instance.healAfterDelay)
                 part6.GetComponent<Part>().HealFirst();
         }
-        else if (Input.GetKeyUp(KeyCode.F))
+        else if (Input.GetKeyUp(KeyCode.F) || Input.GetKeyUp(KeyCode.Keypad3))
         {
             timerPart6 = 0f;
             part6.GetComponent<Part>().UnshowLines();
             part6.GetComponent<Part>().damagePerSecond = 0;
             part6.GetComponent<Part>().projectileCount = 0;
             part6.GetComponent<Part>().ExpulseProjectiles();
-            part6.GetComponent<Part>().Attack("JambeGauche");
+            GameObject.FindGameObjectWithTag("Monster").GetComponent<Animator>().SetTrigger("FlexJambeGauche");
         }
     }
 }
