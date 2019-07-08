@@ -104,7 +104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7365470309496588943}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2, y: -0.28, z: -0.315}
+  m_LocalPosition: {x: -0.517, y: 0.281, z: -0.315}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3980579365467791822}
@@ -182,7 +182,7 @@ MonoBehaviour:
   projectileSpawner: {fileID: 7365470309496588943}
   projectile: {fileID: 5635418521852550424, guid: 86313dba7477bf94cadbafa21de4e540,
     type: 3}
-  shootCooldown: 2.5
+  shootCooldown: 2
   damage: 10
   damagePerSecond: 1
   speedMultiplicator: 3

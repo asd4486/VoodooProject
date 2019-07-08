@@ -94,7 +94,10 @@ public class PartManager : MonoBehaviour
             }
         }
         GameManager.Instance.partCounterText.text = cptDead.ToString();
-
+        if (cptDead >= GameManager.Instance.partsDeadGameOver)
+        {
+            GameManager.Instance.GameOver();
+        }
 
         //tete gauche
         if (Input.GetKey(KeyCode.G) || Input.GetKey(KeyCode.Keypad9))
@@ -103,7 +106,7 @@ public class PartManager : MonoBehaviour
             if (timerPart0 > GameManager.Instance.healAfterDelay)
                 part0.GetComponent<Part>().HealFirst();
         }
-        else if (Input.GetKeyUp(KeyCode.G) || Input.GetKey(KeyCode.Keypad9))
+        else if (Input.GetKeyUp(KeyCode.G) || Input.GetKeyUp(KeyCode.Keypad9))
         {
             timerPart0 = 0f;
             part0.GetComponent<Part>().UnshowLines();

@@ -23,10 +23,17 @@ public  class GameManager : MonoBehaviour
 
     public float pourcentageChanceDot;
 
+    public int partsDeadGameOver;
+
     public int enemyDeadCounter = 0;
     public Text enemyDeadCounterText;
 
     public Text partCounterText;
+
+    public GameObject monster;
+    public GameObject spawner;
+    public GameObject bars;
+    public GameObject panelGameOver;
 
     private static GameManager _instance;
 
@@ -45,5 +52,15 @@ public  class GameManager : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void GameOver()
+    {
+        monster.SetActive(false);
+        spawner.SetActive(false);
+        bars.SetActive(false);
+        panelGameOver.SetActive(true);
+        environmentSpeed = 0f;
+
     }
 }
