@@ -13,7 +13,7 @@ public class Archer : Enemy
     public float damage = 10;
     public float damagePerSecond = 1;
 
-    public float speedMultiplicator = 3f;
+    public float speedMultiplicator = 2f;
 
     private void Start()
     {
@@ -31,16 +31,25 @@ public class Archer : Enemy
     {
         base.Update();
             
-        timerShoot += Time.deltaTime;
-        if (timerShoot > shootCooldown)
-        {
-            timerShoot = 0f;
-            GameObject p = Instantiate(projectile, projectileSpawner.transform);
+        //timerShoot += Time.deltaTime;
+        //if (timerShoot > shootCooldown)
+        //{
+        //    timerShoot = 0f;
+        //    GameObject p = Instantiate(projectile, projectileSpawner.transform);
 
-            p.transform.DOMove(target.transform.position, GameManager.Instance.projectileTravelTime).OnComplete(() => Destroy(p));
+        //    p.transform.DOMove(target.transform.position, GameManager.Instance.projectileTravelTime).OnComplete(() => Destroy(p));
 
-            target.GetDamage(damage, damagePerSecond, GameManager.Instance.projectileTravelTime);
-        }
+        //    target.GetDamage(damage, damagePerSecond, GameManager.Instance.projectileTravelTime);
+        //}
         transform.Translate(Vector3.right * GameManager.Instance.environmentSpeed * speedMultiplicator * Time.deltaTime);
+    }
+
+    public void Shoot()
+    {
+        GameObject p = Instantiate(projectile, projectileSpawner.transform);
+
+        p.transform.DOMove(target.transform.position, GameManager.Instance.projectileTravelTime).OnComplete(() => Destroy(p));
+
+        target.GetDamage(damage, damagePerSecond, GameManager.Instance.projectileTravelTime);
     }
 }
