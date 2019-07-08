@@ -28,6 +28,8 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Monster")
         {
             Instantiate(GameManager.Instance.particuleDeath, transform.position , Quaternion.identity, GameObject.FindGameObjectWithTag("Particle").transform);
+            GameManager.Instance.enemyDeadCounter++;
+            GameManager.Instance.enemyDeadCounterText.text = GameManager.Instance.enemyDeadCounter.ToString();
             Die();           
         }
     }

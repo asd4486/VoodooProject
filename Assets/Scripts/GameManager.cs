@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public  class GameManager : MonoBehaviour
@@ -21,6 +22,9 @@ public  class GameManager : MonoBehaviour
     public GameObject particuleDeath;
 
     public float pourcentageChanceDot;
+
+    public int enemyDeadCounter = 0;
+    public Text enemyDeadCounterText;
 
     private static GameManager _instance;
 
