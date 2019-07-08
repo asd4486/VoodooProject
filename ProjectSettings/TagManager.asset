@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Part
+  - Warrior
+  - Archer
+  - House
+  - FxTemporaire
+  - Monster
+  - Particle
   layers:
   - Default
   - TransparentFX
@@ -13,9 +20,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Monster
+  - CACAttack
   - 
   - 
   - 
