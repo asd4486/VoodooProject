@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Archer : Enemy
 {
+     Animator myAnimator;
     public GameObject projectileSpawner;
     public GameObject projectile;
 
@@ -17,13 +18,14 @@ public class Archer : Enemy
 
     private void Start()
     {
-        GetComponent<Animator>().SetTrigger("Walk");
+        myAnimator = GetComponent<Animator>();
+        myAnimator.SetTrigger("Walk");
         Invoke("StopAnimation", 2f);
     }
 
     private void StopAnimation()
     {
-        GetComponent<Animator>().SetTrigger("StopWalk");
+        myAnimator.SetTrigger("StopWalk");
         speedMultiplicator = 1f;
     }
 

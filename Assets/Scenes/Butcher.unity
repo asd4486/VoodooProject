@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -1740,7 +1740,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 122803021955188437, guid: 3a144ee2ea3e75e4597ebac9dde8e1d3,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3117350835449234003, guid: 4876c8e90e8932241b327062796af939,
+        type: 3}
+    m_RemovedComponents:
+    - {fileID: 6288306428039962817, guid: 3a144ee2ea3e75e4597ebac9dde8e1d3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3a144ee2ea3e75e4597ebac9dde8e1d3, type: 3}
 --- !u!43 &625183763
 Mesh:

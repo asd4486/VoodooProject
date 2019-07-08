@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Warrior : Enemy
 {
+    Animator myAnimator;
     public float damage = 15;
     public float damagePerSecond = 1;
 
@@ -20,7 +21,8 @@ public class Warrior : Enemy
 
     private void Start()
     {
-        //GetComponent<Animator>().SetTrigger("Walk");
+        myAnimator = GetComponent<Animator>();
+        //myAnimator.SetTrigger("Walk");
         //Invoke("StopAnimation", 6f);
     }
 
@@ -28,7 +30,7 @@ public class Warrior : Enemy
     {
         speedMultiplicator = 0f;
         //canAttack = true;
-        GetComponent<Animator>().SetTrigger("StopWalk");
+        myAnimator.SetTrigger("StopWalk");
     }
 
     protected override void Update()
