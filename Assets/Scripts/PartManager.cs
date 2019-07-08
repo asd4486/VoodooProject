@@ -85,6 +85,17 @@ public class PartManager : MonoBehaviour
 
     void Update()
     {
+        int cptDead = 0;
+        foreach (GameObject p in allParts)
+        {
+            if (p.GetComponent<Part>().dead)
+            {
+                cptDead++;
+            }
+        }
+        GameManager.Instance.partCounterText.text = cptDead.ToString();
+
+
         //tete gauche
         if (Input.GetKey(KeyCode.G) || Input.GetKey(KeyCode.Keypad9))
         {
@@ -92,7 +103,7 @@ public class PartManager : MonoBehaviour
             if (timerPart0 > GameManager.Instance.healAfterDelay)
                 part0.GetComponent<Part>().HealFirst();
         }
-        else if (Input.GetKeyUp(KeyCode.G) || Input.GetKeyUp(KeyCode.Keypad9))
+        else if (Input.GetKeyUp(KeyCode.G) || Input.GetKey(KeyCode.Keypad9))
         {
             timerPart0 = 0f;
             part0.GetComponent<Part>().UnshowLines();

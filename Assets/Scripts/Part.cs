@@ -24,6 +24,9 @@ public class Part : MonoBehaviour
     public bool heal = false;
     private VectorLine[] lines = new VectorLine[6];
 
+    [HideInInspector]
+    public bool dead = false;
+
     public void LateStart()
     {
         barFilledWidth = Bar.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta.x;
@@ -40,6 +43,15 @@ public class Part : MonoBehaviour
         Bar.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(barFilledWidth * (pv/100), barFilledHeight);
 
         textProjectile.text = projectileCount.ToString();
+
+        if (pv <= 0)
+        {
+            dead = true;
+        }
+        else
+        {
+            dead = false;
+        }
 
         if (heal)
         {

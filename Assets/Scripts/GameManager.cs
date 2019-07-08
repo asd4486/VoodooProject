@@ -26,6 +26,8 @@ public  class GameManager : MonoBehaviour
     public int enemyDeadCounter = 0;
     public Text enemyDeadCounterText;
 
+    public Text partCounterText;
+
     private static GameManager _instance;
 
     public static GameManager Instance

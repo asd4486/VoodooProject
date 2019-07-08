@@ -398,6 +398,7 @@ MonoBehaviour:
   projectileCount: 0
   damagePerSecond: 0
   heal: 0
+  dead: 0
 --- !u!1 &233791073
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,6 +497,8 @@ RectTransform:
   - {fileID: 317206599}
   - {fileID: 1894879555}
   - {fileID: 1217755827}
+  - {fileID: 1887609595}
+  - {fileID: 1799736183}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -855,6 +858,7 @@ MonoBehaviour:
   projectileCount: 0
   damagePerSecond: 0
   heal: 0
+  dead: 0
 --- !u!1 &449193418 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 589443254143872410, guid: b6aa43b307640804aa166cc06d031c44,
@@ -884,6 +888,7 @@ MonoBehaviour:
   projectileCount: 0
   damagePerSecond: 0
   heal: 0
+  dead: 0
 --- !u!1 &457435449
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,6 +1509,7 @@ MonoBehaviour:
   projectileCount: 0
   damagePerSecond: 0
   heal: 0
+  dead: 0
 --- !u!1001 &601499484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1733,31 +1739,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8809283076004846014, guid: 3a144ee2ea3e75e4597ebac9dde8e1d3,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8809283076004846014, guid: 3a144ee2ea3e75e4597ebac9dde8e1d3,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8809283076004846014, guid: 3a144ee2ea3e75e4597ebac9dde8e1d3,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8809283076004846014, guid: 3a144ee2ea3e75e4597ebac9dde8e1d3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 8809283076004846014, guid: 3a144ee2ea3e75e4597ebac9dde8e1d3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a144ee2ea3e75e4597ebac9dde8e1d3, type: 3}
@@ -2881,6 +2862,7 @@ MonoBehaviour:
   projectileCount: 0
   damagePerSecond: 0
   heal: 0
+  dead: 0
 --- !u!1 &1037282142
 GameObject:
   m_ObjectHideFlags: 0
@@ -2996,6 +2978,7 @@ MonoBehaviour:
   projectileCount: 0
   damagePerSecond: 0
   heal: 0
+  dead: 0
 --- !u!1 &1072667955
 GameObject:
   m_ObjectHideFlags: 0
@@ -3111,6 +3094,7 @@ MonoBehaviour:
   projectileCount: 0
   damagePerSecond: 0
   heal: 0
+  dead: 0
 --- !u!43 &1085415097
 Mesh:
   m_ObjectHideFlags: 0
@@ -3346,14 +3330,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 33500665, guid: dd52f7623f38ded4182b6ffa925e787c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 33500665, guid: dd52f7623f38ded4182b6ffa925e787c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.32
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd52f7623f38ded4182b6ffa925e787c, type: 3}
 --- !u!1001 &1089044114
@@ -3516,6 +3492,7 @@ MonoBehaviour:
   projectileCount: 0
   damagePerSecond: 0
   heal: 0
+  dead: 0
 --- !u!1 &1172746092
 GameObject:
   m_ObjectHideFlags: 0
@@ -4588,6 +4565,7 @@ MonoBehaviour:
   projectileCount: 0
   damagePerSecond: 0
   heal: 0
+  dead: 0
 --- !u!1001 &1460324554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4701,6 +4679,7 @@ MonoBehaviour:
   projectileCount: 0
   damagePerSecond: 0
   heal: 0
+  dead: 0
 --- !u!43 &1509615148
 Mesh:
   m_ObjectHideFlags: 0
@@ -5305,6 +5284,7 @@ MonoBehaviour:
   projectileCount: 0
   damagePerSecond: 0
   heal: 0
+  dead: 0
 --- !u!1 &1535284038
 GameObject:
   m_ObjectHideFlags: 0
@@ -5637,6 +5617,7 @@ MonoBehaviour:
   projectileCount: 0
   damagePerSecond: 0
   heal: 0
+  dead: 0
 --- !u!43 &1588583233
 Mesh:
   m_ObjectHideFlags: 0
@@ -5842,6 +5823,7 @@ MonoBehaviour:
   pourcentageChanceDot: 50
   enemyDeadCounter: 0
   enemyDeadCounterText: {fileID: 1217755828}
+  partCounterText: {fileID: 1799736184}
 --- !u!4 &1589193370
 Transform:
   m_ObjectHideFlags: 0
@@ -6258,6 +6240,85 @@ PolygonCollider2D:
       - {x: -2.08, y: -5.75}
       - {x: 1.57, y: -5.08}
       - {x: 1.11, y: 3.38}
+--- !u!1 &1799736182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1799736183}
+  - component: {fileID: 1799736185}
+  - component: {fileID: 1799736184}
+  m_Layer: 5
+  m_Name: DeadPartsCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1799736183
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799736182}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 233791077}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -53.535, y: 145.3}
+  m_SizeDelta: {x: 181.5, y: 44.7}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1799736184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799736182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &1799736185
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799736182}
+  m_CullTransparentMesh: 0
 --- !u!4 &1840420526 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9001153609939646181, guid: 513c0cb406d75bb4c90dcf43ce9dece8,
@@ -6462,6 +6523,86 @@ MonoBehaviour:
   projectileCount: 0
   damagePerSecond: 0
   heal: 0
+  dead: 0
+--- !u!1 &1887609594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1887609595}
+  - component: {fileID: 1887609597}
+  - component: {fileID: 1887609596}
+  m_Layer: 5
+  m_Name: DeadParts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1887609595
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887609594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 233791077}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -226.86, y: 144}
+  m_SizeDelta: {x: 144.29, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1887609596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887609594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Dead Parts : '
+--- !u!222 &1887609597
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887609594}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1894879554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7277,6 +7418,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -55.626003
       objectReference: {fileID: 0}
+    - target: {fileID: 589443254898397053, guid: b6aa43b307640804aa166cc06d031c44,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 589443254898397053, guid: b6aa43b307640804aa166cc06d031c44,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 589443254898397053, guid: b6aa43b307640804aa166cc06d031c44,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 589443254898397053, guid: b6aa43b307640804aa166cc06d031c44,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 589443255170175984, guid: b6aa43b307640804aa166cc06d031c44,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 589443255170175984, guid: b6aa43b307640804aa166cc06d031c44,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 589443255170175984, guid: b6aa43b307640804aa166cc06d031c44,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 589443253184262958, guid: b6aa43b307640804aa166cc06d031c44,
         type: 3}
       propertyPath: m_LocalRotation.z
@@ -7417,6 +7593,7 @@ MonoBehaviour:
   projectileCount: 0
   damagePerSecond: 0
   heal: 0
+  dead: 0
 --- !u!43 &1964924000
 Mesh:
   m_ObjectHideFlags: 0
