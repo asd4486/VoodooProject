@@ -61,6 +61,5 @@ public  class GameManager : MonoBehaviour
         bars.SetActive(false);
         panelGameOver.SetActive(true);
         environmentSpeed = 0f;
-
     }
 }

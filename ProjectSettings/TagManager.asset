@@ -11,6 +11,8 @@ TagManager:
   - FxTemporaire
   - Monster
   - Particle
+  - Villager
+  - CacAttack
   layers:
   - Default
   - TransparentFX
