@@ -138,13 +138,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5080b37c4b1d09946b8ac71b57e356fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partType: 4
   healthBar: {fileID: 1486224030154674420}
   healParticle: {fileID: 374183888}
   stopDamageOverTime: 0
-  projectileCount: 0
-  damagePerSecond: 0
-  heal: 0
-  dead: 0
+  isDead: 0
 --- !u!43 &99596707
 Mesh:
   m_ObjectHideFlags: 0
@@ -416,7 +414,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 2127220275
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_TargetDisplay: 0
 --- !u!224 &233791077
 RectTransform:
@@ -429,6 +427,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1618954857}
   - {fileID: 1756324662}
   - {fileID: 512581154}
   m_Father: {fileID: 0}
@@ -457,13 +456,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5080b37c4b1d09946b8ac71b57e356fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partType: 3
   healthBar: {fileID: 1486224030288794505}
   healParticle: {fileID: 1646627198}
   stopDamageOverTime: 0
-  projectileCount: 0
-  damagePerSecond: 0
-  heal: 0
-  dead: 0
+  isDead: 0
 --- !u!1 &350231191
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,13 +650,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5080b37c4b1d09946b8ac71b57e356fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partType: 0
   healthBar: {fileID: 5190855037256959047}
   healParticle: {fileID: 1322661539}
   stopDamageOverTime: 0
-  projectileCount: 0
-  damagePerSecond: 0
-  heal: 0
-  dead: 0
+  isDead: 0
 --- !u!1 &457435449
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,13 +725,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5080b37c4b1d09946b8ac71b57e356fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partType: 2
   healthBar: {fileID: 1486224031762823039}
   healParticle: {fileID: 767488208}
   stopDamageOverTime: 0
-  projectileCount: 0
-  damagePerSecond: 0
-  heal: 0
-  dead: 0
+  isDead: 0
 --- !u!1 &512581153
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,7 +761,7 @@ RectTransform:
   m_Children:
   - {fileID: 2115454350}
   m_Father: {fileID: 233791077}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1513,13 +1506,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5080b37c4b1d09946b8ac71b57e356fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partType: 1
   healthBar: {fileID: 1486224031359105723}
   healParticle: {fileID: 1600302393}
   stopDamageOverTime: 0
-  projectileCount: 0
-  damagePerSecond: 0
-  heal: 0
-  dead: 0
+  isDead: 0
 --- !u!43 &836002621
 Mesh:
   m_ObjectHideFlags: 0
@@ -3724,13 +3715,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5080b37c4b1d09946b8ac71b57e356fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partType: 6
   healthBar: {fileID: 1486224029957273623}
   healParticle: {fileID: 1354185280}
   stopDamageOverTime: 0
-  projectileCount: 0
-  damagePerSecond: 0
-  heal: 0
-  dead: 0
+  isDead: 0
 --- !u!1001 &1460324554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4603,7 +4592,6 @@ MonoBehaviour:
   enemyDeadCounter: 0
   enemyDeadCounterText: {fileID: 1217755828}
   partCounterText: {fileID: 1799736184}
-  monster: {fileID: 0}
   spawner: {fileID: 457435449}
   bars: {fileID: 1657088768}
   panelGameOver: {fileID: 512581153}
@@ -4633,6 +4621,80 @@ ParticleSystem:
     type: 3}
   m_PrefabInstance: {fileID: 1089044114}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1618954856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1618954857}
+  - component: {fileID: 1618954859}
+  - component: {fileID: 1618954858}
+  m_Layer: 5
+  m_Name: filter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1618954857
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618954856}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 233791077}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1618954858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618954856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.20754719, g: 0.18594542, b: 0.16936633, a: 0.78431374}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 5225deaac4d74b24ab21290cc4cd0532, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1618954859
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618954856}
+  m_CullTransparentMesh: 0
 --- !u!1 &1629027749
 GameObject:
   m_ObjectHideFlags: 0
@@ -4876,13 +4938,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5080b37c4b1d09946b8ac71b57e356fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partType: 5
   healthBar: {fileID: 1486224031535929619}
   healParticle: {fileID: 791805193}
   stopDamageOverTime: 0
-  projectileCount: 0
-  damagePerSecond: 0
-  heal: 0
-  dead: 0
+  isDead: 0
 --- !u!1 &1736727337
 GameObject:
   m_ObjectHideFlags: 0
@@ -4975,7 +5035,7 @@ RectTransform:
   - {fileID: 432658449}
   - {fileID: 1538942270}
   m_Father: {fileID: 233791077}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -5103,7 +5163,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.7411765, g: 0.6862745, b: 0.5176471, a: 0}
+  m_BackGroundColor: {r: 0.8113208, g: 0.7502233, b: 0.56256676, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -5398,7 +5458,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-18508
+  m_Name: pb_Mesh-178446
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5898,7 +5958,7 @@ GameObject:
   - component: {fileID: 2104579192}
   - component: {fileID: 2104579191}
   m_Layer: 0
-  m_Name: PartManager
+  m_Name: PlayerController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5916,40 +5976,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaecf200aabb0e74fa55ab342cf091ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  part0: {fileID: 433328019}
-  part1: {fileID: 252276917}
-  part2: {fileID: 91453203}
-  part3: {fileID: 805966230}
-  part4: {fileID: 469116701}
-  part5: {fileID: 1389239411}
-  part6: {fileID: 1702453767}
-  timerPart0: 0
-  timerPart1: 0
-  timerPart2: 0
-  timerPart3: 0
-  timerPart4: 0
-  timerPart5: 0
-  timerPart6: 0
-  listPart0:
-  - {fileID: 0}
-  listPart1:
-  - {fileID: 0}
-  listPart2:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  listPart3:
-  - {fileID: 0}
-  listPart4:
-  - {fileID: 0}
-  listPart5:
-  - {fileID: 0}
-  listPart6:
-  - {fileID: 0}
-  bar: {fileID: 4968079301077896695, guid: a3b291a1c5cd4394b9fad9f7eb50eda7, type: 3}
+  allParts: []
+  topParts: []
+  middleParts: []
+  downParts: []
 --- !u!4 &2104579192
 Transform:
   m_ObjectHideFlags: 0

@@ -5,9 +5,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using Vectrosity;
 
+public enum MonsterPartType
+{
+    Body,
+    LeftHand,
+    RightHand,
+    LeftFoot,
+    RightFoot,
+    CryHead,
+    AngryHead
+}
+
 public class Part : MonoBehaviour
 {
     SpriteMeshAnimation mySpriteMeshStade;
+    public MonsterPartType partType;
 
     [SerializeField] Image healthBar;
     public ParticleSystem healParticle;
@@ -17,25 +29,25 @@ public class Part : MonoBehaviour
     float maxPv = 100f;
     float myPv;
 
-    public int projectileCount = 0;
-    public float damagePerSecond;
+    int projectileCount = 0;
+    float damagePerSecond;
 
-    public bool heal = false;
+    float healDelayTimer;
+    bool isHealing = false;
     private VectorLine[] lines = new VectorLine[6];
 
-    [HideInInspector]
-    public bool dead = false;
+    [HideInInspector] public bool isDead;
 
     private void Awake()
     {
         mySpriteMeshStade = GetComponent<SpriteMeshAnimation>();
+        healParticle.Pause();
+        myPv = maxPv;
     }
 
     public void LateStart()
     {
         StartCoroutine(GetDamageOverTimeCoroutine());
-        myPv = maxPv;
-        healParticle.Pause();
     }
 
     void Update()
@@ -58,59 +70,66 @@ public class Part : MonoBehaviour
             mySpriteMeshStade.frame = 2;
         }
 
-        if (myPv <= 0)
-        {
-            dead = true;
-            //sprite 4
-        }
-        else
-        {
-            dead = false;
-        }
-
-
-        if (heal)
-        {
-            healParticle.gameObject.SetActive(true);
-            healParticle.Play();
-        }
-        else
-        {
-            healParticle.Pause();
-            healParticle.gameObject.SetActive(false);
-        }
+        isDead = myPv <= 0;
+        //sprite 4
     }
 
-    public void HealFirst()
+    public void StartHeal()
+    {
+        healDelayTimer = 0;
+        healParticle.gameObject.SetActive(true);
+        healParticle.Play();
+        isHealing = true;
+    }
+
+    void Healing()
+    {
+        if (!isHealing) return;
+
+        if (healDelayTimer < GameManager.Instance.healAfterDelay) healDelayTimer += Time.deltaTime;
+        else HealFirst();
+    }
+
+    void HealFirst()
     {
         if (myPv <= 100)
         {
             myPv += Time.deltaTime * GameManager.Instance.healMultiplicator * (GameManager.Instance.healMultiplicatorPourcentageFirst / 100);
         }
 
-        List<GameObject> l = new List<GameObject>();
-        PartManager.asoc.TryGetValue(gameObject, out l);
-        if (l != null)
-        {
-            foreach (GameObject g in l)
-            {
-                //g.GetComponent<Part>().HealSecond();
-            }
-        }
-        if (heal == false)
-        {
-            //ShowLines(Color.green);
-            heal = true;
-        }
+        //List<GameObject> l = new List<GameObject>();
+        //PlayerController.asoc.TryGetValue(gameObject, out l);
+        //if (l != null)
+        //{
+        //    foreach (GameObject g in l)
+        //    {
+        //        //g.GetComponent<Part>().HealSecond();
+        //    }
+        //}
+
+
+        //ShowLines(Color.green);
+
     }
 
-    public void HealSecond()
+    void HealSecond()
     {
         if (myPv <= 100)
         {
             myPv += Time.deltaTime * GameManager.Instance.healMultiplicator * (GameManager.Instance.healMultiplicatorPourcentageSecond / 100);
         }
     }
+
+    public void FinishHeal()
+    {
+        isHealing = false;
+
+        healParticle.Pause();
+        damagePerSecond = projectileCount = 0;
+        UnshowLines();
+        ExpulseProjectiles();
+    }
+
 
     public void GetDamage(float damageImpact, float damageOverTime, float invokeTimer)
     {
@@ -137,6 +156,8 @@ public class Part : MonoBehaviour
         }
     }
 
+
+
     public void ExpulseProjectiles()
     {
 
@@ -162,24 +183,24 @@ public class Part : MonoBehaviour
     public void ShowLines(Color c)
     {
         int index = 0;
-        List<GameObject> l = new List<GameObject>();
-        PartManager.asoc.TryGetValue(gameObject, out l);
-        if (l != null)
-        {
-            foreach (GameObject g in l)
-            {
-                lines[index] = VectorLine.SetLine(c, gameObject.transform.position, g.transform.position);
-                index++;
-            }
-        }
+        //List<GameObject> l = new List<GameObject>();
+        //PlayerController.asoc.TryGetValue(gameObject, out l);
+        //if (l != null)
+        //{
+        //    foreach (GameObject g in l)
+        //    {
+        //        lines[index] = VectorLine.SetLine(c, gameObject.transform.position, g.transform.position);
+        //        index++;
+        //    }
+        //}
     }
 
     public void UnshowLines()
     {
 
-        if (heal == true)
+        if (isHealing == true)
         {
-            heal = false;
+            isHealing = false;
             foreach (VectorLine v in lines)
                 VectorLine.lineManager.DisableLine(v, 0.01f);
         }

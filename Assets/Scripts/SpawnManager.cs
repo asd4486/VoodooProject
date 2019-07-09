@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    PlayerController playerController;
     private float spawnTimer;
 
     public GameObject[] enemies;
@@ -13,8 +14,9 @@ public class SpawnManager : MonoBehaviour
     public GameObject spawnerDown;
 
 
-    void Start()
+    void Awake()
     {
+        playerController = FindObjectOfType<PlayerController>();
         spawnTimer = Random.Range(GameManager.Instance.spawnTimerMin, GameManager.Instance.spawnTimerMax);
     }
 
@@ -26,7 +28,7 @@ public class SpawnManager : MonoBehaviour
         {
             spawnTimer = Random.Range(GameManager.Instance.spawnTimerMin, GameManager.Instance.spawnTimerMax);
             Spawn();
-            if (Random.Range(0,5) <= 1)
+            if (Random.Range(0, 5) <= 1)
             {
                 SpawnVillager();
             }
@@ -37,19 +39,9 @@ public class SpawnManager : MonoBehaviour
     {
         GameObject e;
         float r = Random.Range(0, 2);
+        e = Instantiate(enemies[Random.Range(0, enemies.Length)], r < 1 ? spawnerDown.transform : spawnerMiddle.transform);
 
-        if (r == 0)
-        {
-            e = Instantiate(enemies[Random.Range(0, enemies.Length)], spawnerDown.transform);
-            e.transform.position = new Vector3(e.transform.position.x, e.transform.position.y + Random.Range(0,0.3f), e.transform.position.z);
-            e.GetComponent<Enemy>().target = PartManager.allParts[Random.Range(0, PartManager.nbParts )].GetComponent<Part>();
-        }
-        else if (r == 1)
-        {
-            e = Instantiate(enemies[Random.Range(0, enemies.Length)], spawnerMiddle.transform);
-            e.transform.position = new Vector3(e.transform.position.x, e.transform.position.y + Random.Range(0, 0.3f), e.transform.position.z);
-            e.GetComponent<Enemy>().target = PartManager.allParts[Random.Range(0, PartManager.nbParts )].GetComponent<Part>();
-        }       
+        e.GetComponent<Enemy>().SetTarget(playerController.allParts);
     }
 
     private void SpawnVillager()

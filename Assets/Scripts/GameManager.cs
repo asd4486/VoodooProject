@@ -30,7 +30,6 @@ public  class GameManager : MonoBehaviour
 
     public Text partCounterText;
 
-    public GameObject monster;
     public GameObject spawner;
     public GameObject bars;
     public GameObject panelGameOver;
@@ -56,7 +55,6 @@ public  class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        monster.SetActive(false);
         spawner.SetActive(false);
         bars.SetActive(false);
         panelGameOver.SetActive(true);
