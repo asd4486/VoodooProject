@@ -93,6 +93,9 @@ public class PartManager : MonoBehaviour
                 cptDead++;
             }
         }
+
+
+        //GAME OVER
         GameManager.Instance.partCounterText.text = cptDead.ToString();
         if (cptDead >= GameManager.Instance.partsDeadGameOver)
         {
