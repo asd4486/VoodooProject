@@ -78,7 +78,7 @@ public class Part : MonoBehaviour
         {
             foreach (GameObject g in l)
             {
-                g.GetComponent<Part>().HealSecond();
+                //g.GetComponent<Part>().HealSecond();
             }
         }
         if (heal == false)

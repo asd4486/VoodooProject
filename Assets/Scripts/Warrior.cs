@@ -56,9 +56,12 @@ public class Warrior : Enemy
 
     public void Shoot()
     {
+        Vector3 targetDir = target.transform.position - transform.position;
         GameObject p = Instantiate(projectile, projectileSpawner.transform);
+        float angle = Vector3.Angle(targetDir, p.transform.up);
+        p.transform.Rotate(0, 0, angle);
 
-        p.transform.DOMove(target.transform.position, GameManager.Instance.projectileTravelTime).OnComplete(() => Destroy(p));
+        p.transform.DOMove(target.transform.position, GameManager.Instance.projectileTravelTime).SetEase(Ease.OutSine).OnComplete(() => Destroy(p));
 
         target.GetDamage(damage, damagePerSecond, GameManager.Instance.projectileTravelTime);
     }

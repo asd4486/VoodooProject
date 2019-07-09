@@ -51,3 +51,6 @@ TagManager:
   - name: monstre
     uniqueID: 2776868163
     locked: 0
+  - name: projectiles
+    uniqueID: 2252968811
+    locked: 0
