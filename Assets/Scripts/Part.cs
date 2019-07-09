@@ -9,17 +9,13 @@ public class Part : MonoBehaviour
 {
     SpriteMeshAnimation mySpriteMeshStade;
 
-    public GameObject Bar;
+    [SerializeField] Image healthBar;
     public ParticleSystem healParticle;
-    Text textProjectile;
-    private float barFilledWidth;
-    private float barFilledHeight;
 
     public bool stopDamageOverTime = false;
-    public float maxPv = 100f;
-    public float pv;
-    public Material healMaterial;
-    public Material basicMaterial;
+
+    float maxPv = 100f;
+    float myPv;
 
     public int projectileCount = 0;
     public float damagePerSecond;
@@ -37,40 +33,32 @@ public class Part : MonoBehaviour
 
     public void LateStart()
     {
-        barFilledWidth = Bar.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta.x;
-        barFilledHeight = Bar.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta.y;
-        textProjectile = Bar.transform.GetChild(1).GetComponent<Text>();
         StartCoroutine(GetDamageOverTimeCoroutine());
-        pv = maxPv;
+        myPv = maxPv;
         healParticle.Pause();
     }
 
     void Update()
     {
-        //Bar.transform.position = Camera.main.WorldToScreenPoint(transform.position + Vector3.up * 0.2f);
-        Bar.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(barFilledWidth * (pv / 100), barFilledHeight);
+        healthBar.fillAmount = myPv / maxPv;
 
-        if(textProjectile != null) textProjectile.text = projectileCount.ToString();
-
-
-        if (pv >= maxPv * 0.66f)
+        if (myPv >= maxPv * 0.66f)
         {
             //sprite 1
             mySpriteMeshStade.frame = 0;
         }
-        else if (pv <= maxPv * 0.66f && pv >= maxPv * 0.33f)
+        else if (myPv <= maxPv * 0.66f && myPv >= maxPv * 0.33f)
         {
             //sprite 2
             mySpriteMeshStade.frame = 1;
         }
-        else if (pv <= maxPv * 0.33f && pv != 0)
+        else if (myPv <= maxPv * 0.33f && myPv != 0)
         {
             //sprite 3
             mySpriteMeshStade.frame = 2;
         }
 
-
-        if (pv <= 0)
+        if (myPv <= 0)
         {
             dead = true;
             //sprite 4
@@ -95,9 +83,9 @@ public class Part : MonoBehaviour
 
     public void HealFirst()
     {
-        if (pv <= 100)
+        if (myPv <= 100)
         {
-            pv += Time.deltaTime * GameManager.Instance.healMultiplicator * (GameManager.Instance.healMultiplicatorPourcentageFirst / 100);
+            myPv += Time.deltaTime * GameManager.Instance.healMultiplicator * (GameManager.Instance.healMultiplicatorPourcentageFirst / 100);
         }
 
         List<GameObject> l = new List<GameObject>();
@@ -118,9 +106,9 @@ public class Part : MonoBehaviour
 
     public void HealSecond()
     {
-        if (pv <= 100)
+        if (myPv <= 100)
         {
-            pv += Time.deltaTime * GameManager.Instance.healMultiplicator * (GameManager.Instance.healMultiplicatorPourcentageSecond / 100);
+            myPv += Time.deltaTime * GameManager.Instance.healMultiplicator * (GameManager.Instance.healMultiplicatorPourcentageSecond / 100);
         }
     }
 
@@ -132,7 +120,7 @@ public class Part : MonoBehaviour
     private IEnumerator ReducePV(float damageImpact, float damageOverTime, float invokeTimer)
     {
         yield return new WaitForSeconds(invokeTimer);
-        pv = Mathf.Clamp(pv - damageImpact, 0, maxPv);
+        myPv = Mathf.Clamp(myPv - damageImpact, 0, maxPv);
         if (Random.Range(0, 100) <= GameManager.Instance.pourcentageChanceDot)
         {
             projectileCount++;
@@ -145,7 +133,7 @@ public class Part : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            pv = Mathf.Clamp(pv - damagePerSecond, 0, maxPv);
+            myPv = Mathf.Clamp(myPv - damagePerSecond, 0, maxPv);
         }
     }
 
