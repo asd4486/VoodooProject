@@ -27,6 +27,7 @@ public class Part : MonoBehaviour
     [HideInInspector]
     public bool dead = false;
 
+
     public void LateStart()
     {
         barFilledWidth = Bar.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta.x;
@@ -44,14 +45,34 @@ public class Part : MonoBehaviour
 
         textProjectile.text = projectileCount.ToString();
 
+
+        if (pv >= maxPv * 0.66f)
+        {
+            //sprite 1
+        }
+        else if(pv <= maxPv * 0.66f && pv >= maxPv * 0.33f)
+        {
+            //sprite 2
+        }
+        else if(pv <= maxPv * 0.33f && pv != 0)
+        {
+            //sprite 3
+        }
+
+
         if (pv <= 0)
         {
             dead = true;
+            //sprite 4
         }
         else
         {
             dead = false;
         }
+
+
+
+
 
         if (heal)
         {
