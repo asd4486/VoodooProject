@@ -1,0 +1,347 @@
+fileFormatVersion: 2
+guid: 9cfb90b5ee33ed34ab7c374b7d8ecc1d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6579384933641061645
+    second: T_Monster_Stade3_0
+  - first:
+      213: 1429544271480815270
+    second: T_Monster_Stade3_1
+  - first:
+      213: 3508394224597788556
+    second: T_Monster_Stade3_2
+  - first:
+      213: 3417649367576959205
+    second: T_Monster_Stade3_3
+  - first:
+      213: -4491461883851800738
+    second: T_Monster_Stade3_4
+  - first:
+      213: 1303695070932431800
+    second: T_Monster_Stade3_5
+  - first:
+      213: -7864225433425464030
+    second: T_Monster_Stade3_6
+  - first:
+      213: -1660756812239564161
+    second: T_Monster_Stade3_7
+  - first:
+      213: 149503526618812362
+    second: T_Monster_Stade3_8
+  - first:
+      213: 3906244000598930522
+    second: T_Monster_Stade3_9
+  - first:
+      213: -8397825499137939760
+    second: T_Monster_Stade3_10
+  - first:
+      213: 4936362924802938402
+    second: T_Monster_Stade3_11
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: T_Monster_Stade3_0
+      rect:
+        serializedVersion: 2
+        x: 28.751083
+        y: 693
+        width: 500.60754
+        height: 1273.1206
+      alignment: 9
+      pivot: {x: 0.50388557, y: 0.50584364}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09bdb98d8c0a7d742ab245b582ac1b59
+      internalID: 6579384933641061645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Monster_Stade3_1
+      rect:
+        serializedVersion: 2
+        x: 1156
+        y: 1590
+        width: 354.2583
+        height: 402.84302
+      alignment: 9
+      pivot: {x: 0.50104684, y: 0.4952301}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d6906b1dc69f6748b496f90377d0ac9
+      internalID: 1429544271480815270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Monster_Stade3_2
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 1561
+        width: 299.68958
+        height: 402
+      alignment: 9
+      pivot: {x: 0.5005179, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95b37e8bd98adc5478cd4944c4e511b4
+      internalID: 3508394224597788556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Monster_Stade3_3
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 736
+        width: 737
+        height: 732
+      alignment: 9
+      pivot: {x: 0.49796474, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9407880afbe6fc94bacd2e782d1275d4
+      internalID: 3417649367576959205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Monster_Stade3_4
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 1356
+        width: 164
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d01202df55dd1a4ba40679c1eed18ff
+      internalID: -4491461883851800738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Monster_Stade3_5
+      rect:
+        serializedVersion: 2
+        x: 1420.3877
+        y: 698.2925
+        width: 359.3004
+        height: 606.8225
+      alignment: 9
+      pivot: {x: 0.4985029, y: 0.49966425}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eca15737dfcd17a4abd84685a816603e
+      internalID: 1303695070932431800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Monster_Stade3_6
+      rect:
+        serializedVersion: 2
+        x: 408.14148
+        y: 65.686195
+        width: 408.85852
+        height: 579.2322
+      alignment: 9
+      pivot: {x: 0.5034957, y: 0.4968885}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9f29c4ce71f9e5489ba94a060ae937e
+      internalID: -7864225433425464030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Monster_Stade3_7
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 131
+        width: 550.85144
+        height: 549
+      alignment: 9
+      pivot: {x: 0.5037656, y: 0.49271402}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cd4aabe1e74be54ab91b6ce9ab820a5
+      internalID: -1660756812239564161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Monster_Stade3_8
+      rect:
+        serializedVersion: 2
+        x: 1577.6652
+        y: 208.49548
+        width: 441.01648
+        height: 463.02106
+      alignment: 9
+      pivot: {x: 0.5007406, y: 0.50106686}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a85bb8c053cdfd4e9b8a963556a1b21
+      internalID: 149503526618812362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Monster_Stade3_9
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 191
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b643c39c3356c14e81e10dce3571cf9
+      internalID: 3906244000598930522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 0df379004f3ee974591d8cbfc8021371
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Anima2D;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,9 +7,11 @@ using Vectrosity;
 
 public class Part : MonoBehaviour
 {
+    SpriteMeshAnimation mySpriteMeshStade;
+
     public GameObject Bar;
     public ParticleSystem healParticle;
-    public Text textProjectile;
+    Text textProjectile;
     private float barFilledWidth;
     private float barFilledHeight;
 
@@ -27,6 +30,10 @@ public class Part : MonoBehaviour
     [HideInInspector]
     public bool dead = false;
 
+    private void Awake()
+    {
+        mySpriteMeshStade = GetComponent<SpriteMeshAnimation>();
+    }
 
     public void LateStart()
     {
@@ -41,22 +48,25 @@ public class Part : MonoBehaviour
     void Update()
     {
         //Bar.transform.position = Camera.main.WorldToScreenPoint(transform.position + Vector3.up * 0.2f);
-        Bar.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(barFilledWidth * (pv/100), barFilledHeight);
+        Bar.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(barFilledWidth * (pv / 100), barFilledHeight);
 
-        textProjectile.text = projectileCount.ToString();
+        if(textProjectile != null) textProjectile.text = projectileCount.ToString();
 
 
         if (pv >= maxPv * 0.66f)
         {
             //sprite 1
+            mySpriteMeshStade.frame = 0;
         }
-        else if(pv <= maxPv * 0.66f && pv >= maxPv * 0.33f)
+        else if (pv <= maxPv * 0.66f && pv >= maxPv * 0.33f)
         {
             //sprite 2
+            mySpriteMeshStade.frame = 1;
         }
-        else if(pv <= maxPv * 0.33f && pv != 0)
+        else if (pv <= maxPv * 0.33f && pv != 0)
         {
             //sprite 3
+            mySpriteMeshStade.frame = 2;
         }
 
 
@@ -69,9 +79,6 @@ public class Part : MonoBehaviour
         {
             dead = false;
         }
-
-
-
 
 
         if (heal)
@@ -88,9 +95,9 @@ public class Part : MonoBehaviour
 
     public void HealFirst()
     {
-        if(pv <= 100)
+        if (pv <= 100)
         {
-            pv += Time.deltaTime * GameManager.Instance.healMultiplicator * (GameManager.Instance.healMultiplicatorPourcentageFirst/100);
+            pv += Time.deltaTime * GameManager.Instance.healMultiplicator * (GameManager.Instance.healMultiplicatorPourcentageFirst / 100);
         }
 
         List<GameObject> l = new List<GameObject>();
@@ -106,37 +113,37 @@ public class Part : MonoBehaviour
         {
             //ShowLines(Color.green);
             heal = true;
-        }            
+        }
     }
 
     public void HealSecond()
     {
         if (pv <= 100)
         {
-            pv += Time.deltaTime * GameManager.Instance.healMultiplicator * (GameManager.Instance.healMultiplicatorPourcentageSecond/100);
+            pv += Time.deltaTime * GameManager.Instance.healMultiplicator * (GameManager.Instance.healMultiplicatorPourcentageSecond / 100);
         }
     }
 
     public void GetDamage(float damageImpact, float damageOverTime, float invokeTimer)
     {
-        StartCoroutine(ReducePV(damageImpact, damageOverTime, invokeTimer));        
+        StartCoroutine(ReducePV(damageImpact, damageOverTime, invokeTimer));
     }
 
     private IEnumerator ReducePV(float damageImpact, float damageOverTime, float invokeTimer)
     {
         yield return new WaitForSeconds(invokeTimer);
-        pv = Mathf.Clamp(pv-damageImpact, 0, maxPv);
-        if (Random.Range(0,100) <= GameManager.Instance.pourcentageChanceDot)
+        pv = Mathf.Clamp(pv - damageImpact, 0, maxPv);
+        if (Random.Range(0, 100) <= GameManager.Instance.pourcentageChanceDot)
         {
             projectileCount++;
             damagePerSecond += damageOverTime;
-        }       
+        }
     }
 
     private IEnumerator GetDamageOverTimeCoroutine()
-    {       
+    {
         while (true)
-        {           
+        {
             yield return new WaitForSeconds(1f);
             pv = Mathf.Clamp(pv - damagePerSecond, 0, maxPv);
         }
@@ -173,7 +180,7 @@ public class Part : MonoBehaviour
         {
             foreach (GameObject g in l)
             {
-                lines[index]     = VectorLine.SetLine(c, gameObject.transform.position, g.transform.position);
+                lines[index] = VectorLine.SetLine(c, gameObject.transform.position, g.transform.position);
                 index++;
             }
         }

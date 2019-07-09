@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-
     private float startSpeed;
-
-    
 
     private void Start()
     {
