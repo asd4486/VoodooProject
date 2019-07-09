@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     private float spawnTimer;
 
     public GameObject[] enemies;
-    public GameObject spawnerTop;
+    public GameObject villager;
     public GameObject spawnerMiddle;
     public GameObject spawnerDown;
 
@@ -26,6 +26,10 @@ public class SpawnManager : MonoBehaviour
         {
             spawnTimer = Random.Range(GameManager.Instance.spawnTimerMin, GameManager.Instance.spawnTimerMax);
             Spawn();
+            if (Random.Range(0,5) <= 1)
+            {
+                SpawnVillager();
+            }
         }
     }
 
@@ -33,21 +37,23 @@ public class SpawnManager : MonoBehaviour
     {
         GameObject e;
         float r = Random.Range(0, 2);
+
         if (r == 0)
         {
             e = Instantiate(enemies[Random.Range(0, enemies.Length)], spawnerDown.transform);
+            e.transform.position = new Vector3(e.transform.position.x, e.transform.position.y + Random.Range(0,0.3f), e.transform.position.z);
             e.GetComponent<Enemy>().target = PartManager.allParts[Random.Range(0, PartManager.nbParts )].GetComponent<Part>();
         }
         else if (r == 1)
         {
             e = Instantiate(enemies[Random.Range(0, enemies.Length)], spawnerMiddle.transform);
+            e.transform.position = new Vector3(e.transform.position.x, e.transform.position.y + Random.Range(0, 0.3f), e.transform.position.z);
             e.GetComponent<Enemy>().target = PartManager.allParts[Random.Range(0, PartManager.nbParts )].GetComponent<Part>();
-        }
-        //else
-        //{
-        //    e = Instantiate(enemy, spawnerDown.transform);
-        //    e.GetComponent<Archer>().target = PartManager.downParts[Random.Range(0, PartManager.downParts.ToArray().Length)].GetComponent<Part>();
-        //}
-        
+        }       
+    }
+
+    private void SpawnVillager()
+    {
+        Instantiate(villager, spawnerDown.transform);
     }
 }
