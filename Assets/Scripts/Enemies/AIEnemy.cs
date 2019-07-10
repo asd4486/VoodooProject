@@ -66,7 +66,7 @@ public class AIEnemy : MonoBehaviour
         moveTargetPoint = targetZoneLine > 0 ? aiMonster.topTargetPoint : aiMonster.botTargetPoint;
         //GetComponent<AIEnemy>().attackPart = parts[Random.Range(0, parts.Length)];
 
-        AudioManager.Instance.FMODEvent_Ennemi_Walk.start();
+        MoveStart();
     }
 
     protected virtual void Update()
@@ -100,17 +100,27 @@ public class AIEnemy : MonoBehaviour
 
     void ChangeStatus(EnemyStatus status)
     {
-        if (myStatus != status) myStatus = status;
+        if (myStatus == status) return;
+
+        myStatus = status;
 
         switch (myStatus)
         {
+            case EnemyStatus.Run:
+                break;
             case EnemyStatus.Attack:
                 StartAttack();
                 break;
+
         }
     }
 
-    public virtual void Move()
+    public virtual void MoveStart()
+    {
+        AudioManager.Instance.FMODEvent_Ennemi_Walk.start();
+    }
+
+    public virtual void Moving()
     {
         if (myStatus != EnemyStatus.Run) return;
     }
