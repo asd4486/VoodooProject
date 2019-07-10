@@ -31,7 +31,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Idle_Trigger
+    m_ConditionEvent: idle
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -827243541271402601}
@@ -56,7 +56,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Left_Head_Flex_Trigger
+    m_ConditionEvent: Left_Head_Flex
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -333676414010744636}
@@ -157,7 +157,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Walk_Trigger
+    m_ConditionEvent: walk
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102074233541737504}
@@ -204,7 +204,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Chest_Flex_Trigger
+    m_ConditionEvent: Chest_Flex
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7942766875889470332}
@@ -282,7 +282,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Right_Head_Flex_Trigger
+    m_ConditionEvent: Right_Head_Flex
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5184450625092211562}
@@ -356,60 +356,60 @@ AnimatorController:
   m_Name: Monster
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Left_Arm_Attack_Trigger
+  - m_Name: Left_Arm_Attack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Right_Arm_Attack_Trigger
+    m_Controller: {fileID: 0}
+  - m_Name: Right_Arm_Attack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Left_Leg_Flex_Trigger
+    m_Controller: {fileID: 0}
+  - m_Name: Left_Leg_Flex
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Right_Leg_Flex_Trigger
+    m_Controller: {fileID: 0}
+  - m_Name: Right_Leg_Flex
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Right_Head_Flex_Trigger
+    m_Controller: {fileID: 0}
+  - m_Name: Right_Head_Flex
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Left_Head_Flex_Trigger
+    m_Controller: {fileID: 0}
+  - m_Name: Left_Head_Flex
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Chest_Flex_Trigger
+    m_Controller: {fileID: 0}
+  - m_Name: Chest_Flex
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Idle_Trigger
+    m_Controller: {fileID: 0}
+  - m_Name: idle
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Walk_Trigger
+    m_Controller: {fileID: 0}
+  - m_Name: walk
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
-    m_Controller: {fileID: 9100000}
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -432,7 +432,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Left_Leg_Flex_Trigger
+    m_ConditionEvent: Left_Leg_Flex
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6293604635596624085}
@@ -479,7 +479,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Right_Arm_Attack_Trigger
+    m_ConditionEvent: Right_Arm_Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102494766578894242}
@@ -504,7 +504,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Left_Arm_Attack_Trigger
+    m_ConditionEvent: Left_Arm_Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102622106446519732}
@@ -633,22 +633,22 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102074233541737504}
-    m_Position: {x: -120, y: -190, z: 0}
+    m_Position: {x: 50, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102622106446519732}
-    m_Position: {x: -360, y: -110, z: 0}
+    m_Position: {x: -390, y: -230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102494766578894242}
-    m_Position: {x: -290, y: -230, z: 0}
+    m_Position: {x: -460, y: -490, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6293604635596624085}
     m_Position: {x: 510, y: -10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1221630411704105180}
-    m_Position: {x: 510, y: -230, z: 0}
+    m_Position: {x: 550, y: -590, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5184450625092211562}
-    m_Position: {x: 510, y: -150, z: 0}
+    m_Position: {x: 530, y: -240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -333676414010744636}
     m_Position: {x: 510, y: -80, z: 0}
@@ -657,7 +657,7 @@ AnimatorStateMachine:
     m_Position: {x: 510, y: 60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -827243541271402601}
-    m_Position: {x: 290, y: 430, z: 0}
+    m_Position: {x: -270, y: 170, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 1101728795964454592}
@@ -686,7 +686,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Right_Leg_Flex_Trigger
+    m_ConditionEvent: Right_Leg_Flex
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1221630411704105180}

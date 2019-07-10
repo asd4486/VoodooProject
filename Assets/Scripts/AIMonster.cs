@@ -19,7 +19,7 @@ public class AIMonster : MonoBehaviour
 
     public void Init()
     {
-        PlayAnimation("Walk");
+        PlayAnimation("walk");
         AudioManager.Instance.FMODEvent_Creature_Walk.start();
     }
 

@@ -150,7 +150,7 @@ public class Part : MonoBehaviour
         AudioManager.Instance.FMODEvent_Creature_Healing.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         healParticle.Stop();
         damagePerSecond = projectileCount = 0;
-        UnshowLines();
+       // UnshowLines();
         ExpulseProjectiles();
     }
 
@@ -187,22 +187,22 @@ public class Part : MonoBehaviour
 
     public void Attack()
     {
-
         switch (partType)
         {
             case MonsterPartType.LeftHand:
-
+                aiMonster.PlayAnimation("Left_Arm_Attack");
+                AudioManager.Instance.FMODEvent_Creature_Attack.start();
                 break;
             case MonsterPartType.RightHand:
-                aiMonster.PlayAnimation("Right_Arm_Attack_Trigger");
+                aiMonster.PlayAnimation("Right_Arm_Attack");
                 AudioManager.Instance.FMODEvent_Creature_Attack.start();
                 break;
             case MonsterPartType.LeftFoot:
-                aiMonster.PlayAnimation("Left_Leg_Flex_Trigger");
+                aiMonster.PlayAnimation("Left_Leg_Flex");
                 AudioManager.Instance.FMODEvent_Creature_Attack.start();
                 break;
             case MonsterPartType.RightFoot:
-                aiMonster.PlayAnimation("Right_Leg_Flex_Trigger");
+                aiMonster.PlayAnimation("Right_Leg_Flex");
                 AudioManager.Instance.FMODEvent_Creature_Attack.start();
                 break;
         }
@@ -224,14 +224,14 @@ public class Part : MonoBehaviour
         //}
     }
 
-    public void UnshowLines()
-    {
+    //public void UnshowLines()
+    //{
 
-        if (isHealing == true)
-        {
-            isHealing = false;
-            foreach (VectorLine v in lines)
-                VectorLine.lineManager.DisableLine(v, 0.01f);
-        }
-    }
+    //    if (isHealing == true)
+    //    {
+    //        isHealing = false;
+    //        foreach (VectorLine v in lines)
+    //            VectorLine.lineManager.DisableLine(v, 0.01f);
+    //    }
+    //}
 }

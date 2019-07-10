@@ -124,7 +124,6 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetButtonUp("angryHead"))
         {
             angryHead.FinishHeal();
-            aiMoster.PlayAnimation("FlexTeteGauche");
         }
 
         //cry head
@@ -135,7 +134,6 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetButtonUp("cryHead"))
         {
             cryingHead.FinishHeal();
-            aiMoster.PlayAnimation("FlexTeteDroite");
         }
 
         //body
@@ -146,7 +144,6 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetButtonUp("body"))
         {
             bodyPart.FinishHeal();
-            aiMoster.PlayAnimation("FlexBuste");
         }
 
         //right hand
@@ -167,7 +164,6 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetButtonUp("leftHand"))
         {
-            leftHand.UnshowLines();
             leftHand.FinishHeal();
             leftHand.Attack();
         }
@@ -179,9 +175,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetButtonUp("rightFoot"))
         {
-            rightFoot.UnshowLines();
             rightFoot.FinishHeal();
-            aiMoster.PlayAnimation("FlexJambeDroite");
+            rightFoot.Attack();
         }
 
         //left foot
@@ -192,9 +187,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetButtonUp("leftFoot"))
         {
             leftFoot.FinishHeal();
-            leftFoot.ExpulseProjectiles();
-
-            aiMoster.PlayAnimation("FlexJambeGauche");
+            leftFoot.Attack();
         }
     }
 
