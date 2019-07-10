@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -102,9 +103,14 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.partCounterText.text = deadCount.ToString();
 
         //GAME OVER
-        if (deadCount >= GameManager.Instance.partsDeadGameOver)
+        if (deadCount >= GameManager.Instance.partsDeadGameOver && GameManager.Instance.gameOver == false)
         {
             GameManager.Instance.GameOver();
+        }
+
+        if (GameManager.Instance.gameOver == true && Input.GetKeyDown(KeyCode.S))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
