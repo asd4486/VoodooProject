@@ -53,24 +53,17 @@
             <destination>{c87706e9-2ff5-4e0f-9ca1-d65bbd929931}</destination>
         </relationship>
         <relationship name="output">
-            <destination>{22cb952e-379e-4093-b88a-aae2f979661e}</destination>
+            <destination>{09ec6756-1607-41f5-b872-695a7e061fa3}</destination>
         </relationship>
     </object>
     <object class="EventAutomatableProperties" id="{f6a75a55-ddfa-41fd-99af-86fa2bf69506}"/>
     <object class="MarkerTrack" id="{c94fdbb8-929f-405a-80d0-c12518a7dcc0}"/>
     <object class="GroupTrack" id="{1ba02454-7855-4316-8272-507da1cddc66}">
-        <relationship name="modules">
-            <destination>{b6cb33f2-0ccb-42c2-8b73-5c1991996e70}</destination>
-        </relationship>
         <relationship name="mixerGroup">
             <destination>{5f339217-98e8-450c-9535-57b8398c558e}</destination>
         </relationship>
     </object>
-    <object class="Timeline" id="{37f27360-9114-475a-bfc6-32d7ec36c932}">
-        <relationship name="modules">
-            <destination>{b6cb33f2-0ccb-42c2-8b73-5c1991996e70}</destination>
-        </relationship>
-    </object>
+    <object class="Timeline" id="{37f27360-9114-475a-bfc6-32d7ec36c932}"/>
     <object class="EventMixerMaster" id="{b31945f3-1954-49c5-88b7-95b116b7f82a}">
         <relationship name="effectChain">
             <destination>{40e6a241-01e1-44bd-a607-bd404aa0281f}</destination>
@@ -88,14 +81,6 @@
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{c87706e9-2ff5-4e0f-9ca1-d65bbd929931}"/>
-    <object class="SingleSound" id="{b6cb33f2-0ccb-42c2-8b73-5c1991996e70}">
-        <property name="length">
-            <value>2.0746666666666669</value>
-        </property>
-        <relationship name="audioFile">
-            <destination>{f068c1f3-86ac-4335-affd-312e9781f6eb}</destination>
-        </relationship>
-    </object>
     <object class="EventMixerGroup" id="{5f339217-98e8-450c-9535-57b8398c558e}">
         <property name="name">
             <value>Voice</value>

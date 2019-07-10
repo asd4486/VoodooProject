@@ -5,7 +5,7 @@
             <value>Ennemis</value>
         </property>
         <relationship name="folder">
-            <destination>{68bcf711-ae57-4f5d-8262-b3acf6c2c89c}</destination>
+            <destination>{4a062336-5dc4-477c-9ece-efbaa9b1ed50}</destination>
         </relationship>
     </object>
 </objects>

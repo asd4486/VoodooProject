@@ -5,7 +5,7 @@
             <value>Creature_LowLife</value>
         </property>
         <property name="outputFormat">
-            <value>1</value>
+            <value>0</value>
         </property>
         <relationship name="folder">
             <destination>{c11a1a93-f83c-4ef3-9259-9f987d3ab3be}</destination>
@@ -53,23 +53,17 @@
             <destination>{5f735da3-89ee-4590-a2b4-485476aef624}</destination>
         </relationship>
         <relationship name="output">
-            <destination>{22cb952e-379e-4093-b88a-aae2f979661e}</destination>
+            <destination>{09ec6756-1607-41f5-b872-695a7e061fa3}</destination>
         </relationship>
     </object>
     <object class="EventAutomatableProperties" id="{b5d73003-43a5-442f-89bf-8131ba5d6b19}"/>
     <object class="MarkerTrack" id="{a1167eb1-4b26-4949-8d30-7ecbc9a8bbeb}"/>
     <object class="GroupTrack" id="{da840b4f-53d0-4554-b82f-0e5515cfef27}">
-        <relationship name="modules">
-            <destination>{c6bcb336-63e1-41ac-97e2-f2e07b68575a}</destination>
-        </relationship>
         <relationship name="mixerGroup">
             <destination>{62b05da7-10c0-4cd9-911a-d65868129350}</destination>
         </relationship>
     </object>
     <object class="Timeline" id="{a3e74d17-de29-4513-94d2-eb963fee9f31}">
-        <relationship name="modules">
-            <destination>{c6bcb336-63e1-41ac-97e2-f2e07b68575a}</destination>
-        </relationship>
         <relationship name="markers">
             <destination>{f2de8cea-5fbe-445a-9ab2-aa984d69cb27}</destination>
         </relationship>
@@ -91,17 +85,6 @@
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{5f735da3-89ee-4590-a2b4-485476aef624}"/>
-    <object class="SingleSound" id="{c6bcb336-63e1-41ac-97e2-f2e07b68575a}">
-        <property name="length">
-            <value>59.914666666666669</value>
-        </property>
-        <property name="pitch">
-            <value>3</value>
-        </property>
-        <relationship name="audioFile">
-            <destination>{b86f40df-18bd-4626-95f8-031857e9b4c7}</destination>
-        </relationship>
-    </object>
     <object class="EventMixerGroup" id="{62b05da7-10c0-4cd9-911a-d65868129350}">
         <property name="name">
             <value>eart</value>
