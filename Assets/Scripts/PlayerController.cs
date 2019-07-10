@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.partCounterText.text = deadCount.ToString();
 
         //GAME OVER
-        if ((deadCount >= GameManager.Instance.partsDeadGameOver || Input.GetKeyDown(KeyCode.I)) && GameManager.Instance.gameOver == false)
+        if (deadCount >= GameManager.Instance.partsDeadGameOver && GameManager.Instance.gameOver == false)
         {
             GameManager.Instance.GameOver();
         }
