@@ -17,6 +17,12 @@ TextureImporter:
   - first:
       213: 1572257262343246155
     second: Ui_Restart
+  - first:
+      213: 3830944035012027139
+    second: UI_LifeBar_Outline
+  - first:
+      213: -114456928753498013
+    second: UI_Lifebar_Slider
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -199,6 +205,48 @@ TextureImporter:
       bones: []
       spriteID: 9a80e8ed2f4f7ce4e9308eeedc63d7e7
       internalID: 1572257262343246155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_LifeBar_Outline
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 1942
+        width: 522
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7098f0479c015434ca31bd0217314409
+      internalID: 3830944035012027139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Lifebar_Slider
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 1840
+        width: 501
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb45b5ac1fd928b4b978f6765005c3fa
+      internalID: -114456928753498013
       vertices: []
       indices: 
       edges: []
