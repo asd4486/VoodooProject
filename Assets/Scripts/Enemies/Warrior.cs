@@ -3,14 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Warrior : Enemy
+public class Warrior : AIEnemy
 {
-    Animator myAnimator;
-    public float damage = 15;
-    public float damagePerSecond = 1;
-
-    public float speedMultiplicator = 6f;
-
     private bool canAttack = false;
 
     private float timerShoot = 0f;
@@ -18,13 +12,6 @@ public class Warrior : Enemy
 
     public GameObject projectileSpawner;
     public GameObject projectile;
-
-    private void Start()
-    {
-        myAnimator = GetComponent<Animator>();
-        //myAnimator.SetTrigger("Walk");
-        //Invoke("StopAnimation", 6f);
-    }
 
     public void StopAnimation()
     {
@@ -56,13 +43,13 @@ public class Warrior : Enemy
 
     public void Shoot()
     {
-        Vector3 targetDir = target.transform.position - transform.position;
+        Vector3 targetDir = attackTarget.transform.position - transform.position;
         GameObject p = Instantiate(projectile, projectileSpawner.transform);
         float angle = Vector3.Angle(targetDir, p.transform.up);
         p.transform.Rotate(0, 0, angle);
 
-        p.transform.DOMove(target.transform.position, GameManager.Instance.projectileTravelTime).SetEase(Ease.OutSine).OnComplete(() => Destroy(p));
+        p.transform.DOMove(attackTarget.transform.position, GameManager.Instance.projectileTravelTime).SetEase(Ease.OutSine).OnComplete(() => Destroy(p));
 
-        target.GetDamage(damage, damagePerSecond, GameManager.Instance.projectileTravelTime);
+        attackTarget.GetDamage(damage, attackDelay, GameManager.Instance.projectileTravelTime);
     }
 }
