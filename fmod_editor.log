@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000002955CD7D7C8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000002956A5CF4D8 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -15,46 +15,9 @@
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
 [LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] SoundI::release                          :  (0000029558D23578)
-[LOG] SoundI::release                          :     creature_growl_03 (0000029553B00718)
-[LOG] SoundI::release                          :  (0000029558D22158)
-[LOG] SoundI::release                          :     ennemis_footStep (0000029553B015B8)
-[LOG] SoundI::release                          :  (0000029558D225A8)
-[LOG] SoundI::release                          :     creature_footStep_03 (0000029553B02798)
-[LOG] SoundI::release                          :  (0000029558D21B98)
-[LOG] SoundI::release                          :     creature_footStep_02 (0000029553B02AD8)
-[LOG] SoundI::release                          : Battle NO4 (00000295589D2FB8)
-[LOG] SoundI::release                          :     Battle NO4 (0000029553B00BF8)
-[LOG] SoundI::release                          :     Battle NO4 (00000295589D2AA8)
-[LOG] SoundI::release                          :  (0000029558D22E48)
-[LOG] SoundI::release                          :     creature_walk_bell_01 (0000029553B00098)
-[LOG] SoundI::release                          :  (0000029558D218B8)
-[LOG] SoundI::release                          :     creature_cloth_cut_01 (0000029553B01DD8)
-[LOG] SoundI::release                          :  (0000029558D23298)
-[LOG] SoundI::release                          :     creature_footStep_04 (0000029553B00F38)
-[LOG] SoundI::release                          :  (0000029558D21D08)
-[LOG] SoundI::release                          :     Creature_roar (0000029553B03E58)
-[LOG] Thread::callback                         : FMOD Studio update thread finished.
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] SystemI::close                           : Closed.
 [LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
 [LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
 [LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
 [LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
 [LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 3
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 3
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
