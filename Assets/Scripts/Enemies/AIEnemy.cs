@@ -43,9 +43,8 @@ public class AIEnemy : MonoBehaviour
     public float atkRange;
 
     public float damage;
+    [HideInInspector] public float attackDelayTimer;
     public float attackDelay = 1;
-
-    [HideInInspector] public bool dead;
 
     public float speedMultiplicator = 8f;
 
@@ -71,7 +70,7 @@ public class AIEnemy : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (dead)
+        if (myStatus == EnemyStatus.Die)
         {
             Destroy(gameObject);
             return;
@@ -107,11 +106,11 @@ public class AIEnemy : MonoBehaviour
         switch (myStatus)
         {
             case EnemyStatus.Run:
+                MoveStart();
                 break;
             case EnemyStatus.Attack:
                 StartAttack();
                 break;
-
         }
     }
 
@@ -128,16 +127,17 @@ public class AIEnemy : MonoBehaviour
     public virtual void StartAttack()
     {
         AudioManager.Instance.FMODEvent_Ennemi_Walk.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        AudioManager.Instance.FMODEvent_Ennemi_Attack.start();
     }
 
     public virtual void Attack()
     {
-        AudioManager.Instance.FMODEvent_Ennemi_Attack.start();
+
     }
 
     public virtual void Die()
     {
-        dead = true;
+        ChangeStatus(EnemyStatus.Die);
         AudioManager.Instance.FMODEvent_Ennemi_BeingHit.start();
     }
 }
