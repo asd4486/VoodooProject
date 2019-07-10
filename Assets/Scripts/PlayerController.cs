@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
                     downParts.Add(p);
                     rightFoot = p;
                     break;
-
             }
 
             p.Init(aiMoster);

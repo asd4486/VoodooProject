@@ -38,13 +38,15 @@ public class Archer : AIEnemy
         //}
     }
 
-    public override void Move()
+    public override void Moving()
     {
         rb.velocity = Vector3.right * GameManager.Instance.environmentSpeed * speedMultiplicator;
     }
 
     public override void StartAttack()
     {
+        base.StartAttack();
+        
         rb.velocity = Vector3.zero;
         //Vector3 targetDir = attackPart.transform.position - transform.position;
         //GameObject p = Instantiate(projectile);
@@ -55,5 +57,10 @@ public class Archer : AIEnemy
         //p.transform.DOMove(attackPart.transform.position, GameManager.Instance.projectileTravelTime).SetEase(Ease.OutSine).OnComplete(() => Destroy(p));
 
         //attackPart.GetDamage(damage, attackDelay, GameManager.Instance.projectileTravelTime);
+    }
+
+    public override void Attack()
+    {
+        base.Attack();
     }
 }

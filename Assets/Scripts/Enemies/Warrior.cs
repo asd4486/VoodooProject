@@ -32,7 +32,7 @@ public class Warrior : AIEnemy
 
     }
 
-    public override void Move()
+    public override void Moving()
     {
         rb.velocity = Vector3.right * GameManager.Instance.environmentSpeed * speedMultiplicator;
     }
