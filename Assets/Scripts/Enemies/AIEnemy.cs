@@ -23,6 +23,8 @@ public enum EnemySpawnZone
 
 public class AIEnemy : MonoBehaviour
 {
+    [HideInInspector] public PlayerController playerController;
+
     AIMonster aiMonster;
     public EnemyTypes enemyType;
     [HideInInspector] public EnemyStatus myStatus;
@@ -42,14 +44,18 @@ public class AIEnemy : MonoBehaviour
     [HideInInspector] public Part attackPart;
     public float atkRange;
 
+
     public float damage;
-    [HideInInspector] public float attackDelayTimer;
     public float attackDelay = 1;
+    [HideInInspector] public float attackTimer;
+    bool isAttaking;
 
     public float speedMultiplicator = 8f;
 
     private void Awake()
     {
+        playerController = FindObjectOfType<PlayerController>();
+
         aiMonster = FindObjectOfType<AIMonster>();
         myAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -77,7 +83,23 @@ public class AIEnemy : MonoBehaviour
         }
 
         GetDistanceToTarget();
+
+        switch (myStatus)
+        {
+            case EnemyStatus.Run:
+                Moving();
+                break;
+            case EnemyStatus.Attack:
+                Attacking();
+                break;
+        }
     }
+
+    public void PlayAnimation(string trigger)
+    {
+        myAnimator.SetTrigger(trigger);
+    }
+
 
     void GetDistanceToTarget()
     {
@@ -117,27 +139,58 @@ public class AIEnemy : MonoBehaviour
     public virtual void MoveStart()
     {
         AudioManager.Instance.FMODEvent_Ennemi_Walk.start();
+        PlayAnimation("walk");
     }
 
     public virtual void Moving()
     {
         if (myStatus != EnemyStatus.Run) return;
+
+        //move directment
+        rb.velocity = Vector3.right * GameManager.Instance.environmentSpeed * (speedMultiplicator - Random.Range(0, 3));
     }
 
     public virtual void StartAttack()
     {
         AudioManager.Instance.FMODEvent_Ennemi_Walk.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         AudioManager.Instance.FMODEvent_Ennemi_Attack.start();
+        rb.velocity = Vector3.zero;
+        attackTimer = 0;
+        PlayAnimation("startAttack");
     }
 
-    public virtual void Attack()
+    public virtual void Attacking()
     {
+        if (!isAttaking) attackTimer += Time.deltaTime;
+        if (attackTimer >= attackDelay)
+        {
+            attackTimer = 0;
+            PlayAnimation("attack");
+            isAttaking = true;
+        }
+    }
 
+    public virtual void EventAttack()
+    {
+        isAttaking = false;
     }
 
     public virtual void Die()
     {
         ChangeStatus(EnemyStatus.Die);
         AudioManager.Instance.FMODEvent_Ennemi_BeingHit.start();
+    }
+
+    protected Part GetClosestPart()
+    {
+        var allParts = playerController.allParts;
+        Part closest = null;
+
+        foreach(var p in allParts)
+        {
+
+        }
+
+        return closest;
     }
 }

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Villager : AIEnemy
 {
-    protected override void Update()
-    {
-        base.Update();
 
-        //move directment
-        rb.velocity = Vector3.right * GameManager.Instance.environmentSpeed * (speedMultiplicator - Random.Range(0, 3));
-    }
+    //protected override void Update()
+    //{
+    //    base.Update();
+
+    //}
+
+
 
     //private void OnCollisionEnter2D(Collision2D collision)
     //{
