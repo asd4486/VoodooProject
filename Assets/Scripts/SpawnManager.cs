@@ -8,11 +8,11 @@ public class SpawnManager : MonoBehaviour
     PlayerController playerController;
     private float spawnTimer;
 
-    public GameObject[] enemies;
-    public GameObject villager;
-    public GameObject spawnerMiddle;
-    public GameObject spawnerDown;
+    [SerializeField] GameObject[] enemyPrefabs;
+    [SerializeField] GameObject[] villagerPrefabs;
 
+    [SerializeField] Transform[] spawnerMiddleGroup;
+    [SerializeField] Transform[] spawnerDownGroup;
 
     void Awake()
     {
@@ -27,7 +27,7 @@ public class SpawnManager : MonoBehaviour
         if (spawnTimer <= 0f)
         {
             spawnTimer = Random.Range(GameManager.Instance.spawnTimerMin, GameManager.Instance.spawnTimerMax);
-            Spawn();
+            SpawnEnemy();
             if (Random.Range(0, 5) <= 1)
             {
                 SpawnVillager();
@@ -35,17 +35,25 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    private void Spawn()
+    private void SpawnEnemy()
     {
-        GameObject e;
         float r = Random.Range(0, 2);
-        e = Instantiate(enemies[Random.Range(0, enemies.Length)], r < 1 ? spawnerDown.transform : spawnerMiddle.transform);
 
-        e.GetComponent<Enemy>().SetTarget(playerController.allParts);
+        //0 top line
+        //1 bottom line
+        var spawnPoint = spawnerDownGroup[Random.Range(0, spawnerDownGroup.Length)];
+
+        //e = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], r < 1 ? spawnerDown : spawnerMiddle);
+        GameObject e = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], new Vector3(transform.position.x, spawnPoint.position.y), Quaternion.identity);
+
+        e.GetComponent<AIEnemy>().Init(EnemySpawnZone.Bottom);
     }
 
     private void SpawnVillager()
     {
-        Instantiate(villager, spawnerDown.transform);
+        var o = villagerPrefabs[Random.Range(0, villagerPrefabs.Length)];
+        var posY = spawnerDownGroup[Random.Range(0, spawnerDownGroup.Length)].position.y;
+
+        Instantiate(o, new Vector3(transform.position.x, posY), Quaternion.identity);
     }
 }

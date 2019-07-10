@@ -55,9 +55,9 @@ public  class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        spawner.SetActive(false);
-        bars.SetActive(false);
-        panelGameOver.SetActive(true);
-        environmentSpeed = 0f;
+        //spawner.SetActive(false);
+        //bars.SetActive(false);
+        //panelGameOver.SetActive(true);
+        //environmentSpeed = 0f;
     }
 }

@@ -7,6 +7,10 @@ public class AIMonster : MonoBehaviour
     private float startSpeed;
     Animator myAnimator;
 
+    //target point for enemy
+    public Transform topTargetPoint;
+    public Transform botTargetPoint;
+
     private void Awake()
     {
         myAnimator = GetComponentInChildren<Animator>();
