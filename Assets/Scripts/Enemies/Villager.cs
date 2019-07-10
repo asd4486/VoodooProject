@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Villager : MonoBehaviour
+public class Villager : AIEnemy
 {
-    public float speedMultiplicator = 8f;
-
-    void Update()
+    protected override void Update()
     {
-        transform.Translate(Vector3.right * GameManager.Instance.environmentSpeed * (speedMultiplicator - Random.Range(0,3)) * Time.deltaTime);
+        base.Update();
+        transform.Translate(Vector3.right * GameManager.Instance.environmentSpeed * (speedMultiplicator - Random.Range(0, 3)) * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
