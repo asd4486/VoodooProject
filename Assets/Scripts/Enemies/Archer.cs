@@ -43,7 +43,7 @@ public class Archer : AIEnemy
         rb.velocity = Vector3.right * GameManager.Instance.environmentSpeed * speedMultiplicator;
     }
 
-    public override void Attack()
+    public override void StartAttack()
     {
         rb.velocity = Vector3.zero;
         //Vector3 targetDir = attackPart.transform.position - transform.position;

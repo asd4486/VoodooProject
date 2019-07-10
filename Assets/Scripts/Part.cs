@@ -1,4 +1,5 @@
 ﻿using Anima2D;
+using FMOD.Studio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,8 @@ public enum MonsterPartType
 
 public class Part : MonoBehaviour
 {
+    AIMonster aiMonster;
+
     SpriteMeshAnimation mySpriteMeshStade;
     public MonsterPartType partType;
 
@@ -45,12 +48,23 @@ public class Part : MonoBehaviour
         myPv = maxPv;
     }
 
-    public void LateStart()
+    public void Init(AIMonster _aiMonster)
     {
         StartCoroutine(GetDamageOverTimeCoroutine());
+        aiMonster = _aiMonster;
     }
 
     void Update()
+    {
+        RefreshPV();
+
+        isDead = myPv <= 0;
+        //sprite 4
+
+        Healing();
+    }
+
+    void RefreshPV()
     {
         healthBar.fillAmount = myPv / maxPv;
 
@@ -70,16 +84,24 @@ public class Part : MonoBehaviour
             mySpriteMeshStade.frame = 2;
         }
 
-        isDead = myPv <= 0;
-        //sprite 4
-
-        Healing();
+        if (myPv <= maxPv * 0.15f)
+        {
+            AudioManager.Instance.FMODEvent_Creature_LowLife.start();
+        }
+        else
+        {
+            var state = PLAYBACK_STATE.PLAYING;
+            AudioManager.Instance.FMODEvent_Creature_LowLife.getPlaybackState(out state);
+            if (state == PLAYBACK_STATE.PLAYING) AudioManager.Instance.FMODEvent_Creature_LowLife.start();
+        }
     }
 
     public void StartHeal()
     {
         healDelayTimer = 0;
         healParticle.Play();
+        AudioManager.Instance.FMODEvent_Creature_Healing.start();
+
         isHealing = true;
     }
 
@@ -125,6 +147,7 @@ public class Part : MonoBehaviour
     {
         isHealing = false;
 
+        AudioManager.Instance.FMODEvent_Creature_Healing.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         healParticle.Stop();
         damagePerSecond = projectileCount = 0;
         UnshowLines();
@@ -157,8 +180,6 @@ public class Part : MonoBehaviour
         }
     }
 
-
-
     public void ExpulseProjectiles()
     {
 
@@ -166,17 +187,20 @@ public class Part : MonoBehaviour
 
     public void Attack(string membre)
     {
-        if (membre == "BrasGauche")
+        switch (membre)
         {
-            GameObject.FindGameObjectWithTag("Monster").gameObject.transform.GetComponent<Animator>().SetTrigger("BrasGauche");
-        }
-        else if (membre == "JambeGauche")
-        {
-            GameObject.FindGameObjectWithTag("Monster").gameObject.transform.GetComponent<Animator>().SetTrigger("JambeGauche");
-        }
-        else if (membre == "BrasDroit")
-        {
-            GameObject.FindGameObjectWithTag("Monster").gameObject.transform.GetComponent<Animator>().SetTrigger("BrasDroit");
+            case "BrasGauche":
+                aiMonster.PlayAnimation("BrasGauche");
+                AudioManager.Instance.FMODEvent_Creature_Attack.start();
+                break;
+            case "JambeGauche":
+                aiMonster.PlayAnimation("JambeGauche");
+                AudioManager.Instance.FMODEvent_Creature_Attack.start();
+                break;
+            case "BrasDroit":
+                aiMonster.PlayAnimation("BrasDroit");
+                AudioManager.Instance.FMODEvent_Creature_Attack.start();
+                break;
         }
     }
 

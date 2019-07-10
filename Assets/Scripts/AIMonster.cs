@@ -17,10 +17,12 @@ public class AIMonster : MonoBehaviour
         startSpeed = GameManager.Instance.environmentSpeed;
     }
 
-    private void Start()
+    public void Init()
     {
         PlayAnimation("Walk");
+        AudioManager.Instance.FMODEvent_Creature_Walk.start();
     }
+
     public void StartAnimation()
     {
         //GameManager.Instance.environmentSpeed = 0f;

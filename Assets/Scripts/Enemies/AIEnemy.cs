@@ -18,7 +18,7 @@ public enum EnemyStatus
 public enum EnemySpawnZone
 {
     Bottom,
-    Middle    
+    Middle
 }
 
 public class AIEnemy : MonoBehaviour
@@ -65,6 +65,8 @@ public class AIEnemy : MonoBehaviour
         targetZoneLine = Random.Range(0, 2);
         moveTargetPoint = targetZoneLine > 0 ? aiMonster.topTargetPoint : aiMonster.botTargetPoint;
         //GetComponent<AIEnemy>().attackPart = parts[Random.Range(0, parts.Length)];
+
+        AudioManager.Instance.FMODEvent_Ennemi_Walk.start();
     }
 
     protected virtual void Update()
@@ -89,26 +91,43 @@ public class AIEnemy : MonoBehaviour
         if (dist < atkRange)
         {
             ChangeStatus(EnemyStatus.Attack);
-            Attack();
         }
         else
         {
             ChangeStatus(EnemyStatus.Run);
-            Move();
         }
     }
 
     void ChangeStatus(EnemyStatus status)
     {
         if (myStatus != status) myStatus = status;
+
+        switch (myStatus)
+        {
+            case EnemyStatus.Attack:
+                StartAttack();
+                break;
+        }
     }
 
-    public virtual void Move() { }
+    public virtual void Move()
+    {
+        if (myStatus != EnemyStatus.Run) return;
+    }
 
-    public virtual void Attack() { }
+    public virtual void StartAttack()
+    {
+        AudioManager.Instance.FMODEvent_Ennemi_Walk.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
+
+    public virtual void Attack()
+    {
+        AudioManager.Instance.FMODEvent_Ennemi_Attack.start();
+    }
 
     public virtual void Die()
     {
         dead = true;
+        AudioManager.Instance.FMODEvent_Ennemi_BeingHit.start();
     }
 }

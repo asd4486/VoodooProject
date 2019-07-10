@@ -6,6 +6,7 @@ using DG.Tweening;
 
 public  class GameManager : MonoBehaviour
 {
+    AIMonster aiMonster;
     public float spawnTimerMin;
     public float spawnTimerMax;
     
@@ -50,7 +51,19 @@ public  class GameManager : MonoBehaviour
 
     void Awake()
     {
+        aiMonster = FindObjectOfType<AIMonster>();
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        StartGame();
+    }
+
+    void StartGame()
+    {
+        AudioManager.Instance.FMODEvent_Environnement.start();
+        aiMonster.Init();
     }
 
     public void GameOver()
