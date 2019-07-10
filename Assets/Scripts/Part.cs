@@ -22,7 +22,7 @@ public class Part : MonoBehaviour
     public MonsterPartType partType;
 
     [SerializeField] Image healthBar;
-    public ParticleSystem healParticle;
+    [SerializeField] ParticleSystem healParticle;
 
     public bool stopDamageOverTime = false;
 
@@ -41,7 +41,7 @@ public class Part : MonoBehaviour
     private void Awake()
     {
         mySpriteMeshStade = GetComponent<SpriteMeshAnimation>();
-        healParticle.Pause();
+        healParticle.Stop();
         myPv = maxPv;
     }
 
@@ -72,12 +72,13 @@ public class Part : MonoBehaviour
 
         isDead = myPv <= 0;
         //sprite 4
+
+        Healing();
     }
 
     public void StartHeal()
     {
         healDelayTimer = 0;
-        healParticle.gameObject.SetActive(true);
         healParticle.Play();
         isHealing = true;
     }
@@ -124,7 +125,7 @@ public class Part : MonoBehaviour
     {
         isHealing = false;
 
-        healParticle.Pause();
+        healParticle.Stop();
         damagePerSecond = projectileCount = 0;
         UnshowLines();
         ExpulseProjectiles();

@@ -19,9 +19,9 @@ public class PlayerController : MonoBehaviour
     Part leftFoot;
 
     public Part[] allParts;
-    public List<Part> topParts = new List<Part>();
-    public List<Part> middleParts = new List<Part>();
-    public List<Part> downParts = new List<Part>();
+    [HideInInspector] public List<Part> topParts = new List<Part>();
+    [HideInInspector] public List<Part> middleParts = new List<Part>();
+    [HideInInspector] public List<Part> downParts = new List<Part>();
 
     private void Awake()
     {
@@ -111,80 +111,80 @@ public class PlayerController : MonoBehaviour
 
     void InputController()
     {
-        //tete gauche
-        if (Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.Keypad9))
-        {
-            cryingHead.StartHeal();
-        }
-        else if (Input.GetKeyUp(KeyCode.G) || Input.GetKeyUp(KeyCode.Keypad9))
-        {
-            cryingHead.FinishHeal();
-            myMonster.PlayAnimation("FlexTeteGauche");
-        }
-
-        //tete droite
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Keypad7))
+        //angry head
+        if (Input.GetButtonDown("angryHead"))
         {
             angryHead.StartHeal();
         }
-        else if (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.Keypad7))
+        else if (Input.GetButtonUp("angryHead"))
         {
             angryHead.FinishHeal();
+            myMonster.PlayAnimation("FlexTeteGauche");
+        }
+
+        //cry head
+        if (Input.GetButtonDown("cryHead"))
+        {
+            cryingHead.StartHeal();
+        }
+        else if (Input.GetButtonUp("cryHead"))
+        {
+            cryingHead.FinishHeal();
             myMonster.PlayAnimation("FlexTeteDroite");
         }
 
-        //tronc
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.Keypad5))
+        //body
+        if (Input.GetButtonDown("body"))
         {
             bodyPart.StartHeal();
         }
-        else if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.Keypad5))
+        else if (Input.GetButtonUp("body"))
         {
             bodyPart.FinishHeal();
             myMonster.PlayAnimation("FlexBuste");
         }
 
-        //bras droit
-        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Keypad4))
+        //right hand
+        if (Input.GetButtonDown("rightHand"))
         {
             rightHand.StartHeal();
         }
-        else if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.Keypad4))
+        else if (Input.GetButtonUp("rightHand"))
         {
             rightHand.FinishHeal();
             rightHand.Attack("BrasDroit");
         }
 
-        //bras gauche
-        if (Input.GetKeyDown(KeyCode.Mouse1) || Input.GetKeyDown(KeyCode.Keypad6))
+        //left hand
+        if (Input.GetButtonDown("leftHand"))
         {
             leftHand.StartHeal();
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse1) || Input.GetKeyUp(KeyCode.Keypad6))
+        else if (Input.GetButtonUp("leftHand"))
         {
             leftHand.UnshowLines();
             leftHand.FinishHeal();
             leftHand.Attack("BrasGauche");
         }
 
-        //jambe droite
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.Keypad1))
+        //right foot
+        if (Input.GetButtonDown("rightFoot"))
         {
             rightFoot.StartHeal();
         }
-        else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.Keypad1))
+        else if (Input.GetButtonUp("rightFoot"))
         {
             rightFoot.UnshowLines();
             rightFoot.FinishHeal();
             myMonster.PlayAnimation("FlexJambeDroite");
         }
 
-        //jambe gauche
-        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Keypad3))
+        //left foot
+        if (Input.GetButtonDown("leftFoot"))
         {
             leftFoot.StartHeal();
         }
-        else if (Input.GetKeyUp(KeyCode.F) || Input.GetKeyUp(KeyCode.Keypad3))
+        else if (Input.GetButtonUp("leftFoot"))
         {
             leftFoot.FinishHeal();
             leftFoot.ExpulseProjectiles();
