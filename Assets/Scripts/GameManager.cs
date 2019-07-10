@@ -35,6 +35,8 @@ public  class GameManager : MonoBehaviour
     public GameObject bars;
     public GameObject panelGameOver;
 
+    [HideInInspector] public bool gameOver = false;
+
     private static GameManager _instance;
 
     public static GameManager Instance
@@ -52,7 +54,7 @@ public  class GameManager : MonoBehaviour
     void Awake()
     {
         aiMonster = FindObjectOfType<AIMonster>();
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -68,6 +70,9 @@ public  class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        //Debug.Log("perdulol");
+        panelGameOver.SetActive(true);
+        gameOver = true;
         //spawner.SetActive(false);
         //bars.SetActive(false);
         //panelGameOver.SetActive(true);
