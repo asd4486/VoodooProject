@@ -46,9 +46,9 @@ public class AudioManager : MonoBehaviour
         FMODEvent_Creature_Dead = FMODUnity.RuntimeManager.CreateInstance("event:/Creature/Creature_Dead");
         FMODEvent_Creature_LooseMember = FMODUnity.RuntimeManager.CreateInstance("event:/Creature/Creature_LooseMember");
 
-        FMODEvent_Ennemi_Walk = FMODUnity.RuntimeManager.CreateInstance("event:/Creature/Ennemi_Walk");
-        FMODEvent_Ennemi_Attack = FMODUnity.RuntimeManager.CreateInstance("event:/Creature/Creature_Attack");
-        FMODEvent_Ennemi_BeingHit = FMODUnity.RuntimeManager.CreateInstance("event:/Creature/Creature_BeingHit");
+        FMODEvent_Ennemi_Walk = FMODUnity.RuntimeManager.CreateInstance("event:/Ennemis/Ennemi_Walk");
+        FMODEvent_Ennemi_Attack = FMODUnity.RuntimeManager.CreateInstance("event:/Ennemis/Ennemi_Attack");
+        FMODEvent_Ennemi_BeingHit = FMODUnity.RuntimeManager.CreateInstance("event:/Ennemis/Ennemi_BeingHit");
 
         FMODEvent_Environnement = FMODUnity.RuntimeManager.CreateInstance("event:/Enviro/Environnement");
     }

@@ -33,6 +33,7 @@
         </relationship>
         <relationship name="banks">
             <destination>{c4401b75-2ea8-4a7f-a1cd-2767d49b544f}</destination>
+            <destination>{c04200d4-6fd4-4301-a263-58fbb025c438}</destination>
         </relationship>
     </object>
     <object class="EventMixer" id="{5135f02b-bc3c-42d3-92ee-5b216d115196}">
@@ -59,11 +60,18 @@
     <object class="EventAutomatableProperties" id="{f6a75a55-ddfa-41fd-99af-86fa2bf69506}"/>
     <object class="MarkerTrack" id="{c94fdbb8-929f-405a-80d0-c12518a7dcc0}"/>
     <object class="GroupTrack" id="{1ba02454-7855-4316-8272-507da1cddc66}">
+        <relationship name="modules">
+            <destination>{28674daa-3a9a-4a9c-bbd3-9a8d7c26eadb}</destination>
+        </relationship>
         <relationship name="mixerGroup">
             <destination>{5f339217-98e8-450c-9535-57b8398c558e}</destination>
         </relationship>
     </object>
-    <object class="Timeline" id="{37f27360-9114-475a-bfc6-32d7ec36c932}"/>
+    <object class="Timeline" id="{37f27360-9114-475a-bfc6-32d7ec36c932}">
+        <relationship name="modules">
+            <destination>{28674daa-3a9a-4a9c-bbd3-9a8d7c26eadb}</destination>
+        </relationship>
+    </object>
     <object class="EventMixerMaster" id="{b31945f3-1954-49c5-88b7-95b116b7f82a}">
         <relationship name="effectChain">
             <destination>{40e6a241-01e1-44bd-a607-bd404aa0281f}</destination>
@@ -81,6 +89,14 @@
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{c87706e9-2ff5-4e0f-9ca1-d65bbd929931}"/>
+    <object class="SingleSound" id="{28674daa-3a9a-4a9c-bbd3-9a8d7c26eadb}">
+        <property name="length">
+            <value>2.0746666666666669</value>
+        </property>
+        <relationship name="audioFile">
+            <destination>{20f0bb5d-1d57-4bcc-85f7-681ac80714d9}</destination>
+        </relationship>
+    </object>
     <object class="EventMixerGroup" id="{5f339217-98e8-450c-9535-57b8398c558e}">
         <property name="name">
             <value>Voice</value>
