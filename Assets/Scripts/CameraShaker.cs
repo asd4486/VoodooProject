@@ -23,6 +23,7 @@ public class CameraShaker : MonoBehaviour
         //{
         //    CameraLittleDownShake();
         //}
+
     }
 
     public void CameraLittleDownShake()
