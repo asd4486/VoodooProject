@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{6c6da8da-1c0d-436d-8562-a9ea5216879a}">
+        <property name="assetPath">
+            <value>creature_cloth.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>96</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>7.0613333333333337</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{d724fd05-6d07-4d08-819e-b21ddaa31cdf}</destination>
+        </relationship>
+    </object>
+</objects>
