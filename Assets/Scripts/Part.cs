@@ -185,20 +185,24 @@ public class Part : MonoBehaviour
 
     }
 
-    public void Attack(string membre)
+    public void Attack()
     {
-        switch (membre)
+
+        switch (partType)
         {
-            case "BrasGauche":
-                aiMonster.PlayAnimation("BrasGauche");
+            case MonsterPartType.LeftHand:
+
+                break;
+            case MonsterPartType.RightHand:
+                aiMonster.PlayAnimation("Right_Arm_Attack_Trigger");
                 AudioManager.Instance.FMODEvent_Creature_Attack.start();
                 break;
-            case "JambeGauche":
-                aiMonster.PlayAnimation("JambeGauche");
+            case MonsterPartType.LeftFoot:
+                aiMonster.PlayAnimation("Left_Leg_Flex_Trigger");
                 AudioManager.Instance.FMODEvent_Creature_Attack.start();
                 break;
-            case "BrasDroit":
-                aiMonster.PlayAnimation("BrasDroit");
+            case MonsterPartType.RightFoot:
+                aiMonster.PlayAnimation("Right_Leg_Flex_Trigger");
                 AudioManager.Instance.FMODEvent_Creature_Attack.start();
                 break;
         }

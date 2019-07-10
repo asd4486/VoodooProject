@@ -25,25 +25,17 @@ public class Warrior : AIEnemy
 
     //}
 
+    public override void StartAttack()
+    {
+        base.StartAttack();
+
+        attackPart = GetClosestPart();
+    }
+
     public override void EventAttack()
     {
         base.EventAttack();
 
-
         attackPart.GetDamage(damage, attackDelay, GameManager.Instance.projectileTravelTime);
     }
-
-    //public override void EventAttack()
-    //{
-
-    //    //Vector3 targetDir = attackPart.transform.position - transform.position;
-    //    //GameObject p = Instantiate(projectile);
-    //    //p.transform.position = projectileSpawner.position;
-    //    //float angle = Vector3.Angle(targetDir, p.transform.up);
-    //    //p.transform.Rotate(0, 0, angle);
-
-    //    //p.transform.DOMove(attackPart.transform.position, GameManager.Instance.projectileTravelTime).SetEase(Ease.OutSine).OnComplete(() => Destroy(p));
-
-    //    //attackPart.GetDamage(damage, attackDelay, GameManager.Instance.projectileTravelTime);
-    //}
 }

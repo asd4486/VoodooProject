@@ -76,7 +76,7 @@ public class AIEnemy : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (myStatus == EnemyStatus.Die)
+        if (myStatus == EnemyStatus.Die || transform.position.x < -5)
         {
             Destroy(gameObject);
             return;
@@ -154,7 +154,7 @@ public class AIEnemy : MonoBehaviour
     {
         AudioManager.Instance.FMODEvent_Ennemi_Walk.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         AudioManager.Instance.FMODEvent_Ennemi_Attack.start();
-        rb.velocity = Vector3.zero;
+        rb.velocity = new Vector3(GameManager.Instance.environmentSpeed, 0, 0);
         attackTimer = 0;
         PlayAnimation("startAttack");
     }
@@ -185,10 +185,16 @@ public class AIEnemy : MonoBehaviour
     {
         var allParts = playerController.allParts;
         Part closest = null;
+        var closestDist = float.MaxValue;
 
-        foreach(var p in allParts)
+        foreach (var p in allParts)
         {
-
+            var dist = Vector2.Distance(transform.position, p.transform.position);
+            if (dist < closestDist)
+            {
+                closestDist = dist;
+                closest = p;
+            }
         }
 
         return closest;

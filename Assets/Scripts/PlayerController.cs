@@ -151,7 +151,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetButtonUp("rightHand"))
         {
             rightHand.FinishHeal();
-            rightHand.Attack("BrasDroit");
+            rightHand.Attack();
         }
 
         //left hand
@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour
         {
             leftHand.UnshowLines();
             leftHand.FinishHeal();
-            leftHand.Attack("BrasGauche");
+            leftHand.Attack();
         }
 
         //right foot

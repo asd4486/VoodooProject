@@ -13,6 +13,7 @@ TagManager:
   - Particle
   - Villager
   - CacAttack
+  - part_atk
   layers:
   - Default
   - TransparentFX
@@ -50,11 +51,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: monster
+  - name: monster1
     uniqueID: 2776868163
     locked: 0
-  - name: enemy
+  - name: enemy1
     uniqueID: 410863267
+    locked: 0
+  - name: monster2
+    uniqueID: 925310333
+    locked: 0
+  - name: enemy2
+    uniqueID: 2127220275
     locked: 0
   - name: projectiles
     uniqueID: 2252968811
@@ -62,6 +69,6 @@ TagManager:
   - name: FX
     uniqueID: 4243243241
     locked: 0
-  - name: UI
-    uniqueID: 2127220275
+  - name: New Layer
+    uniqueID: 241436799
     locked: 0
