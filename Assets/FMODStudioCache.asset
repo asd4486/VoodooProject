@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: event:/Creature/Creature_LooseMember
   guid: 534cbc6ce3666547a48e2bb117caa0c5
   Banks:
-  - {fileID: 1556466203838043645}
+  - {fileID: 7654284030944539844}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -38,7 +38,7 @@ MonoBehaviour:
   Path: event:/Creature/Creature_Healing
   guid: a463ff1b4f147f4db8c385f7b6a86775
   Banks:
-  - {fileID: 1556466203838043645}
+  - {fileID: 7654284030944539844}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   Path: event:/Creature/Creature_LowLife
   guid: c9f0164b36f35744aa2ffd5a4d29688a
   Banks:
-  - {fileID: 1556466203838043645}
+  - {fileID: 7654284030944539844}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -84,7 +84,7 @@ MonoBehaviour:
   Path: event:/Enviro/Environnement
   guid: 5ffbbc27351e66408e3cddb3c1ee1f72
   Banks:
-  - {fileID: 1556466203838043645}
+  - {fileID: 7654284030944539844}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -107,7 +107,7 @@ MonoBehaviour:
   Path: event:/Creature/Creature_Walk
   guid: 71e270cb858c114db967b8932a748c02
   Banks:
-  - {fileID: 1556466203838043645}
+  - {fileID: 7654284030944539844}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: bank:/Master Bank.strings.bank
   m_EditorClassIdentifier: 
   Path: FmodFichier\voodooFmod\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636983645755469592
+  lastModified: 636983648884242823
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -1527575647933705941}
-  - {fileID: 1556466203838043645}
+  - {fileID: 7654284030944539844}
   EditorEvents:
   - {fileID: 9144995128729718047}
   - {fileID: 4051797888260133762}
@@ -161,10 +161,10 @@ MonoBehaviour:
   - {fileID: 6227033921625099464}
   - {fileID: -4273749381783838503}
   MasterBanks:
-  - {fileID: 1556466203838043645}
+  - {fileID: 7654284030944539844}
   StringsBanks:
   - {fileID: -1527575647933705941}
-  stringsBankWriteTime: 636983645755469592
+  stringsBankWriteTime: 636983648884242823
   cacheVersion: 3
 --- !u!114 &1556466203838043645
 MonoBehaviour:
@@ -185,7 +185,7 @@ MonoBehaviour:
   FileSizes:
   - Name: 
     Value: 2115264
-  Exists: 1
+  Exists: 0
 --- !u!114 &4051797888260133762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
   Path: event:/Creature/Creature_Attack
   guid: 0bd6ad43fd8dfe4ea2b6e88095222454
   Banks:
-  - {fileID: 1556466203838043645}
+  - {fileID: 7654284030944539844}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -224,7 +224,7 @@ MonoBehaviour:
   Path: event:/Creature/Creature_Dead
   guid: a335b4c6218c6342bcaef1e224690c4d
   Banks:
-  - {fileID: 1556466203838043645}
+  - {fileID: 7654284030944539844}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -269,7 +269,7 @@ MonoBehaviour:
   Path: event:/Ennemis/Ennemi_BeingHit
   guid: 7bd5ff5e79f7154f9fa54515eb65360c
   Banks:
-  - {fileID: 1556466203838043645}
+  - {fileID: 7654284030944539844}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -277,6 +277,25 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 7685
+--- !u!114 &7654284030944539844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.bank
+  m_EditorClassIdentifier: 
+  Path: T:\REPOs\VoodooProject\FmodFichier\voodooFmod\Build\Desktop\Master Bank.bank
+  lastModified: 636983648884232893
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 2115264
+  Exists: 1
 --- !u!114 &8097494539452576156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,7 +311,7 @@ MonoBehaviour:
   Path: event:/Ennemis/Ennemi_Attack
   guid: 485183c096730b42a0a0d35eebc42413
   Banks:
-  - {fileID: 1556466203838043645}
+  - {fileID: 7654284030944539844}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -315,7 +334,7 @@ MonoBehaviour:
   Path: event:/Ennemis/Ennemi_Walk
   guid: 0bb35ddc8156c64884110207bb09d324
   Banks:
-  - {fileID: 1556466203838043645}
+  - {fileID: 7654284030944539844}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
