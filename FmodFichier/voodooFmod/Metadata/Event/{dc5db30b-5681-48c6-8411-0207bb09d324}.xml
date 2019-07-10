@@ -5,7 +5,7 @@
             <value>Ennemi_Walk</value>
         </property>
         <property name="outputFormat">
-            <value>0</value>
+            <value>1</value>
         </property>
         <relationship name="folder">
             <destination>{13aed6ac-4399-4a34-90d8-733e03a9d344}</destination>
@@ -33,6 +33,7 @@
         </relationship>
         <relationship name="banks">
             <destination>{c4401b75-2ea8-4a7f-a1cd-2767d49b544f}</destination>
+            <destination>{c04200d4-6fd4-4301-a263-58fbb025c438}</destination>
         </relationship>
     </object>
     <object class="EventMixer" id="{cb7da2d2-44e5-458c-915f-c48846aa4103}">
@@ -59,11 +60,17 @@
     <object class="EventAutomatableProperties" id="{99e7801d-6237-4ad9-a531-a4058b22cff9}"/>
     <object class="MarkerTrack" id="{fd40dc10-cdf2-402b-8991-85b21245d421}"/>
     <object class="GroupTrack" id="{23d88d88-63f3-4cae-a82f-c70f7b3e3ba2}">
+        <relationship name="modules">
+            <destination>{a29b2607-ace5-4c9c-a3e0-81e5dadd7aea}</destination>
+        </relationship>
         <relationship name="mixerGroup">
             <destination>{347d1380-2b73-4cdc-8dfb-9e79c3aceefb}</destination>
         </relationship>
     </object>
     <object class="Timeline" id="{3d726fba-3458-4e66-94e4-d95e6c5a92a8}">
+        <relationship name="modules">
+            <destination>{a29b2607-ace5-4c9c-a3e0-81e5dadd7aea}</destination>
+        </relationship>
         <relationship name="markers">
             <destination>{3d947f46-171d-4df1-b458-3a3d87c35a96}</destination>
         </relationship>
@@ -85,7 +92,21 @@
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{be137c44-de1c-4ba5-9986-bb9032fe9e80}"/>
+    <object class="SingleSound" id="{a29b2607-ace5-4c9c-a3e0-81e5dadd7aea}">
+        <property name="length">
+            <value>1.9083414174695921</value>
+        </property>
+        <property name="pitch">
+            <value>14</value>
+        </property>
+        <relationship name="audioFile">
+            <destination>{8c200a48-da21-4e5f-afdf-097a3c06df47}</destination>
+        </relationship>
+    </object>
     <object class="EventMixerGroup" id="{347d1380-2b73-4cdc-8dfb-9e79c3aceefb}">
+        <property name="volume">
+            <value>-26.5</value>
+        </property>
         <property name="name">
             <value>FootStep</value>
         </property>
@@ -104,7 +125,7 @@
             <value>0</value>
         </property>
         <property name="length">
-            <value>2.777883258289183</value>
+            <value>1.9083414174695921</value>
         </property>
         <relationship name="timeline">
             <destination>{3d726fba-3458-4e66-94e4-d95e6c5a92a8}</destination>
