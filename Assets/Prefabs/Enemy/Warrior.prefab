@@ -201,9 +201,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3087742503629088751}
   - component: {fileID: 8258739379033671772}
-  - component: {fileID: 2430152694254113256}
   - component: {fileID: 3741709540564752262}
   - component: {fileID: 2869924204980069238}
+  - component: {fileID: 2430152694254113256}
   m_Layer: 8
   m_Name: Warrior
   m_TagString: Warrior
@@ -246,32 +246,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2430152694254113256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7984567712568085435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9512581653b56c942871b3da0ad24d29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyType: 0
-  myAnimator: {fileID: 0}
-  target: {fileID: 0}
-  damage: 10
-  damagePerSecond: 1
-  dead: 0
-  projectileSpawnPos: {x: 0, y: 0, z: 0}
-  projectile: {fileID: 2323633682275920083, guid: c7dfb701c1c5d974a96c25cdb2d2194a,
-    type: 3}
-  speedMultiplicator: 6
-  shootCooldown: 2
-  projectileSpawner: {fileID: 33500664}
-  projectile: {fileID: 2323633682275920083, guid: c7dfb701c1c5d974a96c25cdb2d2194a,
-    type: 3}
 --- !u!50 &3741709540564752262
 Rigidbody2D:
   serializedVersion: 4
@@ -319,3 +293,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &2430152694254113256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984567712568085435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9512581653b56c942871b3da0ad24d29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 2
+  myStatus: 0
+  spawnZone: 0
+  targetZoneLine: 0
+  myAnimator: {fileID: 0}
+  rb: {fileID: 0}
+  attackPart: {fileID: 0}
+  atkRange: 0.5
+  damage: 10
+  attackDelay: 1
+  dead: 0
+  speedMultiplicator: 6

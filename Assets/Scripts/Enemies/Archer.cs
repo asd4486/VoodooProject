@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class Archer : AIEnemy
 {
+    [SerializeField] Transform projectileSpawner;
+    [SerializeField] GameObject projectile;
+
     private float timerShoot = 0f;
     public float shootCooldown = 2f;
 
     private void Start()
     {
         myAnimator.SetTrigger("Walk");
-        Invoke("StopAnimation", 2f);
     }
 
     private void StopAnimation()
@@ -34,20 +36,24 @@ public class Archer : AIEnemy
 
         //    target.GetDamage(damage, damagePerSecond, GameManager.Instance.projectileTravelTime);
         //}
-        transform.Translate(Vector3.right * GameManager.Instance.environmentSpeed * speedMultiplicator * Time.deltaTime);
     }
 
-    public void Shoot()
+    public override void Move()
     {
-        // Vector3 targetDir = target.transform.position - transform.position;
-        // GameObject p = Instantiate(projectile, projectileSpawner.transform);
-        // float angle = Vector3.Angle(targetDir, p.transform.up);
-        // p.transform.Rotate(0, 0, angle);
-        //projectile.transform.position = new Vector3(projectile.transform.position.x, projectile.transform.position.y, projectile.transform.position.z + angle);
+        rb.velocity = Vector3.right * GameManager.Instance.environmentSpeed * speedMultiplicator;
+    }
 
+    public override void Attack()
+    {
+        rb.velocity = Vector3.zero;
+        //Vector3 targetDir = attackPart.transform.position - transform.position;
+        //GameObject p = Instantiate(projectile);
+        //p.transform.position = projectileSpawner.position;
+        //float angle = Vector3.Angle(targetDir, p.transform.up);
+        //p.transform.Rotate(0, 0, angle);
 
-        // p.transform.DOMove(target.transform.position, GameManager.Instance.projectileTravelTime).SetEase(Ease.OutSine).OnComplete(() => Destroy(p));
+        //p.transform.DOMove(attackPart.transform.position, GameManager.Instance.projectileTravelTime).SetEase(Ease.OutSine).OnComplete(() => Destroy(p));
 
-        // target.GetDamage(damage, damagePerSecond, GameManager.Instance.projectileTravelTime);
+        //attackPart.GetDamage(damage, attackDelay, GameManager.Instance.projectileTravelTime);
     }
 }

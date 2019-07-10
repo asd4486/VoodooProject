@@ -1,7 +1,4 @@
-﻿using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public enum EnemyTypes
 {
@@ -10,29 +7,64 @@ public enum EnemyTypes
     Warrior
 }
 
+public enum EnemyStatus
+{
+    Run,
+    Attack,
+    Die,
+    Idle
+}
+
+public enum EnemySpawnZone
+{
+    Bottom,
+    Middle    
+}
+
 public class AIEnemy : MonoBehaviour
 {
+    AIMonster aiMonster;
     public EnemyTypes enemyType;
+    [HideInInspector] public EnemyStatus myStatus;
+    [HideInInspector] public EnemySpawnZone spawnZone;
+
+    //0 bot
+    //1 top
+    [HideInInspector] public int targetZoneLine;
+
     [HideInInspector] public Animator myAnimator;
+    [HideInInspector] public Rigidbody2D rb;
 
-    Transform targetMonster;
 
-    [HideInInspector] public Part attackTarget;
-    public float attackDistance;
+    //for check distance to monster
+    Transform moveTargetPoint;
+
+    [HideInInspector] public Part attackPart;
+    public float atkRange;
 
     public float damage;
     public float attackDelay = 1;
 
     [HideInInspector] public bool dead;
 
-    public Vector3 projectileSpawnPos;
-    public GameObject projectile;
-
     public float speedMultiplicator = 8f;
 
     private void Awake()
     {
+        aiMonster = FindObjectOfType<AIMonster>();
         myAnimator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    public void Init(EnemySpawnZone zone)
+    {
+        spawnZone = zone;
+        transform.position = new Vector3(transform.position.x, transform.position.y + Random.Range(-0.1f, 0.1f));
+
+        //two lines for one zone
+        targetZoneLine = Random.Range(0, 2);
+        moveTargetPoint = targetZoneLine > 0 ? aiMonster.topTargetPoint : aiMonster.botTargetPoint;
+        //GetComponent<AIEnemy>().attackPart = parts[Random.Range(0, parts.Length)];
     }
 
     protected virtual void Update()
@@ -42,27 +74,41 @@ public class AIEnemy : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+        GetDistanceToTarget();
     }
 
     void GetDistanceToTarget()
     {
-        if (attackTarget == null) return;
+        //return if enemy is villager
+        if (enemyType == EnemyTypes.Villager || moveTargetPoint == null) return;
 
-        var dist = Mathf.Abs(transform.position)
+        var dist = transform.position.x - Mathf.Abs(moveTargetPoint.transform.position.x);
+
+        //can attack monster
+        if (dist < atkRange)
+        {
+            ChangeStatus(EnemyStatus.Attack);
+            Attack();
+        }
+        else
+        {
+            ChangeStatus(EnemyStatus.Run);
+            Move();
+        }
     }
 
-    public virtual void Attack()
+    void ChangeStatus(EnemyStatus status)
     {
+        if (myStatus != status) myStatus = status;
     }
+
+    public virtual void Move() { }
+
+    public virtual void Attack() { }
 
     public virtual void Die()
     {
         dead = true;
-    }
-
-    public void SetTarget(Part[] parts)
-    {
-        transform.position = new Vector3(transform.position.x, transform.position.y + Random.Range(0, 0.3f), transform.position.z);
-        GetComponent<AIEnemy>().attackTarget = parts[Random.Range(0, parts.Length)];
     }
 }

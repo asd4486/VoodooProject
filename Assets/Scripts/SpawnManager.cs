@@ -38,11 +38,15 @@ public class SpawnManager : MonoBehaviour
     private void SpawnEnemy()
     {
         float r = Random.Range(0, 2);
-        var posY = spawnerDownGroup[Random.Range(0, spawnerDownGroup.Length)].position.y;
+
+        //0 top line
+        //1 bottom line
+        var spawnPoint = spawnerDownGroup[Random.Range(0, spawnerDownGroup.Length)];
 
         //e = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], r < 1 ? spawnerDown : spawnerMiddle);
-        GameObject e = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], new Vector3(transform.position.x, posY), Quaternion.identity);
-        e.GetComponent<AIEnemy>().SetTarget(playerController.allParts);
+        GameObject e = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], new Vector3(transform.position.x, spawnPoint.position.y), Quaternion.identity);
+
+        e.GetComponent<AIEnemy>().Init(EnemySpawnZone.Bottom);
     }
 
     private void SpawnVillager()

@@ -5,14 +5,6 @@ using UnityEngine;
 
 public class Warrior : AIEnemy
 {
-    private bool canAttack = false;
-
-    private float timerShoot = 0f;
-    public float shootCooldown = 2f;
-
-    public GameObject projectileSpawner;
-    public GameObject projectile;
-
     public void StopAnimation()
     {
         speedMultiplicator = 0f;
@@ -38,18 +30,24 @@ public class Warrior : AIEnemy
         //    }
         //}
 
-        transform.Translate(Vector3.right * GameManager.Instance.environmentSpeed * speedMultiplicator * Time.deltaTime);
     }
 
-    public void Shoot()
+    public override void Move()
     {
-        Vector3 targetDir = attackTarget.transform.position - transform.position;
-        GameObject p = Instantiate(projectile, projectileSpawner.transform);
-        float angle = Vector3.Angle(targetDir, p.transform.up);
-        p.transform.Rotate(0, 0, angle);
+        rb.velocity = Vector3.right * GameManager.Instance.environmentSpeed * speedMultiplicator;
+    }
 
-        p.transform.DOMove(attackTarget.transform.position, GameManager.Instance.projectileTravelTime).SetEase(Ease.OutSine).OnComplete(() => Destroy(p));
+    public override void Attack()
+    {
+        rb.velocity = Vector3.zero;
+        //Vector3 targetDir = attackPart.transform.position - transform.position;
+        //GameObject p = Instantiate(projectile);
+        //p.transform.position = projectileSpawner.position;
+        //float angle = Vector3.Angle(targetDir, p.transform.up);
+        //p.transform.Rotate(0, 0, angle);
 
-        attackTarget.GetDamage(damage, attackDelay, GameManager.Instance.projectileTravelTime);
+        //p.transform.DOMove(attackPart.transform.position, GameManager.Instance.projectileTravelTime).SetEase(Ease.OutSine).OnComplete(() => Destroy(p));
+
+        //attackPart.GetDamage(damage, attackDelay, GameManager.Instance.projectileTravelTime);
     }
 }
