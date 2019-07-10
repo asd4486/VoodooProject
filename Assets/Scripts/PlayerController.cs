@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    AIMonster myMonster;
+    AIMonster aiMoster;
     private float maxKeyUpTimer = 0.5f;
 
     Part cryingHead;
@@ -18,14 +18,14 @@ public class PlayerController : MonoBehaviour
     Part rightFoot;
     Part leftFoot;
 
-    public Part[] allParts;
+    [HideInInspector] public Part[] allParts;
     [HideInInspector] public List<Part> topParts = new List<Part>();
     [HideInInspector] public List<Part> middleParts = new List<Part>();
     [HideInInspector] public List<Part> downParts = new List<Part>();
 
     private void Awake()
     {
-        myMonster = FindObjectOfType<AIMonster>();
+        aiMoster = FindObjectOfType<AIMonster>();
     }
 
     void Start()
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            p.LateStart();
+            p.Init(aiMoster);
         }
 
         //asoc.Add(part0, listPart0);
@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetButtonUp("angryHead"))
         {
             angryHead.FinishHeal();
-            myMonster.PlayAnimation("FlexTeteGauche");
+            aiMoster.PlayAnimation("FlexTeteGauche");
         }
 
         //cry head
@@ -130,7 +130,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetButtonUp("cryHead"))
         {
             cryingHead.FinishHeal();
-            myMonster.PlayAnimation("FlexTeteDroite");
+            aiMoster.PlayAnimation("FlexTeteDroite");
         }
 
         //body
@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetButtonUp("body"))
         {
             bodyPart.FinishHeal();
-            myMonster.PlayAnimation("FlexBuste");
+            aiMoster.PlayAnimation("FlexBuste");
         }
 
         //right hand
@@ -176,7 +176,7 @@ public class PlayerController : MonoBehaviour
         {
             rightFoot.UnshowLines();
             rightFoot.FinishHeal();
-            myMonster.PlayAnimation("FlexJambeDroite");
+            aiMoster.PlayAnimation("FlexJambeDroite");
         }
 
         //left foot
@@ -189,7 +189,7 @@ public class PlayerController : MonoBehaviour
             leftFoot.FinishHeal();
             leftFoot.ExpulseProjectiles();
 
-            myMonster.PlayAnimation("FlexJambeGauche");
+            aiMoster.PlayAnimation("FlexJambeGauche");
         }
     }
 
