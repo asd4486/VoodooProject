@@ -15,7 +15,7 @@ public enum EnemyStatus
     Idle
 }
 
-public enum EnemySpawnZone
+public enum EnemySpawnZones
 {
     Bottom,
     Middle
@@ -29,7 +29,7 @@ public class AIEnemy : MonoBehaviour
     AIMonster aiMonster;
     public EnemyTypes enemyType;
     [HideInInspector] public EnemyStatus myStatus;
-    [HideInInspector] public EnemySpawnZone spawnZone;
+    [HideInInspector] public EnemySpawnZones spawnZone;
 
     //0 bot
     //1 top
@@ -42,11 +42,9 @@ public class AIEnemy : MonoBehaviour
     //for check distance to monster
     Transform moveTargetPoint;
 
-    [HideInInspector] public MonsterPart attackPart;
+    [HideInInspector] public MonsterPart attackTargetPart;
     public float atkRange;
 
-
-    public float damage;
     public float attackDelay = 1;
     [HideInInspector] public float attackTimer;
     bool isAttaking;
@@ -64,7 +62,7 @@ public class AIEnemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void Init(EnemySpawnZone zone)
+    public void Init(EnemySpawnZones zone)
     {
         spawnZone = zone;
         transform.position = new Vector3(transform.position.x, transform.position.y + Random.Range(-0.1f, 0.1f));

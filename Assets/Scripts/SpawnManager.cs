@@ -34,7 +34,7 @@ public class SpawnManager : MonoBehaviour
             SpawnVillager();
             if (Random.Range(0, 5) <= 1)
             {
-                SpawnEnemy();          
+                SpawnEnemy();
             }
         }
     }
@@ -53,7 +53,7 @@ public class SpawnManager : MonoBehaviour
         //e = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], r < 1 ? spawnerDown : spawnerMiddle);
         GameObject e = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], new Vector3(transform.position.x, spawnPoint.position.y), Quaternion.identity);
 
-        e.GetComponent<AIEnemy>().Init(EnemySpawnZone.Bottom);
+        e.GetComponent<AIEnemy>().Init(r < 1 ? EnemySpawnZones.Middle : EnemySpawnZones.Bottom);
     }
 
     private void SpawnVillager()

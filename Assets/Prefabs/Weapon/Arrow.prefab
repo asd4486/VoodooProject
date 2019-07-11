@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1681393256907813730}
   - component: {fileID: 1681393256907813731}
+  - component: {fileID: 3784723162684430872}
+  - component: {fileID: 2208276771571478774}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -80,3 +82,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &3784723162684430872
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681393256907813732}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.38, y: 3.01}
+    newSize: {x: 0.38, y: 3.01}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.38, y: 3.01}
+  m_EdgeRadius: 0
+--- !u!114 &2208276771571478774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681393256907813732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c7fdbd20cf7696428bf33a001ae1bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitChance: 2
+  damage: 0.2
+  damageDelay: 1
+  weaponType: 1
+  moveSpeed: 2
+  mySpriteRendrer: {fileID: 0}
+  spriteHited: {fileID: 1349819855626751654, guid: 560355dd06da4a54db2e265d813703b6,
+    type: 3}
+  isHited: 0

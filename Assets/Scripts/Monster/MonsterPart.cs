@@ -1,6 +1,7 @@
 ﻿using Anima2D;
 using FMOD.Studio;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Vectrosity;
@@ -20,23 +21,20 @@ public class MonsterPart : MonoBehaviour
 {
     AIMonster aiMonster;
 
-    SpriteMeshAnimation mySpriteMeshStade;
+    [SerializeField] SpriteMeshAnimation[] mySpriteMeshStades;
     public MonsterPartType partType;
 
     [SerializeField] Image healthBar;
 
-    public bool stopDamageOverTime = false;
-
     float myPv;
     [SerializeField] float maxPv = 100f;
 
-    int projectileCount = 0;
+    List<AIWeapon> projectileList = new List<AIWeapon>();
     float damagePerSecond;
 
     float healDelayTimer;
 
     bool isHealing;
-    private VectorLine[] lines = new VectorLine[6];
 
     [HideInInspector] public bool isDead;
 
@@ -44,11 +42,10 @@ public class MonsterPart : MonoBehaviour
     float attackCooldownTimer;
     bool canAttack = true;
 
-    public GameObject fxHeal;
+    [SerializeField] GameObject fxHeal;
 
     private void Awake()
     {
-        mySpriteMeshStade = GetComponent<SpriteMeshAnimation>();
         myPv = maxPv;
     }
 
@@ -72,21 +69,23 @@ public class MonsterPart : MonoBehaviour
     void RefreshPV()
     {
         healthBar.fillAmount = myPv / maxPv;
-
-        if (myPv >= maxPv * 0.66f)
+        foreach (var stade in mySpriteMeshStades)
         {
-            //sprite 1
-            mySpriteMeshStade.frame = 0;
-        }
-        else if (myPv <= maxPv * 0.66f && myPv >= maxPv * 0.33f)
-        {
-            //sprite 2
-            mySpriteMeshStade.frame = 1;
-        }
-        else if (myPv <= maxPv * 0.33f && myPv != 0)
-        {
-            //sprite 3
-            mySpriteMeshStade.frame = 2;
+            if (myPv >= maxPv * 0.66f)
+            {
+                //sprite 1
+                stade.frame = 0;
+            }
+            else if (myPv <= maxPv * 0.66f && myPv >= maxPv * 0.33f)
+            {
+                //sprite 2
+                stade.frame = 1;
+            }
+            else if (myPv <= maxPv * 0.33f && myPv != 0)
+            {
+                //sprite 3
+                stade.frame = 2;
+            }
         }
 
         if (myPv <= maxPv * 0.15f)
@@ -153,7 +152,13 @@ public class MonsterPart : MonoBehaviour
 
         AudioManager.Instance.FMODEvent_Creature_Healing.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
-        damagePerSecond = projectileCount = 0;
+        damagePerSecond = 0;
+        foreach (var p in projectileList)
+        {
+            Destroy(p.gameObject);
+        }
+        projectileList.Clear();
+
         // UnshowLines();
         ExpulseProjectiles();
     }
@@ -192,20 +197,20 @@ public class MonsterPart : MonoBehaviour
         }
     }
 
-
-
-    public void GetDamage(float damageImpact, float damageOverTime, float invokeTimer)
+    public void GetDamage(float damageImpact, float damageOverTime, float invokeTimer, AIWeapon targetProjectile = null)
     {
-        StartCoroutine(ReducePV(damageImpact, damageOverTime, invokeTimer));
+        if (targetProjectile != null) projectileList.Add(targetProjectile);
+        myPv = Mathf.Clamp(myPv - damageImpact, 0, maxPv);
+
+        // StartCoroutine(ReducePvCoroutine(damageImpact, damageOverTime, invokeTimer));
     }
 
-    private IEnumerator ReducePV(float damageImpact, float damageOverTime, float invokeTimer)
+    private IEnumerator ReducePvCoroutine(float damageImpact, float damageOverTime, float invokeTimer)
     {
         yield return new WaitForSeconds(invokeTimer);
         myPv = Mathf.Clamp(myPv - damageImpact, 0, maxPv);
         if (Random.Range(0, 100) <= GameManager.Instance.pourcentageChanceDot)
         {
-            projectileCount++;
             damagePerSecond += damageOverTime;
         }
     }

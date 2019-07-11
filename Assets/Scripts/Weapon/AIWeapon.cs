@@ -10,9 +10,19 @@ public enum WeaponTypes
 
 public class AIWeapon : MonoBehaviour
 {
+    public int hitChance = 2;
     public float damage;
+    public float damageDelay = 1;
     public WeaponTypes weaponType;
 
-    public Sprite hitedSprite;
-    
+    //for arrow
+    public float moveSpeed;
+    [HideInInspector] public SpriteRenderer mySpriteRendrer;
+    public Sprite spriteHited;
+    [HideInInspector] public bool isHited;
+
+    private void Awake()
+    {
+        mySpriteRendrer = GetComponent<SpriteRenderer>();
+    }
 }
