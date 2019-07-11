@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public  class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
+    UIMain uiMain;
     AIMonster aiMonster;
     public float spawnTimerMin;
     public float spawnTimerMax;
-    
+
     public float projectileTravelTime;
 
     public float environmentSpeed;
@@ -23,19 +24,16 @@ public  class GameManager : MonoBehaviour
     public GameObject particuleDeath;
 
     public float pourcentageChanceDot;
+    int deadEnemyScore;
 
     public int partsDeadGameOver;
-
-    public int enemyDeadCounter = 0;
-    public Text enemyDeadCounterText;
 
     public Text partCounterText;
 
     public GameObject spawner;
     public GameObject bars;
-    public GameObject panelGameOver;
 
-    [HideInInspector] public bool gameOver = false;
+    [HideInInspector] public bool isGameOver = false;
 
     private static GameManager _instance;
 
@@ -54,6 +52,7 @@ public  class GameManager : MonoBehaviour
     void Awake()
     {
         aiMonster = FindObjectOfType<AIMonster>();
+        uiMain = FindObjectOfType<UIMain>();
         //DontDestroyOnLoad(gameObject);
     }
 
@@ -66,16 +65,24 @@ public  class GameManager : MonoBehaviour
     {
         AudioManager.Instance.FMODEvent_Environnement.start();
         aiMonster.Init();
+        uiMain.Init();
+    }
+
+    public void AddScore()
+    {
+        if (isGameOver) return;
+
+        deadEnemyScore += 1;
+        uiMain.SetScoreTxt(deadEnemyScore);
     }
 
     public void GameOver()
     {
-        //Debug.Log("perdulol");
-        panelGameOver.SetActive(true);
-        gameOver = true;
+        uiMain.ShowGameOverUI(deadEnemyScore);
+
+        isGameOver = true;
         //spawner.SetActive(false);
         //bars.SetActive(false);
-        //panelGameOver.SetActive(true);
-        //environmentSpeed = 0f;
+        environmentSpeed = 0f;
     }
 }

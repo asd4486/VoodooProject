@@ -23,6 +23,7 @@ public enum EnemySpawnZone
 
 public class AIEnemy : MonoBehaviour
 {
+    GameManager gameManager;
     [HideInInspector] public PlayerController playerController;
 
     AIMonster aiMonster;
@@ -54,6 +55,7 @@ public class AIEnemy : MonoBehaviour
 
     private void Awake()
     {
+        gameManager = FindObjectOfType<GameManager>();
         playerController = FindObjectOfType<PlayerController>();
 
         aiMonster = FindObjectOfType<AIMonster>();
@@ -76,6 +78,8 @@ public class AIEnemy : MonoBehaviour
 
     protected virtual void Update()
     {
+        if (gameManager.isGameOver) return;
+
         if (transform.position.x < -5)
         {
             Destroy(gameObject);
@@ -179,8 +183,11 @@ public class AIEnemy : MonoBehaviour
     {
         Instantiate(GameManager.Instance.particuleDeath, transform.position, Quaternion.identity, GameObject.FindGameObjectWithTag("Particle").transform);
         ChangeStatus(EnemyStatus.Die);
+
         AudioManager.Instance.FMODEvent_Ennemi_BeingHit.start();
-        Destroy(gameObject);
+        gameManager.AddScore();
+
+        Destroy(gameObject, 0.05f);
     }
 
     protected MonsterPart GetClosestPart()
@@ -204,6 +211,9 @@ public class AIEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<MonsterAtkCollider>() != null) { Die(); }
+        if (collision.gameObject.GetComponent<MonsterAtkCollider>() != null)
+        {
+            Die();
+        }
     }
 }

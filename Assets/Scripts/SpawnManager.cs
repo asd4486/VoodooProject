@@ -22,6 +22,9 @@ public class SpawnManager : MonoBehaviour
 
     void Update()
     {
+
+        if (GameManager.Instance.isGameOver) return;
+
         spawnTimer -= Time.deltaTime;
 
         if (spawnTimer <= 0f)

@@ -4,16 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Part
-  - Warrior
-  - Archer
-  - House
-  - FxTemporaire
   - Monster
   - Particle
-  - Villager
-  - CacAttack
   - part_atk
+  - Wall
   layers:
   - Default
   - TransparentFX
