@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitChance: 2
-  damage: 0.8
+  damage: 0.6
   damageOverTime: 0
   weaponType: 0
   moveSpeed: 0

@@ -35,9 +35,8 @@ public class AIArrow : AIWeapon
         {
             Destroy(gameObject);
         }
-        else if (collision.gameObject.tag == "monsterPart")
+        else if (collision.gameObject.GetComponent<MonsterPart>() != null && !collision.gameObject.GetComponent<MonsterPart>().isDead)
         {
-            //Debug.Log("hit");
             //may hit
             var chance = Random.RandomRange(0, hitChance);
             if (chance < 1) StartCoroutine(HitCoroutine(Random.Range(0, 0.3f), collision.transform));

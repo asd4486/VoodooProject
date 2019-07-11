@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Archer : AIEnemy
@@ -23,6 +24,8 @@ public class Archer : AIEnemy
                 foreach (var part in playerController.downParts) parts.Add(part);
                 break;
         }
+
+        parts = parts.Where(part => !part.isDead).ToList();
 
         attackTargetPart = parts[Random.Range(0, parts.Count)];
 
