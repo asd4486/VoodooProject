@@ -29,13 +29,13 @@ public class Warrior : AIEnemy
     {
         base.StartAttack();
 
-        attackPart = GetClosestPart();
+        attackTargetPart = GetClosestPart();
     }
 
     public override void EventAttack()
     {
         base.EventAttack();
 
-        attackPart.GetDamage(damage, attackDelay, GameManager.Instance.projectileTravelTime);
+        //attackTargetPart.GetDamage(damage, attackDelay, GameManager.Instance.projectileTravelTime);
     }
 }

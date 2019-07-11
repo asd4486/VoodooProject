@@ -4,16 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Part
-  - Warrior
-  - Archer
-  - House
-  - FxTemporaire
   - Monster
   - Particle
+  - Wall
   - Villager
-  - CacAttack
-  - part_atk
+  - monsterPart
+  - Archer
   layers:
   - Default
   - TransparentFX
@@ -51,11 +47,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: monster1
-    uniqueID: 2776868163
-    locked: 0
   - name: enemy1
     uniqueID: 410863267
+    locked: 0
+  - name: monster1
+    uniqueID: 2776868163
     locked: 0
   - name: monster2
     uniqueID: 925310333

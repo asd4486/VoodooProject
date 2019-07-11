@@ -11,6 +11,8 @@ public class SpawnerManager : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.isGameOver) return;
+
         walls.transform.Translate(Vector3.right * GameManager.Instance.environmentSpeed * Time.deltaTime);
     }
 
