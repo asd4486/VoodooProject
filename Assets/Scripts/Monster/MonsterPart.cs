@@ -152,17 +152,15 @@ public class MonsterPart : MonoBehaviour
     public void FinishHeal()
     {
         isHealing = false;
-
         AudioManager.Instance.FMODEvent_Creature_Healing.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
         damagePerSecond = projectileCount = 0;
         foreach (var p in projectileList)
         {
-            if (p.gameObject != null) Destroy(p.gameObject);
+            if (p != null) Destroy(p.gameObject);
         }
 
         projectileList.Clear();
-
         ExpulseProjectiles();
     }
 
@@ -200,18 +198,19 @@ public class MonsterPart : MonoBehaviour
         }
     }
 
-    public void GetDamage(float damageImpact, float damageOverTime, float invokeTimer, AIWeapon targetProjectile = null)
-    {
-        if (targetProjectile != null) projectileList.Add(targetProjectile);
-
-        StartCoroutine(ReducePvCoroutine(damageImpact, damageOverTime, invokeTimer));
-    }
-
-    private IEnumerator ReducePvCoroutine(float damageImpact, float damageOverTime, float invokeTimer)
+    public void GetDamage(float damageImpact, float damageOverTime = 0, float invokeTimer = 0, AIWeapon targetProjectile = null)
     {
         myPv = Mathf.Clamp(myPv - damageImpact, 0, maxPv);
-        yield return new WaitForSeconds(invokeTimer);
 
+        if (targetProjectile == null) return;
+        projectileList.Add(targetProjectile);
+        StartCoroutine(ReducePvCoroutine(damageOverTime, invokeTimer));
+
+    }
+
+    private IEnumerator ReducePvCoroutine(float damageOverTime, float invokeTimer)
+    {
+        yield return new WaitForSeconds(invokeTimer);
         if (Random.Range(0, 100) <= GameManager.Instance.pourcentageChanceDot)
         {
             projectileCount++;

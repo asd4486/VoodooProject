@@ -10,11 +10,6 @@ public class AIMonster : MonoBehaviour
     public Transform topTargetPoint;
     public Transform botTargetPoint;
 
-    //private void Awake()
-    //{
-    //    myAnimator = GetComponentInChildren<Animator>();
-    //}
-
     public void Init()
     {
         PlayAnimation("walk");

@@ -5,25 +5,12 @@ using UnityEngine;
 
 public class Warrior : AIEnemy
 {
-    //protected override void Update()
-    //{
-    //    base.Update();
+    AIPike myPike;
 
-    //    //if (canAttack)
-    //    //{
-    //    //    timerShoot += Time.deltaTime;
-    //    //    if (timerShoot > shootCooldown)
-    //    //    {
-    //    //        timerShoot = 0f;
-    //    //        GameObject p = Instantiate(projectile, projectileSpawner.transform);
-
-    //    //        p.transform.DOMove(target.transform.position, GameManager.Instance.projectileTravelTime).OnComplete(() => Destroy(p));
-
-    //    //        target.GetDamage(damage, damagePerSecond, GameManager.Instance.projectileTravelTime);
-    //    //    }
-    //    //}
-
-    //}
+    private void Start()
+    {
+        myPike = GetComponentInChildren<AIPike>();
+    }
 
     public override void StartAttack()
     {
@@ -36,6 +23,6 @@ public class Warrior : AIEnemy
     {
         base.EventAttack();
 
-        //attackTargetPart.GetDamage(damage, attackDelay, GameManager.Instance.projectileTravelTime);
+        myPike.Attack(attackTargetPart);
     }
 }
