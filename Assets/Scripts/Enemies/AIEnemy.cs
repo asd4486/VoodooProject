@@ -24,32 +24,33 @@ public enum EnemySpawnZones
 public class AIEnemy : MonoBehaviour
 {
     GameMain main;
-    [HideInInspector] public PlayerController playerController;
+    protected PlayerController playerController;
 
     AIMonster aiMonster;
-    public EnemyTypes enemyType;
-    [HideInInspector] public EnemyStatus myStatus;
-    [HideInInspector] public EnemySpawnZones spawnZone;
+    [SerializeField] protected EnemyTypes enemyType;
+
+    protected EnemyStatus myStatus;
+    protected EnemySpawnZones spawnZone;
 
     //0 bot
     //1 top
-    [HideInInspector] public int targetZoneLine;
+    protected int targetZoneLine;
 
-    [HideInInspector] public Animator myAnimator;
-    [HideInInspector] public Rigidbody2D rb;
+    protected Animator myAnimator;
+    protected Rigidbody2D rb;
 
 
     //for check distance to monster
-    Transform moveTargetPoint;
+    protected Transform moveTargetPoint;
 
-    [HideInInspector] public MonsterPart attackTargetPart;
-    public float atkRange;
+    protected MonsterPart attackTargetPart;
+    [SerializeField] protected float atkRange;
 
-    public float attackDelay = 1;
-    [HideInInspector] public float attackTimer;
-    bool isAttaking;
+    [SerializeField] protected float attackDelay = 1;
+    protected float attackTimer;
+    protected bool isAttaking;
 
-    public float speedMultiplicator = 8f;
+    [SerializeField] protected float speedMultiplicator = 8f;
 
     private void Awake()
     {

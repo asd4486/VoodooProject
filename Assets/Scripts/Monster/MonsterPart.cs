@@ -22,9 +22,14 @@ public class MonsterPart : MonoBehaviour
     AIMonster aiMonster;
 
     [SerializeField] SpriteMeshAnimation[] mySpriteMeshStades;
+    SpriteMeshInstance mySpriteMeshInstance;
+
     public MonsterPartType partType;
 
-    [SerializeField] Image healthBar;
+    Transform healthBar;
+    Image healthBarValue;
+
+    [SerializeField] Vector3 healthBarTransformOffset;
 
     float myPv;
     [SerializeField] float maxPv = 100f;
@@ -48,21 +53,22 @@ public class MonsterPart : MonoBehaviour
 
     private void Awake()
     {
+        mySpriteMeshInstance = mySpriteMeshStades[0].GetComponent<SpriteMeshInstance>();
         myPv = maxPv;
     }
 
-    public void Init(AIMonster _aiMonster)
+    public void Init(AIMonster _aiMonster, Transform _healthBar)
     {
-        StartCoroutine(GetDamageOverTimeCoroutine());
         aiMonster = _aiMonster;
+        healthBar = _healthBar;
+        healthBarValue = healthBar.GetChild(0).GetComponent<Image>();
+        
+        StartCoroutine(GetDamageOverTimeCoroutine());
     }
 
     void Update()
     {
         RefreshPV();
-
-        isDead = myPv <= 0;
-        //sprite 4
 
         Healing();
         CooldownAttack();
@@ -70,7 +76,14 @@ public class MonsterPart : MonoBehaviour
 
     void RefreshPV()
     {
-        healthBar.fillAmount = myPv / maxPv;
+        if (healthBar == null) return;
+
+        //health bar follow body
+        healthBar.transform.position = transform.position + healthBarTransformOffset;
+
+        isDead = myPv <= 0;
+        healthBarValue.fillAmount = myPv / maxPv;
+
         foreach (var stade in mySpriteMeshStades)
         {
             if (myPv >= maxPv * 0.66f)
@@ -113,7 +126,7 @@ public class MonsterPart : MonoBehaviour
     void Healing()
     {
         fxHeal.GetComponent<Animator>().SetBool("Healing", isHealing);
-        healthBar.gameObject.transform.parent.GetComponent<Animator>().SetBool("Healing", isHealing);
+        healthBar.GetComponent<Animator>().SetBool("Healing", isHealing);
         if (!isHealing) return;
 
         if (healDelayTimer < GameManager.Instance.healAfterDelay) healDelayTimer += Time.deltaTime;
@@ -154,14 +167,18 @@ public class MonsterPart : MonoBehaviour
         isHealing = false;
         AudioManager.Instance.FMODEvent_Creature_Healing.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
-        damagePerSecond = projectileCount = 0;
+        damagePerSecond = projectileCount = 0;     
+        ExpulseProjectiles();
+    }
+
+    public void ExpulseProjectiles()
+    {
         foreach (var p in projectileList)
         {
-            if (p != null) Destroy(p.gameObject);
+            if (p != null) p.Out();
         }
 
         projectileList.Clear();
-        ExpulseProjectiles();
     }
 
     void CooldownAttack()
@@ -203,7 +220,14 @@ public class MonsterPart : MonoBehaviour
         myPv = Mathf.Clamp(myPv - damageImpact, 0, maxPv);
 
         if (targetProjectile == null) return;
+
+        //change sorting layer
+        var targetSpriteRendrer = targetProjectile.GetComponent<SpriteRenderer>();
+        targetSpriteRendrer.sortingLayerName = mySpriteMeshInstance.sortingLayerName;
+        targetSpriteRendrer.sortingOrder = mySpriteMeshInstance.sortingOrder + 3;
+
         projectileList.Add(targetProjectile);
+
         StartCoroutine(ReducePvCoroutine(damageOverTime, invokeTimer));
 
     }
@@ -226,46 +250,13 @@ public class MonsterPart : MonoBehaviour
             myPv = Mathf.Clamp(myPv - damagePerSecond, 0, maxPv);
             if (projectileCount == 0)
             {
-                healthBar.gameObject.GetComponent<Animator>().SetBool("Damaged", false);
+                healthBarValue.gameObject.GetComponent<Animator>().SetBool("Damaged", false);
             }
             else
             {
-                healthBar.gameObject.GetComponent<Animator>().SetBool("Damaged", true);
+                healthBarValue.gameObject.GetComponent<Animator>().SetBool("Damaged", true);
             }
         }
     }
-
-    public void ExpulseProjectiles()
-    {
-
-    }
-
-    public void ShowLines(Color c)
-    {
-        int index = 0;
-        //List<GameObject> l = new List<GameObject>();
-        //PlayerController.asoc.TryGetValue(gameObject, out l);
-        //if (l != null)
-        //{
-        //    foreach (GameObject g in l)
-        //    {
-        //        lines[index] = VectorLine.SetLine(c, gameObject.transform.position, g.transform.position);
-        //        index++;
-        //    }
-        //}
-    }
-
-    //public void UnshowLines()
-    //{
-
-    //    if (isHealing == true)
-    //    {
-    //        isHealing = false;
-    //        foreach (VectorLine v in lines)
-    //            VectorLine.lineManager.DisableLine(v, 0.01f);
-    //    }
-    //}
-
-
 
 }
