@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{5414a0fa-9907-495c-9b33-49a8e66bd4de}">
+        <property name="assetPath">
+            <value>ennemis_runAway_01.mp3</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>11.0249996</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>0.99265306122448982</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{133271f3-b4d7-46d8-8e1c-d050a9351394}</destination>
+        </relationship>
+    </object>
+</objects>

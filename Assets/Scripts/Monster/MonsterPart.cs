@@ -181,20 +181,30 @@ public class MonsterPart : MonoBehaviour
         {
             case MonsterPartType.LeftHand:
                 aiMonster.PlayAnimation("Left_Arm_Attack");
-                AudioManager.Instance.FMODEvent_Creature_Attack.start();
+                AudioManager.Instance.FMODEvent_Creature_Attack_base.start();
                 break;
             case MonsterPartType.RightHand:
                 aiMonster.PlayAnimation("Right_Arm_Attack");
-                AudioManager.Instance.FMODEvent_Creature_Attack.start();
+                AudioManager.Instance.FMODEvent_Creature_Attack_longArm.start();
                 break;
-                //case MonsterPartType.LeftFoot:
-                //    aiMonster.PlayAnimation("Left_Leg_Flex");
-                //    AudioManager.Instance.FMODEvent_Creature_Attack.start();
-                //    break;
-                //case MonsterPartType.RightFoot:
-                //    aiMonster.PlayAnimation("Right_Leg_Flex");
-                //    AudioManager.Instance.FMODEvent_Creature_Attack.start();
-                //    break;
+            case MonsterPartType.AngryHead:
+                aiMonster.PlayAnimation("Left_Head_Flex");
+                AudioManager.Instance.FMODEvent_Creature_Attack_head_aggro.start();
+                break;
+            case MonsterPartType.CryHead:
+                aiMonster.PlayAnimation("Right_Head_Flex");
+                AudioManager.Instance.FMODEvent_Creature_Attack_head_nice.start();
+                break;
+            case MonsterPartType.LeftFoot:
+                aiMonster.PlayAnimation("Left_Leg_Flex");
+                AudioManager.Instance.FMODEvent_Creature_Attack_feet.start();
+                //audiomanager.instance.fmodevent_creature_attack.start();
+                break;
+            case MonsterPartType.RightFoot:
+                aiMonster.PlayAnimation("Right_Leg_Flex");
+                AudioManager.Instance.FMODEvent_Creature_Attack_feet.start();
+                //audiomanager.instance.fmodevent_creature_attack.start();
+                break;
         }
     }
 

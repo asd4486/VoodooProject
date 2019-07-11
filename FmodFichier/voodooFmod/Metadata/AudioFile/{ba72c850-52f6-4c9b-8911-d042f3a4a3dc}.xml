@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{ba72c850-52f6-4c9b-8911-d042f3a4a3dc}">
+        <property name="assetPath">
+            <value>Temple Bell-SoundBible.com-756181215.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>5.1869614512471651</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{133271f3-b4d7-46d8-8e1c-d050a9351394}</destination>
+        </relationship>
+    </object>
+</objects>

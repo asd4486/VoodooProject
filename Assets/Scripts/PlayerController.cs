@@ -126,6 +126,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetButtonUp("angryHead"))
         {
             angryHead.FinishHeal();
+            angryHead.Attack();
         }
 
         //cry head
@@ -136,6 +137,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetButtonUp("cryHead"))
         {
             cryingHead.FinishHeal();
+            cryingHead.Attack();
         }
 
         //body
@@ -146,6 +148,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetButtonUp("body"))
         {
             bodyPart.FinishHeal();
+            bodyPart.Attack();
         }
 
         //right hand
