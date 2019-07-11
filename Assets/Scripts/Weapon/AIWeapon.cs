@@ -12,7 +12,7 @@ public class AIWeapon : MonoBehaviour
 {
     public int hitChance = 2;
     public float damage;
-    public float damageDelay = 1;
+    public float damageOverTime = 1;
     public WeaponTypes weaponType;
 
     //for arrow

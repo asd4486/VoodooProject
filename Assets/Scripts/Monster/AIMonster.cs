@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class AIMonster : MonoBehaviour
 {
-    Animator myAnimator;
+    [SerializeField] Animator myAnimator;
 
     //target point for enemy
     public Transform topTargetPoint;
     public Transform botTargetPoint;
 
-    private void Awake()
-    {
-        myAnimator = GetComponentInChildren<Animator>();
-    }
+    //private void Awake()
+    //{
+    //    myAnimator = GetComponentInChildren<Animator>();
+    //}
 
     public void Init()
     {

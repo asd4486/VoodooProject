@@ -61,10 +61,10 @@ public class AIArrow : AIWeapon
         transform.SetParent(hitPart, true);
 
         if (hitPart.GetComponent<MonsterPart>() != null)
-            hitPart.GetComponent<MonsterPart>().GetDamage(damage, damageDelay, GameManager.Instance.projectileTravelTime, this);
-        else if(hitPart.GetComponentInParent<MonsterPart>() != null)
-            hitPart.GetComponentInParent<MonsterPart>().GetDamage(damage, damageDelay, GameManager.Instance.projectileTravelTime, this);
+            hitPart.GetComponent<MonsterPart>().GetDamage(damage, damageOverTime, GameManager.Instance.projectileTravelTime, this);
+        else if (hitPart.GetComponentInParent<MonsterPart>() != null)
+            hitPart.GetComponentInParent<MonsterPart>().GetDamage(damage, damageOverTime, GameManager.Instance.projectileTravelTime, this);
         else
-            hitPart.GetComponentInChildren<MonsterPart>().GetDamage(damage, damageDelay, GameManager.Instance.projectileTravelTime, this);
+            hitPart.GetComponentInChildren<MonsterPart>().GetDamage(damage, damageOverTime, GameManager.Instance.projectileTravelTime, this);
     }
 }

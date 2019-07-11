@@ -30,6 +30,8 @@ public class MonsterPart : MonoBehaviour
     [SerializeField] float maxPv = 100f;
 
     List<AIWeapon> projectileList = new List<AIWeapon>();
+    int projectileCount;
+
     float damagePerSecond;
 
     float healDelayTimer;
@@ -153,14 +155,14 @@ public class MonsterPart : MonoBehaviour
 
         AudioManager.Instance.FMODEvent_Creature_Healing.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
-        damagePerSecond = 0;
+        damagePerSecond = projectileCount = 0;
         foreach (var p in projectileList)
         {
-            Destroy(p.gameObject);
+            if (p.gameObject != null) Destroy(p.gameObject);
         }
+
         projectileList.Clear();
 
-        // UnshowLines();
         ExpulseProjectiles();
     }
 
@@ -201,17 +203,18 @@ public class MonsterPart : MonoBehaviour
     public void GetDamage(float damageImpact, float damageOverTime, float invokeTimer, AIWeapon targetProjectile = null)
     {
         if (targetProjectile != null) projectileList.Add(targetProjectile);
-        myPv = Mathf.Clamp(myPv - damageImpact, 0, maxPv);
 
-        // StartCoroutine(ReducePvCoroutine(damageImpact, damageOverTime, invokeTimer));
+        StartCoroutine(ReducePvCoroutine(damageImpact, damageOverTime, invokeTimer));
     }
 
     private IEnumerator ReducePvCoroutine(float damageImpact, float damageOverTime, float invokeTimer)
     {
-        yield return new WaitForSeconds(invokeTimer);        
         myPv = Mathf.Clamp(myPv - damageImpact, 0, maxPv);
+        yield return new WaitForSeconds(invokeTimer);
+
         if (Random.Range(0, 100) <= GameManager.Instance.pourcentageChanceDot)
         {
+            projectileCount++;
             damagePerSecond += damageOverTime;
         }
     }
@@ -220,7 +223,7 @@ public class MonsterPart : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f);            
+            yield return new WaitForSeconds(1f);
             myPv = Mathf.Clamp(myPv - damagePerSecond, 0, maxPv);
             if (projectileCount == 0)
             {
