@@ -32,4 +32,10 @@ public class Archer : AIEnemy
         GameObject p = Instantiate(projectile, projectileSpawner.position, Quaternion.identity);
         p.GetComponent<AIArrow>().Init(attackTargetPart);
     }
+
+    public override void Die()
+    {
+        base.Die();
+        AudioManager.Instance.FMODEvent_Ennemi_BeingHit.start();
+    }
 }

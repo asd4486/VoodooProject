@@ -193,7 +193,7 @@ public class AIEnemy : MonoBehaviour
         Instantiate(GameManager.Instance.particuleDeath, transform.position, Quaternion.identity, GameObject.FindGameObjectWithTag("Particle").transform);
         ChangeStatus(EnemyStatus.Die);
 
-        AudioManager.Instance.FMODEvent_Ennemi_BeingHit.start();
+       
 
         main.AddScore();
 
