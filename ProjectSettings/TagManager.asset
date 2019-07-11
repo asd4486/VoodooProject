@@ -69,6 +69,6 @@ TagManager:
   - name: FX
     uniqueID: 4243243241
     locked: 0
-  - name: New Layer
+  - name: UI
     uniqueID: 241436799
     locked: 0

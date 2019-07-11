@@ -426,8 +426,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   attackPart: {fileID: 0}
   atkRange: 6
-  damage: 2
-  attackDelay: 1.8
+  damage: 0.5
+  attackDelay: 2
   attackTimer: 0
   speedMultiplicator: 3
   projectileSpawner: {fileID: 2021833408780985720}

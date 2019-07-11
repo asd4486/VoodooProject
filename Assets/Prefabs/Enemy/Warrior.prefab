@@ -313,7 +313,7 @@ MonoBehaviour:
   myAnimator: {fileID: 0}
   rb: {fileID: 0}
   attackPart: {fileID: 0}
-  atkRange: 0.5
+  atkRange: 0.1
   damage: 3
   attackDelay: 1
   attackTimer: 0

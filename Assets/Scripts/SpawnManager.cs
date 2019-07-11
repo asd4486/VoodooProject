@@ -27,21 +27,25 @@ public class SpawnManager : MonoBehaviour
         if (spawnTimer <= 0f)
         {
             spawnTimer = Random.Range(GameManager.Instance.spawnTimerMin, GameManager.Instance.spawnTimerMax);
-            SpawnEnemy();
+
+            SpawnVillager();
             if (Random.Range(0, 5) <= 1)
             {
-                SpawnVillager();
+                SpawnEnemy();          
             }
         }
     }
 
     private void SpawnEnemy()
     {
-        float r = Random.Range(0, 2);
+        Transform spawnPoint = null;
 
+        //random zone
+        float r = Random.Range(0, 2);
         //0 top line
         //1 bottom line
-        var spawnPoint = spawnerDownGroup[Random.Range(0, spawnerDownGroup.Length)];
+        if (r < 1) spawnPoint = spawnerMiddleGroup[Random.Range(0, spawnerMiddleGroup.Length)];
+        else spawnPoint = spawnerDownGroup[Random.Range(0, spawnerDownGroup.Length)];
 
         //e = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], r < 1 ? spawnerDown : spawnerMiddle);
         GameObject e = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], new Vector3(transform.position.x, spawnPoint.position.y), Quaternion.identity);
@@ -51,9 +55,9 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnVillager()
     {
-        var o = villagerPrefabs[Random.Range(0, villagerPrefabs.Length)];
-        var posY = spawnerDownGroup[Random.Range(0, spawnerDownGroup.Length)].position.y;
+        Transform spawnPoint = spawnerDownGroup[Random.Range(0, spawnerDownGroup.Length)];
 
-        Instantiate(o, new Vector3(transform.position.x, posY), Quaternion.identity);
+        var o = villagerPrefabs[Random.Range(0, villagerPrefabs.Length)];
+        Instantiate(o, new Vector3(transform.position.x, spawnPoint.position.y), Quaternion.identity);
     }
 }

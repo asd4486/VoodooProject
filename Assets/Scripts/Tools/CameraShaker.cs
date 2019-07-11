@@ -16,16 +16,6 @@ public class CameraShaker : MonoBehaviour
         environmentSpeedBeforeFreeze = GameManager.Instance.environmentSpeed;
     }
 
-
-    void Update()
-    {
-        //if (Input.anyKeyDown)
-        //{
-        //    CameraLittleDownShake();
-        //}
-
-    }
-
     public void CameraLittleDownShake()
     {
         camera.transform.DOShakePosition(0.1f, 0.11f);
@@ -50,6 +40,4 @@ public class CameraShaker : MonoBehaviour
     {
         GameManager.Instance.environmentSpeed = environmentSpeedBeforeFreeze;
     }
-
-
 }

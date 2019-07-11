@@ -41,7 +41,7 @@ public class AIEnemy : MonoBehaviour
     //for check distance to monster
     Transform moveTargetPoint;
 
-    [HideInInspector] public Part attackPart;
+    [HideInInspector] public MonsterPart attackPart;
     public float atkRange;
 
 
@@ -76,7 +76,7 @@ public class AIEnemy : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (myStatus == EnemyStatus.Die || transform.position.x < -5)
+        if (transform.position.x < -5)
         {
             Destroy(gameObject);
             return;
@@ -177,14 +177,16 @@ public class AIEnemy : MonoBehaviour
 
     public virtual void Die()
     {
+        Instantiate(GameManager.Instance.particuleDeath, transform.position, Quaternion.identity, GameObject.FindGameObjectWithTag("Particle").transform);
         ChangeStatus(EnemyStatus.Die);
         AudioManager.Instance.FMODEvent_Ennemi_BeingHit.start();
+        Destroy(gameObject);
     }
 
-    protected Part GetClosestPart()
+    protected MonsterPart GetClosestPart()
     {
         var allParts = playerController.allParts;
-        Part closest = null;
+        MonsterPart closest = null;
         var closestDist = float.MaxValue;
 
         foreach (var p in allParts)
@@ -198,5 +200,10 @@ public class AIEnemy : MonoBehaviour
         }
 
         return closest;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<MonsterAtkCollider>() != null) { Die(); }
     }
 }

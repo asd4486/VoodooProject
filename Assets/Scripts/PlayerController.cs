@@ -11,18 +11,18 @@ public class PlayerController : MonoBehaviour
     AIMonster aiMoster;
     private float maxKeyUpTimer = 0.5f;
 
-    Part cryingHead;
-    Part angryHead;
-    Part bodyPart;
-    Part rightHand;
-    Part leftHand;
-    Part rightFoot;
-    Part leftFoot;
+    MonsterPart cryingHead;
+    MonsterPart angryHead;
+    MonsterPart bodyPart;
+    MonsterPart rightHand;
+    MonsterPart leftHand;
+    MonsterPart rightFoot;
+    MonsterPart leftFoot;
 
-    [HideInInspector] public Part[] allParts;
-    [HideInInspector] public List<Part> topParts = new List<Part>();
-    [HideInInspector] public List<Part> middleParts = new List<Part>();
-    [HideInInspector] public List<Part> downParts = new List<Part>();
+    [HideInInspector] public MonsterPart[] allParts;
+    [HideInInspector] public List<MonsterPart> topParts = new List<MonsterPart>();
+    [HideInInspector] public List<MonsterPart> middleParts = new List<MonsterPart>();
+    [HideInInspector] public List<MonsterPart> downParts = new List<MonsterPart>();
 
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        allParts = FindObjectsOfType<Part>();
+        allParts = FindObjectsOfType<MonsterPart>();
 
         foreach (var p in allParts)
         {

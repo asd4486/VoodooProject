@@ -23,7 +23,7 @@ public class Archer : AIEnemy
         //    target.GetDamage(damage, damagePerSecond, GameManager.Instance.projectileTravelTime);
         //}
     }
-
+    
     public override void EventAttack()
     {
         base.EventAttack();
