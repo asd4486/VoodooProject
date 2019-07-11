@@ -101,6 +101,9 @@
         <property name="pitch">
             <value>5</value>
         </property>
+        <relationship name="modulators">
+            <destination>{8d465c66-14a9-41ed-8255-0bb5a3ee8099}</destination>
+        </relationship>
         <relationship name="sounds">
             <destination>{771c6086-ca8f-4c28-a681-9a85aa256529}</destination>
             <destination>{dd449cf0-04f0-4f01-ab6c-f936acc1e700}</destination>
@@ -109,7 +112,7 @@
     </object>
     <object class="EventMixerGroup" id="{3f9cbeb6-072c-4a69-ab31-9a3f160aac08}">
         <property name="volume">
-            <value>10</value>
+            <value>-5</value>
         </property>
         <property name="name">
             <value>Voice</value>
@@ -131,6 +134,14 @@
     </object>
     <object class="MixerBusPanner" id="{79d57e39-c1c1-4719-8e6a-1fd62b0d1f47}"/>
     <object class="MixerBusFader" id="{9b68c7f6-cb1e-4e38-9931-6db8d5059a22}"/>
+    <object class="RandomizerModulator" id="{8d465c66-14a9-41ed-8255-0bb5a3ee8099}">
+        <property name="nameOfPropertyBeingModulated">
+            <value>pitch</value>
+        </property>
+        <property name="amount">
+            <value>7</value>
+        </property>
+    </object>
     <object class="SingleSound" id="{771c6086-ca8f-4c28-a681-9a85aa256529}">
         <relationship name="audioFile">
             <destination>{de89e6ce-ea5c-4fab-88b5-2d9efcaac738}</destination>
@@ -150,6 +161,7 @@
         <relationship name="effects">
             <destination>{9e4015aa-4e96-4396-83a1-c82fde2d444b}</destination>
             <destination>{5d640e85-5dd7-4d97-a45f-aaf662c4d00e}</destination>
+            <destination>{0a93364c-54c4-47a7-bebc-d0e84043669f}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{5f0c7375-6489-4a45-a900-8bf647eb0c91}"/>
@@ -158,6 +170,11 @@
     <object class="GainEffect" id="{5d640e85-5dd7-4d97-a45f-aaf662c4d00e}">
         <property name="gain">
             <value>10</value>
+        </property>
+    </object>
+    <object class="DistortionEffect" id="{0a93364c-54c4-47a7-bebc-d0e84043669f}">
+        <property name="level">
+            <value>0.720000029</value>
         </property>
     </object>
 </objects>

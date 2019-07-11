@@ -126,7 +126,7 @@ MonoBehaviour:
   healthBarTransformOffset: {x: 0.4, y: 0.5, z: 0}
   maxPv: 100
   isDead: 0
-  attackCooldown: 1
+  attackCooldown: 1.5
   fxHeal: {fileID: 5597947342046881192}
 --- !u!1 &589443253077438852
 GameObject:
@@ -649,7 +649,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589443253393633975}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7977987, w: 0.602924}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7977987, w: 0.6029239}
   m_LocalPosition: {x: 2.3956587, y: 0.00000166893, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1145,8 +1145,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589443253698453923}
-  m_LocalRotation: {x: 0, y: 0, z: 0.2668732, w: 0.96373165}
-  m_LocalPosition: {x: 1.8123415, y: 0.00000035762787, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.2668599, w: 0.96373534}
+  m_LocalPosition: {x: 1.8124119, y: 0.00000047683716, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 589443253243663925}
@@ -1169,7 +1169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 1.3010435
+  m_Length: 1.3010436
   m_ChildTransform: {fileID: 589443253243663925}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &589443253706496557
@@ -1907,7 +1907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 1.812342
+  m_Length: 1.812413
   m_ChildTransform: {fileID: 589443253698453932}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &589443254616459275
@@ -2066,7 +2066,7 @@ Transform:
   - {fileID: 589443254853233596}
   m_Father: {fileID: 589443254454608600}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1294.618}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1294.619}
 --- !u!114 &589443254655228563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2127,7 +2127,7 @@ MonoBehaviour:
   healthBarTransformOffset: {x: -0.2, y: -0.4, z: 0}
   maxPv: 100
   isDead: 0
-  attackCooldown: 2
+  attackCooldown: 3
   fxHeal: {fileID: 1716253265226944197}
 --- !u!1 &589443254696523807
 GameObject:
@@ -2220,7 +2220,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589443254728249224}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7441113, w: 0.6680557}
+  m_LocalRotation: {x: 0, y: 0, z: -0.74411124, w: 0.6680557}
   m_LocalPosition: {x: 2.419473, y: -0.00000011920929, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2242,7 +2242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 2.3956597
+  m_Length: 2.3956592
   m_ChildTransform: {fileID: 589443253393633968}
   m_AttachedIK: {fileID: 0}
 --- !u!61 &202705412017182767

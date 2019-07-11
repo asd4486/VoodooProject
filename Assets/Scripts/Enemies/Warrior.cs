@@ -25,9 +25,4 @@ public class Warrior : AIEnemy
 
         myPike.Attack(attackTargetPart);
     }
-    public override void Die()
-    {
-        base.Die();
-        AudioManager.Instance.FMODEvent_Ennemi_BeingHit.start();
-    }
 }

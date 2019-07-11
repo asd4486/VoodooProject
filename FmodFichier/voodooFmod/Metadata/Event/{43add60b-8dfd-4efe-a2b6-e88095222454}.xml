@@ -163,7 +163,7 @@
     </object>
     <object class="EventMixerGroup" id="{86130b30-903e-4ab6-a965-03b91c1a522d}">
         <property name="volume">
-            <value>8</value>
+            <value>-7.5</value>
         </property>
         <property name="name">
             <value>Voice</value>
@@ -230,7 +230,7 @@
         <relationship name="effects">
             <destination>{8d125fe3-5b22-4d7e-b54a-d039556fa1bf}</destination>
             <destination>{54d47e79-2b15-41f6-beb1-643e2f9d545a}</destination>
-            <destination>{f3d4f6f4-a2d1-4a38-87ab-0a386f68399f}</destination>
+            <destination>{6c7db0fe-1467-4c4a-8cff-8a65a79db29f}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{bed41a9c-b100-4823-83ac-153a66f052a8}"/>
@@ -280,9 +280,9 @@
             <value>10</value>
         </property>
     </object>
-    <object class="LowpassSimpleEffect" id="{f3d4f6f4-a2d1-4a38-87ab-0a386f68399f}">
-        <property name="cutoff">
-            <value>15000</value>
+    <object class="DistortionEffect" id="{6c7db0fe-1467-4c4a-8cff-8a65a79db29f}">
+        <property name="level">
+            <value>0.935000062</value>
         </property>
     </object>
 </objects>
