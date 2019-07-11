@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{a4d06643-e116-4b68-a594-6c04b2858618}">
+        <property name="assetPath">
+            <value>ennemis_arrow_02.mp3</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>0.23999999999999999</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{133271f3-b4d7-46d8-8e1c-d050a9351394}</destination>
+        </relationship>
+    </object>
+</objects>
