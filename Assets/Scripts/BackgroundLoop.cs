@@ -13,7 +13,7 @@ public class BackgroundLoop : MonoBehaviour
 
         foreach (var bg in bgs)
         {
-            bg.transform.Translate(Vector3.right * GameManager.Instance.environmentSpeed / 2 * Time.deltaTime);
+            bg.transform.Translate(Vector3.right * GameManager.Instance.environmentSpeed  * Time.deltaTime);
             if (bg.transform.localPosition.x <= -10) bg.transform.localPosition = new Vector3(20, bg.transform.localPosition.y);
         }
 

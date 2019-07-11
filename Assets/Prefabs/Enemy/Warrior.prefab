@@ -194,17 +194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9512581653b56c942871b3da0ad24d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
   enemyType: 2
-  myStatus: 0
-  spawnZone: 0
-  targetZoneLine: 0
-  myAnimator: {fileID: 0}
-  rb: {fileID: 0}
-  attackTargetPart: {fileID: 0}
-  atkRange: 0.5
+  atkRange: 0.6
   attackDelay: 1
-  attackTimer: 0
   speedMultiplicator: 6
 --- !u!1001 &294566486385003381
 PrefabInstance:

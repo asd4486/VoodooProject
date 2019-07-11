@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class AIArrow : AIWeapon
 {
-    bool isMoving;
     MonsterPart TargetPart;
     // Start is called before the first frame update
 
@@ -22,16 +21,11 @@ public class AIArrow : AIWeapon
         //p.transform.DOMove(attackTargetPart.transform.position, GameManager.Instance.projectileTravelTime).SetEase(Ease.OutSine).OnComplete(() => Destroy(p));       
     }
 
-    private void Update()
+    protected override void Update()
     {
-        if (transform.position.x < -5)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        base.Update();
 
         if (isHited) return;
-
         transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
     }
 

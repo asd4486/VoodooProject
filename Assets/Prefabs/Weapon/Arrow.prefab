@@ -124,8 +124,6 @@ MonoBehaviour:
   damage: 0.2
   damageOverTime: 0.1
   weaponType: 1
-  moveSpeed: 2
-  mySpriteRendrer: {fileID: 0}
+  moveSpeed: 2.5
   spriteHited: {fileID: 1349819855626751654, guid: 560355dd06da4a54db2e265d813703b6,
     type: 3}
-  isHited: 0

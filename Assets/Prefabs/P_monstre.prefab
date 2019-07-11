@@ -94,7 +94,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.1924843, y: 0.49997336}
+  m_Offset: {x: 1.1924843, y: 0.98988247}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -105,7 +105,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.3191793, y: 1.564715}
+  m_Size: {x: 3.3191793, y: 0.58489704}
   m_EdgeRadius: 0
 --- !u!114 &1109127542
 MonoBehaviour:
@@ -123,7 +123,7 @@ MonoBehaviour:
   - {fileID: 7175624228374069790}
   - {fileID: 1751054449219266730}
   partType: 1
-  healthBar: {fileID: 0}
+  healthBarTransformOffset: {x: 0.4, y: 0.5, z: 0}
   maxPv: 100
   isDead: 0
   attackCooldown: 1
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_SortingLayerID: -1518099133
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_BoneTransforms:
   - {fileID: 589443253410612214}
   - {fileID: 589443253453701846}
@@ -220,7 +220,7 @@ SkinnedMeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1518099133
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
@@ -346,7 +346,7 @@ MonoBehaviour:
   mySpriteMeshStades:
   - {fileID: 735484469400672676}
   partType: 4
-  healthBar: {fileID: 0}
+  healthBarTransformOffset: {x: -0.2, y: 0.2, z: 0}
   maxPv: 100
   isDead: 0
   attackCooldown: 0
@@ -570,7 +570,7 @@ MonoBehaviour:
   mySpriteMeshStades:
   - {fileID: 1164279110950892217}
   partType: 6
-  healthBar: {fileID: 0}
+  healthBarTransformOffset: {x: 0.47, y: 0.2, z: 0}
   maxPv: 100
   isDead: 0
   attackCooldown: 0
@@ -874,7 +874,7 @@ Transform:
   m_LocalPosition: {x: -1.3895603, y: -1.4363211, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6447067108333136509}
+  - {fileID: 5034516389840050088}
   - {fileID: 589443254728249225}
   m_Father: {fileID: 589443253410612214}
   m_RootOrder: 1
@@ -908,7 +908,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.8012221, y: -0.14067599}
+  m_Offset: {x: 0.8012221, y: -0.14666897}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -919,7 +919,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8287077, y: 1.5045612}
+  m_Size: {x: 1.8287077, y: 1.2930862}
   m_EdgeRadius: 0
 --- !u!1 &589443253529185797
 GameObject:
@@ -971,7 +971,7 @@ MonoBehaviour:
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_SortingLayerID: -1518099133
-  m_SortingOrder: 98
+  m_SortingOrder: 95
   m_BoneTransforms:
   - {fileID: 589443253300241198}
   - {fileID: 589443253184262958}
@@ -1012,7 +1012,7 @@ SkinnedMeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1518099133
   m_SortingLayer: 2
-  m_SortingOrder: 98
+  m_SortingOrder: 95
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
@@ -1487,7 +1487,7 @@ MonoBehaviour:
   mySpriteMeshStades:
   - {fileID: 1900792607167100201}
   partType: 0
-  healthBar: {fileID: 0}
+  healthBarTransformOffset: {x: 0.8, y: 0.5, z: 0}
   maxPv: 100
   isDead: 0
   attackCooldown: 0
@@ -1706,7 +1706,7 @@ MonoBehaviour:
   mySpriteMeshStades:
   - {fileID: 6782489862555156420}
   partType: 5
-  healthBar: {fileID: 0}
+  healthBarTransformOffset: {x: -0.3, y: 0.75, z: 0}
   maxPv: 100
   isDead: 0
   attackCooldown: 0
@@ -1773,7 +1773,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.8037573, y: 0.41038105}
+  m_Offset: {x: 1.8037573, y: 0.58178645}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1784,7 +1784,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.484639, y: 1.1357491}
+  m_Size: {x: 3.484639, y: 0.79293835}
   m_EdgeRadius: 0
 --- !u!1 &589443254423691981
 GameObject:
@@ -1961,7 +1961,7 @@ MonoBehaviour:
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_SortingLayerID: -1518099133
-  m_SortingOrder: -1
+  m_SortingOrder: -5
   m_BoneTransforms:
   - {fileID: 589443253061682035}
   - {fileID: 589443254305275181}
@@ -2001,7 +2001,7 @@ SkinnedMeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1518099133
   m_SortingLayer: 2
-  m_SortingOrder: -1
+  m_SortingOrder: -5
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
@@ -2124,7 +2124,7 @@ MonoBehaviour:
   mySpriteMeshStades:
   - {fileID: 4054851926358946803}
   partType: 2
-  healthBar: {fileID: 0}
+  healthBarTransformOffset: {x: -0.2, y: -0.4, z: 0}
   maxPv: 100
   isDead: 0
   attackCooldown: 2
@@ -2286,7 +2286,7 @@ MonoBehaviour:
   mySpriteMeshStades:
   - {fileID: 6843978945703467227}
   partType: 3
-  healthBar: {fileID: 0}
+  healthBarTransformOffset: {x: -0.3, y: -0.3, z: 0}
   maxPv: 100
   isDead: 0
   attackCooldown: 0
@@ -2520,7 +2520,7 @@ MonoBehaviour:
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_SortingLayerID: -1518099133
-  m_SortingOrder: 998
+  m_SortingOrder: 995
   m_BoneTransforms:
   - {fileID: 589443253410612214}
   - {fileID: 589443253661358891}
@@ -2562,7 +2562,7 @@ SkinnedMeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1518099133
   m_SortingLayer: 2
-  m_SortingOrder: 998
+  m_SortingOrder: 995
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
@@ -2890,36 +2890,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1a7e6c13df35c4fbd95e1ca3378acf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &954868856743894049
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6447067108333136509}
-  m_Layer: 0
-  m_Name: topTargetPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6447067108333136509
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954868856743894049}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.1621735, y: -2.3818023, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 589443253453701846}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1456127466351741117
 GameObject:
   m_ObjectHideFlags: 0
@@ -3020,6 +2990,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1a7e6c13df35c4fbd95e1ca3378acf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3218123059594383344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5034516389840050088}
+  m_Layer: 0
+  m_Name: topTargetPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5034516389840050088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3218123059594383344}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.1, y: -2.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 589443253453701846}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8154065948593543957
 GameObject:
   m_ObjectHideFlags: 0
