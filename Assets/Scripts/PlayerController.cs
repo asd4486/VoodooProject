@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -70,51 +65,22 @@ public class PlayerController : MonoBehaviour
                     break;
             }
         }
-
-        //asoc.Add(part0, listPart0);
-        //asoc.Add(part1, listPart1);
-        //asoc.Add(part2, listPart2);
-        //asoc.Add(part3, listPart3);
-        //asoc.Add(part4, listPart4);
-        //asoc.Add(part5, listPart5);
-        //asoc.Add(part6, listPart6);
-
-        //foreach (KeyValuePair<GameObject, List<GameObject>> entry in asoc)
-        //{
-        //    foreach (GameObject g in entry.Value)
-        //    {
-        //        //Debug.DrawLine(entry.Key.transform.position, g.transform.position, Color.white, 800000f);
-        //        //Vectrosity.VectorLine.SetLine(Color.white, entry.Key.transform.position, g.transform.position);
-        //    }
-        //    //entry.Key.Bar = Instantiate(bar, FindObjectOfType<Canvas>().transform);
-        //    
-        //}
     }
 
     private void LateUpdate()
     {
-        CheckDeadPartCount();
         InputController();
-    }
-
-    void CheckDeadPartCount()
-    {
-        var deadCount = allParts.Where(p => p.isDead).ToArray().Length;
-
-        //GAME OVER
-        if (deadCount >= GameManager.Instance.partsDeadGameOver && GameManager.Instance.isGameOver == false)
-        {
-            main.GameOver();
-        }
-
-        //if (GameManager.Instance.isGameOver == true && Input.GetKeyDown(KeyCode.S))
-        //{
-
-        //}
     }
 
     void InputController()
     {
+        if (GameManager.Instance.isGameOver)
+        {
+            if (Input.GetButtonDown("body"))
+                main.RestartGame();
+
+            return;
+        }
         //angry head
         if (Input.GetButtonDown("angryHead"))
         {

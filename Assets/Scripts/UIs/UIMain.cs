@@ -32,9 +32,4 @@ public class UIMain : MonoBehaviour
     {
         textDeadPartCounter.text = count.ToString();
     }
-
-    public void OnClickRestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
 }

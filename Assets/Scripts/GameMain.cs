@@ -1,9 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameMain : MonoBehaviour
 {
+    PlayerController playerController;
     AIMonster aiMonster;
     UIMain uiMain;
 
@@ -14,7 +15,7 @@ public class GameMain : MonoBehaviour
     {
         aiMonster = FindObjectOfType<AIMonster>();
         uiMain = FindObjectOfType<UIMain>();
-        //DontDestroyOnLoad(gameObject);
+        playerController = FindObjectOfType<PlayerController>();
     }
 
     private void Start()
@@ -31,6 +32,23 @@ public class GameMain : MonoBehaviour
         uiMain.Init();
     }
 
+    private void Update()
+    {
+        CheckDeadPartCount();
+    }
+
+    void CheckDeadPartCount()
+    {
+        if (GameManager.Instance.isGameOver) return;
+
+        monsterDeadPartCount = playerController.allParts.Where(p => p.isDead).ToArray().Length;
+        uiMain.SetDeadPartCount(monsterDeadPartCount);
+
+        //GAME OVER
+        if (monsterDeadPartCount >= GameManager.Instance.partsDeadGameOver)
+            GameOver();
+    }
+
     public void AddScore()
     {
         if (GameManager.Instance.isGameOver) return;
@@ -44,13 +62,11 @@ public class GameMain : MonoBehaviour
         uiMain.ShowGameOverUI(deadEnemyScore);
 
         GameManager.Instance.isGameOver = true;
-        //spawner.SetActive(false);
-        //bars.SetActive(false);
         GameManager.Instance.environmentSpeed = 0f;
     }
 
-    public void ChangeMonsterDeadPartCount()
+    public void RestartGame()
     {
-        //GameManager.Instance.partCounterText.text = deadCount.ToString();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

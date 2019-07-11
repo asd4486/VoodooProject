@@ -22,7 +22,6 @@ public class SpawnManager : MonoBehaviour
 
     void Update()
     {
-
         if (GameManager.Instance.isGameOver) return;
 
         spawnTimer -= Time.deltaTime;
@@ -60,7 +59,7 @@ public class SpawnManager : MonoBehaviour
     {
         Transform spawnPoint = spawnerDownGroup[Random.Range(0, spawnerDownGroup.Length)];
 
-        var o = villagerPrefabs[Random.Range(0, villagerPrefabs.Length)];
-        Instantiate(o, new Vector3(transform.position.x, spawnPoint.position.y), Quaternion.identity);
+        var o = Instantiate(villagerPrefabs[Random.Range(0, villagerPrefabs.Length)], new Vector3(transform.position.x, spawnPoint.position.y), Quaternion.identity);
+        o.GetComponent<AIEnemy>().Init(EnemySpawnZones.Bottom);
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 504083415}
   m_Layer: 8
   m_Name: Villager
-  m_TagString: Villager
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5869564975381871123}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.0316749, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9003921840164659559}
@@ -113,18 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb6b660f7f639d4d8095ac95bd66a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
   enemyType: 0
-  myStatus: 0
-  spawnZone: 0
-  targetZoneLine: 0
-  myAnimator: {fileID: 0}
-  rb: {fileID: 0}
-  attackPart: {fileID: 0}
   atkRange: 0
-  damage: 0
   attackDelay: 1
-  attackTimer: 0
   speedMultiplicator: 8
 --- !u!1 &7296491539571719868
 GameObject:
@@ -191,8 +182,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 410863267
-  m_SortingLayer: 2
+  m_SortingLayerID: 2127220275
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -6519192608335936272, guid: c80c9e85c27b7be469a741eb9c3de6e8,
     type: 3}

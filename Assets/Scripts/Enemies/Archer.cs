@@ -26,16 +26,7 @@ public class Archer : AIEnemy
 
         attackTargetPart = parts[Random.Range(0, parts.Count)];
 
-        //Vector3 targetDir = attackTargetPart.transform.position - transform.position;
         GameObject p = Instantiate(projectile, projectileSpawner.position, Quaternion.identity);
         p.GetComponent<AIArrow>().Init(attackTargetPart);
-
-        //p.transform.position = projectileSpawner.position;
-        //float angle = Vector3.Angle(targetDir, p.transform.up);
-        //p.transform.Rotate(0, 0, angle);
-
-        //p.transform.DOMove(attackTargetPart.transform.position, GameManager.Instance.projectileTravelTime).SetEase(Ease.OutSine).OnComplete(() => Destroy(p));
-
-        //attackTargetPart.GetDamage(damage, attackDelay, GameManager.Instance.projectileTravelTime);
     }
 }

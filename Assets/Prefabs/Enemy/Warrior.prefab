@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2430152694254113256}
   m_Layer: 8
   m_Name: Warrior
-  m_TagString: Warrior
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,22 +228,22 @@ PrefabInstance:
     - target: {fileID: 2323633682275920085, guid: c7dfb701c1c5d974a96c25cdb2d2194a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2323633682275920085, guid: c7dfb701c1c5d974a96c25cdb2d2194a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2323633682275920085, guid: c7dfb701c1c5d974a96c25cdb2d2194a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.8245671
+      value: 0.8241262
       objectReference: {fileID: 0}
     - target: {fileID: 2323633682275920085, guid: c7dfb701c1c5d974a96c25cdb2d2194a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5657643
+      value: 0.56640637
       objectReference: {fileID: 0}
     - target: {fileID: 2323633682275920085, guid: c7dfb701c1c5d974a96c25cdb2d2194a,
         type: 3}
@@ -263,7 +263,7 @@ PrefabInstance:
     - target: {fileID: 2323633682275920085, guid: c7dfb701c1c5d974a96c25cdb2d2194a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 111.089005
+      value: 111
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7dfb701c1c5d974a96c25cdb2d2194a, type: 3}

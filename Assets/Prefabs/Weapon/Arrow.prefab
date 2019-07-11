@@ -68,7 +68,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2041998485
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -3766998965227012436, guid: 560355dd06da4a54db2e265d813703b6,
     type: 3}
@@ -121,8 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitChance: 2
-  damage: 0.2
-  damageOverTime: 0.1
+  damage: 0.4
+  damageOverTime: 0.3
   weaponType: 1
   moveSpeed: 2.5
   spriteHited: {fileID: 1349819855626751654, guid: 560355dd06da4a54db2e265d813703b6,

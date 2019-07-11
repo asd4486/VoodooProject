@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 2713445400283122905}
   m_Layer: 8
   m_Name: Archer
-  m_TagString: Archer
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -386,18 +386,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4db688d2ab849e46a78bc792f5e9f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
   enemyType: 1
-  myStatus: 0
-  spawnZone: 0
-  targetZoneLine: 0
-  myAnimator: {fileID: 0}
-  rb: {fileID: 0}
-  attackTargetPart: {fileID: 0}
   atkRange: 6
   attackDelay: 2
-  attackTimer: 0
-  speedMultiplicator: 3
+  speedMultiplicator: 5
   projectileSpawner: {fileID: 2021833408780985720}
   projectile: {fileID: 1681393256907813732, guid: 86313dba7477bf94cadbafa21de4e540,
     type: 3}

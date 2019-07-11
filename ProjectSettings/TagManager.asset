@@ -7,9 +7,7 @@ TagManager:
   - Monster
   - Particle
   - Wall
-  - Villager
   - monsterPart
-  - Archer
   layers:
   - Default
   - TransparentFX
@@ -47,17 +45,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: enemy1
+  - name: enemy0
     uniqueID: 410863267
     locked: 0
-  - name: monster1
+  - name: decor1
+    uniqueID: 2580627177
+    locked: 0
+  - name: enemy1
+    uniqueID: 2127220275
+    locked: 0
+  - name: monster0
     uniqueID: 2776868163
     locked: 0
-  - name: monster2
+  - name: monster1
     uniqueID: 925310333
-    locked: 0
-  - name: enemy2
-    uniqueID: 2127220275
     locked: 0
   - name: projectiles
     uniqueID: 2252968811

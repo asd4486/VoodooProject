@@ -54,24 +54,33 @@ public class AIEnemy : MonoBehaviour
 
     private void Awake()
     {
+        aiMonster = FindObjectOfType<AIMonster>();
         main = FindObjectOfType<GameMain>();
 
         playerController = FindObjectOfType<PlayerController>();
 
-        aiMonster = FindObjectOfType<AIMonster>();
-        myAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        myAnimator = GetComponent<Animator>();
     }
 
     public void Init(EnemySpawnZones zone)
     {
         spawnZone = zone;
+
+        if (spawnZone == EnemySpawnZones.Bottom)
+        {
+            var spriteRenderes = GetComponentsInChildren<SpriteRenderer>();
+            foreach (var sp in spriteRenderes)
+            {
+                sp.sortingLayerName = "enemy1";
+            }
+        }
+
         transform.position = new Vector3(transform.position.x, transform.position.y + Random.Range(-0.1f, 0.1f));
 
         //two lines for one zone
         targetZoneLine = Random.Range(0, 2);
         moveTargetPoint = targetZoneLine > 0 ? aiMonster.topTargetPoint : aiMonster.botTargetPoint;
-        //GetComponent<AIEnemy>().attackPart = parts[Random.Range(0, parts.Length)];
 
         MoveStart();
     }
@@ -151,13 +160,13 @@ public class AIEnemy : MonoBehaviour
         if (myStatus != EnemyStatus.Run) return;
 
         //move directment
-        rb.velocity = Vector3.right * GameManager.Instance.environmentSpeed * (speedMultiplicator - Random.Range(0, 3));
+        rb.velocity = Vector3.right * GameManager.Instance.environmentSpeed * (speedMultiplicator - Random.Range(0, 2f));
     }
 
     public virtual void StartAttack()
     {
         AudioManager.Instance.FMODEvent_Ennemi_Walk.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        
+
         rb.velocity = new Vector3(GameManager.Instance.environmentSpeed, 0, 0);
         attackTimer = 0;
         PlayAnimation("startAttack");
