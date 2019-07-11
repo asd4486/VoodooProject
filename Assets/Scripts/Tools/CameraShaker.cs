@@ -16,12 +16,13 @@ public class CameraShaker : MonoBehaviour
 
     public void CameraLittleDownShake()
     {
-        camera.transform.DOShakePosition(0.1f, 0.11f);
+        camera.transform.DOShakePosition(0.1f, 0.10f);
+        AudioManager.Instance.FMODEvent_Creature_footStep.start();
     }
 
     public void CameraHardDownShake()
     {
-        camera.transform.DOShakePosition(0.1f, 0.1f);
+        camera.transform.DOShakePosition(0.1f, 0.15f);
     }
 
     public void CameraOrthoSize()

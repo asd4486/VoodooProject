@@ -11,7 +11,7 @@ public class Archer : AIEnemy
     public override void EventAttack()
     {
         base.EventAttack();
-
+        AudioManager.Instance.FMODEvent_Ennemi_Attack_Arrow.start();
         List<MonsterPart> parts = playerController.middleParts;
 
         switch (spawnZone)

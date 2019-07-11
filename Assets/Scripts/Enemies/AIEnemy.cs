@@ -157,7 +157,7 @@ public class AIEnemy : MonoBehaviour
     public virtual void StartAttack()
     {
         AudioManager.Instance.FMODEvent_Ennemi_Walk.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        AudioManager.Instance.FMODEvent_Ennemi_Attack.start();
+        
         rb.velocity = new Vector3(GameManager.Instance.environmentSpeed, 0, 0);
         attackTimer = 0;
         PlayAnimation("startAttack");

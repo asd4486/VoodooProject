@@ -44,6 +44,11 @@ public class MonsterAnimeEvent : MonoBehaviour
         cameraShaker.CameraLittleDownShake();
     }
 
+    public void EventFlexFootDown()
+    {
+        cameraShaker.CameraHardDownShake();
+    }
+
     public void EventLeftFootUp()
     {
         leftFootAtkCol.StartAttack(false);
