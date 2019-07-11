@@ -24,7 +24,6 @@ public class MonsterPart : MonoBehaviour
     public MonsterPartType partType;
 
     [SerializeField] Image healthBar;
-    [SerializeField] ParticleSystem healParticle;
 
     public bool stopDamageOverTime = false;
 
@@ -45,10 +44,11 @@ public class MonsterPart : MonoBehaviour
     float attackCooldownTimer;
     bool canAttack = true;
 
+    public GameObject fxHeal;
+
     private void Awake()
     {
         mySpriteMeshStade = GetComponent<SpriteMeshAnimation>();
-        healParticle.Stop();
         myPv = maxPv;
     }
 
@@ -104,7 +104,6 @@ public class MonsterPart : MonoBehaviour
     public void StartHeal()
     {
         healDelayTimer = 0;
-        healParticle.Play();
         AudioManager.Instance.FMODEvent_Creature_Healing.start();
 
         isHealing = true;
@@ -112,6 +111,7 @@ public class MonsterPart : MonoBehaviour
 
     void Healing()
     {
+        fxHeal.GetComponent<Animator>().SetBool("Healing", isHealing);
         if (!isHealing) return;
 
         if (healDelayTimer < GameManager.Instance.healAfterDelay) healDelayTimer += Time.deltaTime;
@@ -152,7 +152,7 @@ public class MonsterPart : MonoBehaviour
         isHealing = false;
 
         AudioManager.Instance.FMODEvent_Creature_Healing.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        healParticle.Stop();
+
         damagePerSecond = projectileCount = 0;
         // UnshowLines();
         ExpulseProjectiles();
