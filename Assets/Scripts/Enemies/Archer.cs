@@ -38,4 +38,10 @@ public class Archer : AIEnemy
 
         //attackTargetPart.GetDamage(damage, attackDelay, GameManager.Instance.projectileTravelTime);
     }
+
+    public override void Die()
+    {
+        base.Die();
+        AudioManager.Instance.FMODEvent_Ennemi_BeingHit.start();
+    }
 }
