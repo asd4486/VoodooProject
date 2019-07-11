@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    GameMain main;
+
     AIMonster aiMoster;
     private float maxKeyUpTimer = 0.5f;
 
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        main = FindObjectOfType<GameMain>();
         aiMoster = FindObjectOfType<AIMonster>();
     }
 
@@ -100,18 +103,17 @@ public class PlayerController : MonoBehaviour
     void CheckDeadPartCount()
     {
         var deadCount = allParts.Where(p => p.isDead).ToArray().Length;
-        GameManager.Instance.partCounterText.text = deadCount.ToString();
 
         //GAME OVER
         if (deadCount >= GameManager.Instance.partsDeadGameOver && GameManager.Instance.isGameOver == false)
         {
-            GameManager.Instance.GameOver();
+            main.GameOver();
         }
 
-        if (GameManager.Instance.isGameOver == true && Input.GetKeyDown(KeyCode.S))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        //if (GameManager.Instance.isGameOver == true && Input.GetKeyDown(KeyCode.S))
+        //{
+            
+        //}
     }
 
     void InputController()

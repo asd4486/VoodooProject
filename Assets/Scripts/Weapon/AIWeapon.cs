@@ -13,5 +13,6 @@ public class AIWeapon : MonoBehaviour
     public float damage;
     public WeaponTypes weaponType;
 
-
+    public Sprite hitedSprite;
+    
 }

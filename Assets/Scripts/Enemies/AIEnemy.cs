@@ -23,7 +23,7 @@ public enum EnemySpawnZone
 
 public class AIEnemy : MonoBehaviour
 {
-    GameManager gameManager;
+    GameMain main;
     [HideInInspector] public PlayerController playerController;
 
     AIMonster aiMonster;
@@ -55,7 +55,8 @@ public class AIEnemy : MonoBehaviour
 
     private void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        main = FindObjectOfType<GameMain>();
+
         playerController = FindObjectOfType<PlayerController>();
 
         aiMonster = FindObjectOfType<AIMonster>();
@@ -78,7 +79,7 @@ public class AIEnemy : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (gameManager.isGameOver) return;
+        if (GameManager.Instance.isGameOver) return;
 
         if (transform.position.x < -5)
         {
@@ -185,7 +186,8 @@ public class AIEnemy : MonoBehaviour
         ChangeStatus(EnemyStatus.Die);
 
         AudioManager.Instance.FMODEvent_Ennemi_BeingHit.start();
-        gameManager.AddScore();
+
+        main.AddScore();
 
         Destroy(gameObject, 0.05f);
     }

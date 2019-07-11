@@ -1,18 +1,16 @@
 ﻿using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Camera))]
 public class CameraShaker : MonoBehaviour
 {
     Camera camera;
 
     private float environmentSpeedBeforeFreeze;
 
-    void Start()
+    void Awake()
     {
-        camera = Camera.main;
-        CameraLittleDownShake();
+        camera = GetComponent<Camera>();
         environmentSpeedBeforeFreeze = GameManager.Instance.environmentSpeed;
     }
 

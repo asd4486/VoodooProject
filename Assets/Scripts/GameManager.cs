@@ -6,14 +6,13 @@ using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
-    UIMain uiMain;
-    AIMonster aiMonster;
     public float spawnTimerMin;
     public float spawnTimerMax;
 
     public float projectileTravelTime;
 
-    public float environmentSpeed;
+    [SerializeField] float environmentDefaultSpeed;
+    [HideInInspector] public float environmentSpeed;
 
     public float healMultiplicator;
     public float healMultiplicatorPourcentageFirst;
@@ -24,16 +23,10 @@ public class GameManager : MonoBehaviour
     public GameObject particuleDeath;
 
     public float pourcentageChanceDot;
-    int deadEnemyScore;
 
     public int partsDeadGameOver;
 
-    public Text partCounterText;
-
-    public GameObject spawner;
-    public GameObject bars;
-
-    [HideInInspector] public bool isGameOver = false;
+    [HideInInspector] public bool isGameOver;
 
     private static GameManager _instance;
 
@@ -49,40 +42,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Awake()
+    public void Init()
     {
-        aiMonster = FindObjectOfType<AIMonster>();
-        uiMain = FindObjectOfType<UIMain>();
-        //DontDestroyOnLoad(gameObject);
-    }
+        environmentSpeed = environmentDefaultSpeed;
 
-    private void Start()
-    {
-        StartGame();
-    }
-
-    void StartGame()
-    {
-        AudioManager.Instance.FMODEvent_Environnement.start();
-        aiMonster.Init();
-        uiMain.Init();
-    }
-
-    public void AddScore()
-    {
-        if (isGameOver) return;
-
-        deadEnemyScore += 1;
-        uiMain.SetScoreTxt(deadEnemyScore);
-    }
-
-    public void GameOver()
-    {
-        uiMain.ShowGameOverUI(deadEnemyScore);
-
-        isGameOver = true;
-        //spawner.SetActive(false);
-        //bars.SetActive(false);
-        environmentSpeed = 0f;
+        isGameOver = false;
     }
 }

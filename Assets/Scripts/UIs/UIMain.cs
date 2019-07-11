@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIMain : MonoBehaviour
@@ -7,6 +8,8 @@ public class UIMain : MonoBehaviour
 
     [SerializeField] GameObject gameOverUI;
     [SerializeField] Text textGameOverScore;
+
+    [SerializeField] Text textDeadPartCounter;
 
     public void Init()
     {
@@ -23,5 +26,15 @@ public class UIMain : MonoBehaviour
     {
         textGameOverScore.text = score.ToString();
         gameOverUI.SetActive(true);
+    }
+
+    public void SetDeadPartCount(int count)
+    {
+        textDeadPartCounter.text = count.ToString();
+    }
+
+    public void OnClickRestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
