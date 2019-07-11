@@ -112,6 +112,7 @@ public class MonsterPart : MonoBehaviour
     void Healing()
     {
         fxHeal.GetComponent<Animator>().SetBool("Healing", isHealing);
+        healthBar.gameObject.transform.parent.GetComponent<Animator>().SetBool("Healing", isHealing);
         if (!isHealing) return;
 
         if (healDelayTimer < GameManager.Instance.healAfterDelay) healDelayTimer += Time.deltaTime;
@@ -201,7 +202,7 @@ public class MonsterPart : MonoBehaviour
 
     private IEnumerator ReducePV(float damageImpact, float damageOverTime, float invokeTimer)
     {
-        yield return new WaitForSeconds(invokeTimer);
+        yield return new WaitForSeconds(invokeTimer);        
         myPv = Mathf.Clamp(myPv - damageImpact, 0, maxPv);
         if (Random.Range(0, 100) <= GameManager.Instance.pourcentageChanceDot)
         {
@@ -214,8 +215,16 @@ public class MonsterPart : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1f);            
             myPv = Mathf.Clamp(myPv - damagePerSecond, 0, maxPv);
+            if (projectileCount == 0)
+            {
+                healthBar.gameObject.GetComponent<Animator>().SetBool("Damaged", false);
+            }
+            else
+            {
+                healthBar.gameObject.GetComponent<Animator>().SetBool("Damaged", true);
+            }
         }
     }
 
