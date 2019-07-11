@@ -30,12 +30,11 @@ public class PlayerController : MonoBehaviour
     {
         main = FindObjectOfType<GameMain>();
         aiMoster = FindObjectOfType<AIMonster>();
+        allParts = FindObjectsOfType<MonsterPart>();
     }
 
     void Start()
     {
-        allParts = FindObjectsOfType<MonsterPart>();
-
         foreach (var p in allParts)
         {
             switch (p.partType)
@@ -70,8 +69,6 @@ public class PlayerController : MonoBehaviour
                     rightFoot = p;
                     break;
             }
-
-            p.Init(aiMoster);
         }
 
         //asoc.Add(part0, listPart0);
@@ -112,7 +109,7 @@ public class PlayerController : MonoBehaviour
 
         //if (GameManager.Instance.isGameOver == true && Input.GetKeyDown(KeyCode.S))
         //{
-            
+
         //}
     }
 
