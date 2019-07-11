@@ -218,7 +218,7 @@ TextureImporter:
         width: 522
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -234,12 +234,12 @@ TextureImporter:
       name: UI_Lifebar_Slider
       rect:
         serializedVersion: 2
-        x: 682
-        y: 1840
-        width: 501
-        height: 76
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 686
+        y: 1814
+        width: 522
+        height: 100
+      alignment: 8
+      pivot: {x: 1, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
