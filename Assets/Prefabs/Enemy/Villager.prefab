@@ -85,7 +85,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.3}
@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb6b660f7f639d4d8095ac95bd66a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
   enemyType: 0
   myStatus: 0
   spawnZone: 0
@@ -123,7 +124,7 @@ MonoBehaviour:
   atkRange: 0
   damage: 0
   attackDelay: 1
-  dead: 0
+  attackTimer: 0
   speedMultiplicator: 8
 --- !u!1 &7296491539571719868
 GameObject:

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -10,18 +11,18 @@ public class PlayerController : MonoBehaviour
     AIMonster aiMoster;
     private float maxKeyUpTimer = 0.5f;
 
-    Part cryingHead;
-    Part angryHead;
-    Part bodyPart;
-    Part rightHand;
-    Part leftHand;
-    Part rightFoot;
-    Part leftFoot;
+    MonsterPart cryingHead;
+    MonsterPart angryHead;
+    MonsterPart bodyPart;
+    MonsterPart rightHand;
+    MonsterPart leftHand;
+    MonsterPart rightFoot;
+    MonsterPart leftFoot;
 
-    [HideInInspector] public Part[] allParts;
-    [HideInInspector] public List<Part> topParts = new List<Part>();
-    [HideInInspector] public List<Part> middleParts = new List<Part>();
-    [HideInInspector] public List<Part> downParts = new List<Part>();
+    [HideInInspector] public MonsterPart[] allParts;
+    [HideInInspector] public List<MonsterPart> topParts = new List<MonsterPart>();
+    [HideInInspector] public List<MonsterPart> middleParts = new List<MonsterPart>();
+    [HideInInspector] public List<MonsterPart> downParts = new List<MonsterPart>();
 
     private void Awake()
     {
@@ -30,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        allParts = FindObjectsOfType<Part>();
+        allParts = FindObjectsOfType<MonsterPart>();
 
         foreach (var p in allParts)
         {
@@ -102,9 +103,14 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.partCounterText.text = deadCount.ToString();
 
         //GAME OVER
-        if (deadCount >= GameManager.Instance.partsDeadGameOver)
+        if (deadCount >= GameManager.Instance.partsDeadGameOver && GameManager.Instance.gameOver == false)
         {
             GameManager.Instance.GameOver();
+        }
+
+        if (GameManager.Instance.gameOver == true && Input.GetKeyDown(KeyCode.S))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
@@ -118,7 +124,6 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetButtonUp("angryHead"))
         {
             angryHead.FinishHeal();
-            aiMoster.PlayAnimation("FlexTeteGauche");
         }
 
         //cry head
@@ -129,7 +134,6 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetButtonUp("cryHead"))
         {
             cryingHead.FinishHeal();
-            aiMoster.PlayAnimation("FlexTeteDroite");
         }
 
         //body
@@ -140,7 +144,6 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetButtonUp("body"))
         {
             bodyPart.FinishHeal();
-            aiMoster.PlayAnimation("FlexBuste");
         }
 
         //right hand
@@ -151,7 +154,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetButtonUp("rightHand"))
         {
             rightHand.FinishHeal();
-            rightHand.Attack("BrasDroit");
+            rightHand.Attack();
         }
 
         //left hand
@@ -161,9 +164,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetButtonUp("leftHand"))
         {
-            leftHand.UnshowLines();
             leftHand.FinishHeal();
-            leftHand.Attack("BrasGauche");
+            leftHand.Attack();
         }
 
         //right foot
@@ -173,9 +175,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetButtonUp("rightFoot"))
         {
-            rightFoot.UnshowLines();
             rightFoot.FinishHeal();
-            aiMoster.PlayAnimation("FlexJambeDroite");
+            rightFoot.Attack();
         }
 
         //left foot
@@ -186,9 +187,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetButtonUp("leftFoot"))
         {
             leftFoot.FinishHeal();
-            leftFoot.ExpulseProjectiles();
-
-            aiMoster.PlayAnimation("FlexJambeGauche");
+            leftFoot.Attack();
         }
     }
 

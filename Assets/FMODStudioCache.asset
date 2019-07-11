@@ -1,5 +1,74 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8693834791986048609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Creature/Creature_LowLife
+  m_EditorClassIdentifier: 
+  Path: event:/Creature/Creature_LowLife
+  guid: c9f0164b36f35744aa2ffd5a4d29688a
+  Banks:
+  - {fileID: 1779272228149146579}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 59914
+--- !u!114 &-8022869121879226553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Creature/Creature_Dead
+  m_EditorClassIdentifier: 
+  Path: event:/Creature/Creature_Dead
+  guid: a335b4c6218c6342bcaef1e224690c4d
+  Banks:
+  - {fileID: 1779272228149146579}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2074
+--- !u!114 &-5097873744983757945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Creature/Creature_Attack
+  m_EditorClassIdentifier: 
+  Path: event:/Creature/Creature_Attack
+  guid: 0bd6ad43fd8dfe4ea2b6e88095222454
+  Banks:
+  - {fileID: 1779272228149146579}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1970
 --- !u!114 &-4603222622922559720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +204,48 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 3800
+--- !u!114 &-1780776067030522017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ennemis/Ennemi_BeingHit
+  m_EditorClassIdentifier: 
+  Path: event:/Ennemis/Ennemi_BeingHit
+  guid: 7bd5ff5e79f7154f9fa54515eb65360c
+  Banks:
+  - {fileID: 1779272228149146579}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 7685
+--- !u!114 &-1623764464359264504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.strings.bank
+  m_EditorClassIdentifier: 
+  Path: FmodFichier\voodooFmod\Build\Desktop\Master Bank.strings.bank
+  lastModified: 636983736786127505
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 1156
+  Exists: 1
 --- !u!114 &-1527575647933705941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +265,46 @@ MonoBehaviour:
   - Name: 
     Value: 1156
   Exists: 1
+--- !u!114 &-1439296452189009858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Creature_LowLife/Parameter 1
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-1107611544040736947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ennemis/Ennemi_Attack
+  m_EditorClassIdentifier: 
+  Path: event:/Ennemis/Ennemi_Attack
+  guid: 485183c096730b42a0a0d35eebc42413
+  Banks:
+  - {fileID: 1779272228149146579}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 854
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,24 +318,24 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -1527575647933705941}
-  - {fileID: -3795049681981162854}
+  - {fileID: -1623764464359264504}
+  - {fileID: 1779272228149146579}
   EditorEvents:
-  - {fileID: 9144995128729718047}
-  - {fileID: 4051797888260133762}
-  - {fileID: 8097494539452576156}
-  - {fileID: -1996094261739828465}
-  - {fileID: 7273970011775520177}
-  - {fileID: -4423326906669066687}
-  - {fileID: -4603222622922559720}
-  - {fileID: -2165028205659639208}
-  - {fileID: 6227033921625099464}
-  - {fileID: -4273749381783838503}
+  - {fileID: -5097873744983757945}
+  - {fileID: 6585794653057196960}
+  - {fileID: 1761326868865406381}
+  - {fileID: -8022869121879226553}
+  - {fileID: 3334904384923330122}
+  - {fileID: -8693834791986048609}
+  - {fileID: 7505687194844156497}
+  - {fileID: -1107611544040736947}
+  - {fileID: 4335277257281448568}
+  - {fileID: -1780776067030522017}
   MasterBanks:
-  - {fileID: -3795049681981162854}
+  - {fileID: 1779272228149146579}
   StringsBanks:
-  - {fileID: -1527575647933705941}
-  stringsBankWriteTime: 636983645755469592
+  - {fileID: -1623764464359264504}
+  stringsBankWriteTime: 636983736786127505
   cacheVersion: 3
 --- !u!114 &1556466203838043645
 MonoBehaviour:
@@ -206,6 +357,72 @@ MonoBehaviour:
   - Name: 
     Value: 2115264
   Exists: 0
+--- !u!114 &1761326868865406381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Creature/Creature_Walk
+  m_EditorClassIdentifier: 
+  Path: event:/Creature/Creature_Walk
+  guid: 71e270cb858c114db967b8932a748c02
+  Banks:
+  - {fileID: 1779272228149146579}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3800
+--- !u!114 &1779272228149146579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.bank
+  m_EditorClassIdentifier: 
+  Path: C:\Users\Dangonok\Documents\VoodooProject\FmodFichier\voodooFmod\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636983736786097951
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 2115264
+  Exists: 1
+--- !u!114 &3334904384923330122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Creature/Creature_Healing
+  m_EditorClassIdentifier: 
+  Path: event:/Creature/Creature_Healing
+  guid: a463ff1b4f147f4db8c385f7b6a86775
+  Banks:
+  - {fileID: 1779272228149146579}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 59914
 --- !u!114 &4051797888260133762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +446,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1970
+--- !u!114 &4335277257281448568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enviro/Environnement
+  m_EditorClassIdentifier: 
+  Path: event:/Enviro/Environnement
+  guid: 5ffbbc27351e66408e3cddb3c1ee1f72
+  Banks:
+  - {fileID: 1779272228149146579}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 82337
 --- !u!114 &6227033921625099464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +514,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 59914
+--- !u!114 &6585794653057196960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Creature/Creature_LooseMember
+  m_EditorClassIdentifier: 
+  Path: event:/Creature/Creature_LooseMember
+  guid: 534cbc6ce3666547a48e2bb117caa0c5
+  Banks:
+  - {fileID: 1779272228149146579}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &7273970011775520177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,6 +560,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 7685
+--- !u!114 &7505687194844156497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ennemis/Ennemi_Walk
+  m_EditorClassIdentifier: 
+  Path: event:/Ennemis/Ennemi_Walk
+  guid: 0bb35ddc8156c64884110207bb09d324
+  Banks:
+  - {fileID: 1779272228149146579}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2777
 --- !u!114 &7654284030944539844
 MonoBehaviour:
   m_ObjectHideFlags: 0

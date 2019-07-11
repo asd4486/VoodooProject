@@ -8,20 +8,6 @@ public class Archer : AIEnemy
     [SerializeField] Transform projectileSpawner;
     [SerializeField] GameObject projectile;
 
-    private float timerShoot = 0f;
-    public float shootCooldown = 2f;
-
-    private void Start()
-    {
-        myAnimator.SetTrigger("Walk");
-    }
-
-    private void StopAnimation()
-    {
-        myAnimator.SetTrigger("StopWalk");
-        speedMultiplicator = 1f;
-    }
-
     protected override void Update()
     {
         base.Update();
@@ -37,30 +23,22 @@ public class Archer : AIEnemy
         //    target.GetDamage(damage, damagePerSecond, GameManager.Instance.projectileTravelTime);
         //}
     }
-
-    public override void Moving()
+    
+    public override void EventAttack()
     {
-        rb.velocity = Vector3.right * GameManager.Instance.environmentSpeed * speedMultiplicator;
-    }
+        base.EventAttack();
 
-    public override void StartAttack()
-    {
-        base.StartAttack();
-        
-        rb.velocity = Vector3.zero;
-        //Vector3 targetDir = attackPart.transform.position - transform.position;
-        //GameObject p = Instantiate(projectile);
-        //p.transform.position = projectileSpawner.position;
-        //float angle = Vector3.Angle(targetDir, p.transform.up);
-        //p.transform.Rotate(0, 0, angle);
+        //get random attack part
+        attackPart = playerController.allParts[Random.Range(0, playerController.allParts.Length)];
 
-        //p.transform.DOMove(attackPart.transform.position, GameManager.Instance.projectileTravelTime).SetEase(Ease.OutSine).OnComplete(() => Destroy(p));
+        Vector3 targetDir = attackPart.transform.position - transform.position;
+        GameObject p = Instantiate(projectile);
+        p.transform.position = projectileSpawner.position;
+        float angle = Vector3.Angle(targetDir, p.transform.up);
+        p.transform.Rotate(0, 0, angle);
 
-        //attackPart.GetDamage(damage, attackDelay, GameManager.Instance.projectileTravelTime);
-    }
+        p.transform.DOMove(attackPart.transform.position, GameManager.Instance.projectileTravelTime).SetEase(Ease.OutSine).OnComplete(() => Destroy(p));
 
-    public override void Attack()
-    {
-        base.Attack();
+        attackPart.GetDamage(damage, attackDelay, GameManager.Instance.projectileTravelTime);
     }
 }

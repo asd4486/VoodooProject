@@ -23,6 +23,8 @@ public enum EnemySpawnZone
 
 public class AIEnemy : MonoBehaviour
 {
+    [HideInInspector] public PlayerController playerController;
+
     AIMonster aiMonster;
     public EnemyTypes enemyType;
     [HideInInspector] public EnemyStatus myStatus;
@@ -39,17 +41,21 @@ public class AIEnemy : MonoBehaviour
     //for check distance to monster
     Transform moveTargetPoint;
 
-    [HideInInspector] public Part attackPart;
+    [HideInInspector] public MonsterPart attackPart;
     public float atkRange;
 
+
     public float damage;
-    [HideInInspector] public float attackDelayTimer;
     public float attackDelay = 1;
+    [HideInInspector] public float attackTimer;
+    bool isAttaking;
 
     public float speedMultiplicator = 8f;
 
     private void Awake()
     {
+        playerController = FindObjectOfType<PlayerController>();
+
         aiMonster = FindObjectOfType<AIMonster>();
         myAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -70,14 +76,30 @@ public class AIEnemy : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (myStatus == EnemyStatus.Die)
+        if (transform.position.x < -5)
         {
             Destroy(gameObject);
             return;
         }
 
         GetDistanceToTarget();
+
+        switch (myStatus)
+        {
+            case EnemyStatus.Run:
+                Moving();
+                break;
+            case EnemyStatus.Attack:
+                Attacking();
+                break;
+        }
     }
+
+    public void PlayAnimation(string trigger)
+    {
+        myAnimator.SetTrigger(trigger);
+    }
+
 
     void GetDistanceToTarget()
     {
@@ -117,27 +139,71 @@ public class AIEnemy : MonoBehaviour
     public virtual void MoveStart()
     {
         AudioManager.Instance.FMODEvent_Ennemi_Walk.start();
+        PlayAnimation("walk");
     }
 
     public virtual void Moving()
     {
         if (myStatus != EnemyStatus.Run) return;
+
+        //move directment
+        rb.velocity = Vector3.right * GameManager.Instance.environmentSpeed * (speedMultiplicator - Random.Range(0, 3));
     }
 
     public virtual void StartAttack()
     {
         AudioManager.Instance.FMODEvent_Ennemi_Walk.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         AudioManager.Instance.FMODEvent_Ennemi_Attack.start();
+        rb.velocity = new Vector3(GameManager.Instance.environmentSpeed, 0, 0);
+        attackTimer = 0;
+        PlayAnimation("startAttack");
     }
 
-    public virtual void Attack()
+    public virtual void Attacking()
     {
+        if (!isAttaking) attackTimer += Time.deltaTime;
+        if (attackTimer >= attackDelay)
+        {
+            attackTimer = 0;
+            PlayAnimation("attack");
+            isAttaking = true;
+        }
+    }
 
+    public virtual void EventAttack()
+    {
+        isAttaking = false;
     }
 
     public virtual void Die()
     {
+        Instantiate(GameManager.Instance.particuleDeath, transform.position, Quaternion.identity, GameObject.FindGameObjectWithTag("Particle").transform);
         ChangeStatus(EnemyStatus.Die);
         AudioManager.Instance.FMODEvent_Ennemi_BeingHit.start();
+        Destroy(gameObject);
+    }
+
+    protected MonsterPart GetClosestPart()
+    {
+        var allParts = playerController.allParts;
+        MonsterPart closest = null;
+        var closestDist = float.MaxValue;
+
+        foreach (var p in allParts)
+        {
+            var dist = Vector2.Distance(transform.position, p.transform.position);
+            if (dist < closestDist)
+            {
+                closestDist = dist;
+                closest = p;
+            }
+        }
+
+        return closest;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<MonsterAtkCollider>() != null) { Die(); }
     }
 }

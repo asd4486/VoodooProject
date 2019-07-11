@@ -1,7 +1,6 @@
 ﻿using Anima2D;
 using FMOD.Studio;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Vectrosity;
@@ -17,7 +16,7 @@ public enum MonsterPartType
     AngryHead
 }
 
-public class Part : MonoBehaviour
+public class MonsterPart : MonoBehaviour
 {
     AIMonster aiMonster;
 
@@ -29,17 +28,22 @@ public class Part : MonoBehaviour
 
     public bool stopDamageOverTime = false;
 
-    float maxPv = 100f;
     float myPv;
+    [SerializeField] float maxPv = 100f;
 
     int projectileCount = 0;
     float damagePerSecond;
 
     float healDelayTimer;
-    bool isHealing = false;
+
+    bool isHealing;
     private VectorLine[] lines = new VectorLine[6];
 
     [HideInInspector] public bool isDead;
+
+    [SerializeField] float attackCooldown;
+    float attackCooldownTimer;
+    bool canAttack = true;
 
     private void Awake()
     {
@@ -62,6 +66,7 @@ public class Part : MonoBehaviour
         //sprite 4
 
         Healing();
+        CooldownAttack();
     }
 
     void RefreshPV()
@@ -132,7 +137,6 @@ public class Part : MonoBehaviour
 
 
         //ShowLines(Color.green);
-
     }
 
     void HealSecond()
@@ -150,9 +154,44 @@ public class Part : MonoBehaviour
         AudioManager.Instance.FMODEvent_Creature_Healing.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         healParticle.Stop();
         damagePerSecond = projectileCount = 0;
-        UnshowLines();
+        // UnshowLines();
         ExpulseProjectiles();
     }
+
+    void CooldownAttack()
+    {
+        if (canAttack) return;
+        attackCooldownTimer += Time.deltaTime;
+        if (attackCooldownTimer > attackCooldown) canAttack = true;
+    }
+
+    public void Attack()
+    {
+        if (!canAttack) return;
+
+        attackCooldownTimer = 0;
+        canAttack = false;
+        switch (partType)
+        {
+            case MonsterPartType.LeftHand:
+                aiMonster.PlayAnimation("Left_Arm_Attack");
+                AudioManager.Instance.FMODEvent_Creature_Attack.start();
+                break;
+            case MonsterPartType.RightHand:
+                aiMonster.PlayAnimation("Right_Arm_Attack");
+                AudioManager.Instance.FMODEvent_Creature_Attack.start();
+                break;
+                //case MonsterPartType.LeftFoot:
+                //    aiMonster.PlayAnimation("Left_Leg_Flex");
+                //    AudioManager.Instance.FMODEvent_Creature_Attack.start();
+                //    break;
+                //case MonsterPartType.RightFoot:
+                //    aiMonster.PlayAnimation("Right_Leg_Flex");
+                //    AudioManager.Instance.FMODEvent_Creature_Attack.start();
+                //    break;
+        }
+    }
+
 
 
     public void GetDamage(float damageImpact, float damageOverTime, float invokeTimer)
@@ -185,26 +224,6 @@ public class Part : MonoBehaviour
 
     }
 
-    public void Attack(string membre)
-    {
-        switch (membre)
-        {
-            case "BrasGauche":
-                aiMonster.PlayAnimation("BrasGauche");
-                AudioManager.Instance.FMODEvent_Creature_Attack.start();
-                break;
-            case "JambeGauche":
-                aiMonster.PlayAnimation("JambeGauche");
-                AudioManager.Instance.FMODEvent_Creature_Attack.start();
-                break;
-            case "BrasDroit":
-                aiMonster.PlayAnimation("BrasDroit");
-                AudioManager.Instance.FMODEvent_Creature_Attack.start();
-                break;
-        }
-    }
-
-
     public void ShowLines(Color c)
     {
         int index = 0;
@@ -220,14 +239,17 @@ public class Part : MonoBehaviour
         //}
     }
 
-    public void UnshowLines()
-    {
+    //public void UnshowLines()
+    //{
 
-        if (isHealing == true)
-        {
-            isHealing = false;
-            foreach (VectorLine v in lines)
-                VectorLine.lineManager.DisableLine(v, 0.01f);
-        }
-    }
+    //    if (isHealing == true)
+    //    {
+    //        isHealing = false;
+    //        foreach (VectorLine v in lines)
+    //            VectorLine.lineManager.DisableLine(v, 0.01f);
+    //    }
+    //}
+
+
+
 }
